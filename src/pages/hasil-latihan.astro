@@ -778,22 +778,12 @@ import Header from "../components/Header.astro";
     const params = new URLSearchParams(window.location.search);
 
     const kelas = params.get("kelas") || "2";
-    const latihan = params.get("latihan") || "01";
+  
     const skor = params.get("skor") || "0";
 
-    const slugMap: Record<string, string> = {
-        "2-01": "menghitung-benda",
-        "2-02": "menghitung-maju-mundur",
-        "2-03": "nilai-tempat",
-        "2-04": "penjumlahan-satuan",
-        "2-05": "penjumlahan-puluhan",
-        "2-06": "penjumlahan-bersusun",
-        "2-07": "pengurangan-puluhan"
-    };
+    const latihan = params.get("latihan") || "";
 
-    const key = `${kelas}-${latihan}`;
-    const slug = slugMap[key];
-
+    
     // Halaman daftar latihan sesuai kelas
     const lessonsUrl = `/belajar/kelas-${kelas}`;
 
@@ -845,9 +835,9 @@ import Header from "../components/Header.astro";
 
     // Coba Lagi
     if (retryButton) {
-        retryButton.href = slug
-            ? `/belajar/kelas-${kelas}/${slug}`
-            : lessonsUrl;
+    retryButton.href = latihan
+        ? `/belajar/kelas-${kelas}/${latihan}`
+        : lessonsUrl;
     }
 
 

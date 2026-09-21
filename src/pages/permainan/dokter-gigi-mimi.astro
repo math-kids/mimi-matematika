@@ -43,7 +43,7 @@ import Header from "../../components/Header.astro";
 
                         <div class="dental-hud">
                             <div class="dental-timer">
-                                ⏱️ <strong id="game-timer">00:30</strong>
+                                ⏱️ <strong id="game-timer">60</strong>
                             </div>
 
                             <div class="dental-progress">
@@ -71,6 +71,16 @@ import Header from "../../components/Header.astro";
 
                         <!-- Kuman akan ditempatkan oleh JavaScript -->
                         <div id="germ-layer" class="germ-layer"></div>
+                        <div
+                            id="clean-celebration"
+                            class="clean-celebration hidden"
+                        >
+                            <div class="clean-celebration-sparkles">
+                                ✦ ✧ ✨ ✧ ✦ ✨ ✦ ✧ ✨
+                            </div>
+                            <strong>🦷 Gigi Bersih!</strong>
+                            <span>✨ Cling! Cling! ✨</span>
+                        </div>
 
                         <!-- Busa mengikuti posisi sikat -->
                         <img
@@ -496,6 +506,7 @@ import Header from "../../components/Header.astro";
         height: auto;
         object-fit: contain;
         transform: translate(-50%, -50%) scale(0.72);
+        transform-origin: center center;
         margin-left: 0;
         margin-top: 0;
         z-index: 40;
@@ -504,6 +515,124 @@ import Header from "../../components/Header.astro";
         filter: drop-shadow(0 2px 2px rgba(70, 150, 180, 0.12));
     }
 
+    .foam:not(.hidden) {
+        animation: foam-bubble 0.85s ease-in-out infinite;
+    }
+
+    @keyframes foam-bubble {
+        0% {
+            transform: translate(-50%, -50%) scale(0.62) rotate(-2deg);
+            opacity: 0.78;
+        }
+
+        20% {
+            transform: translate(-50%, -50%) scale(0.76) rotate(1deg);
+            opacity: 0.94;
+        }
+
+        40% {
+            transform: translate(-50%, -50%) scale(0.86) rotate(-1deg);
+            opacity: 1;
+        }
+
+        60% {
+            transform: translate(-50%, -50%) scale(0.72) rotate(2deg);
+            opacity: 0.92;
+        }
+
+        80% {
+            transform: translate(-50%, -50%) scale(0.82) rotate(-1deg);
+            opacity: 0.98;
+        }
+
+        100% {
+            transform: translate(-50%, -50%) scale(0.62) rotate(-2deg);
+            opacity: 0.78;
+        }
+    }
+
+    .clean-celebration {
+        position: absolute;
+        inset: 0;
+        z-index: 60;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        text-shadow: 0 2px 5px rgba(60, 50, 40, 0.18);
+    }
+
+    .clean-celebration strong {
+        color: #fff;
+        font-size: 42px;
+        line-height: 1;
+        animation: clean-title-pop 0.7s ease-out both;
+    }
+
+    .clean-celebration span {
+        margin-top: 12px;
+        color: #fff7a8;
+        font-size: 22px;
+        font-weight: 800;
+        animation: clean-shine 0.7s ease-in-out infinite alternate;
+    }
+
+    .clean-celebration-sparkles {
+        position: absolute;
+        inset: 15% 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        color: #fff7a8;
+        font-size: 34px;
+        text-shadow:
+            0 0 6px rgba(255, 255, 255, 1),
+            0 0 14px rgba(255, 221, 90, 0.9);
+        animation: clean-sparkle 0.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes clean-title-pop {
+        0% {
+            transform: scale(0.65);
+            opacity: 0;
+        }
+
+        60% {
+            transform: scale(1.12);
+            opacity: 1;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes clean-shine {
+        from {
+            transform: scale(0.95);
+            opacity: 0.75;
+        }
+
+        to {
+            transform: scale(1.08);
+            opacity: 1;
+        }
+    }
+
+    @keyframes clean-sparkle {
+        from {
+            transform: scale(0.9) rotate(-3deg);
+            opacity: 0.65;
+        }
+
+        to {
+            transform: scale(1.12) rotate(3deg);
+            opacity: 1;
+        }
+    }
     .game-result {
         width: 100%;
         display: flex;
@@ -1042,6 +1171,11 @@ import Header from "../../components/Header.astro";
         "toothbrush",
     ) as HTMLImageElement;
     const foam = document.getElementById("foam") as HTMLImageElement;
+    const cleanCelebration = document.getElementById(
+        "clean-celebration",
+    ) as HTMLDivElement;
+
+    let celebrating = false;
     const cleanCountElement = document.getElementById(
         "clean-count",
     ) as HTMLElement;
@@ -1077,7 +1211,7 @@ import Header from "../../components/Header.astro";
 
     const totalGerms = germPositions.length;
 
-    const GAME_DURATION = 30;
+    const GAME_DURATION = 60;
 
     let cleaned = 0;
     let gameRunning = false;
@@ -1096,6 +1230,9 @@ import Header from "../../components/Header.astro";
         intro.classList.add("hidden");
         resultScreen.classList.add("hidden");
         dentalGame.classList.remove("hidden");
+
+        cleanCelebration.classList.add("hidden");
+        celebrating = false;
 
         cleaned = 0;
         gameRunning = true;
@@ -1204,7 +1341,7 @@ import Header from "../../components/Header.astro";
     }
 
     toothbrush.addEventListener("pointerdown", (event) => {
-        if (!gameRunning) return;
+        if (!gameRunning || celebrating) return;
 
         event.preventDefault();
         dragging = true;
@@ -1220,7 +1357,13 @@ import Header from "../../components/Header.astro";
     });
 
     toothbrush.addEventListener("pointermove", (event) => {
-        if (!gameRunning || !dragging || event.pointerId !== pointerId) return;
+        if (
+            !gameRunning ||
+            celebrating ||
+            !dragging ||
+            event.pointerId !== pointerId
+        )
+            return;
 
         event.preventDefault();
 
@@ -1390,13 +1533,28 @@ import Header from "../../components/Header.astro";
             showToothSparkle(sparkleX, sparkleY);
 
             if (cleaned >= totalGerms) {
-                endDentalGame(true);
+                stopTimer();
+
+                celebrating = true;
+                dragging = false;
+                pointerId = null;
+
+                toothbrush.classList.remove("dragging");
+                foam.classList.add("hidden");
+
+                cleanCelebration.classList.remove("hidden");
+
+                window.setTimeout(() => {
+                    cleanCelebration.classList.add("hidden");
+                    celebrating = false;
+                    endDentalGame(true);
+                }, 5000);
             }
         }, 1080);
     }
 
     function endDentalGame(success: boolean) {
-        if (!gameRunning) return;
+        if (!gameRunning || celebrating) return;
 
         gameRunning = false;
         stopTimer();
