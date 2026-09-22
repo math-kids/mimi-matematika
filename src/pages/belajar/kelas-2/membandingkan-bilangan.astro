@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../../../layouts/MainLayout.astro";
+
 import Header from "../../../components/Header.astro";
 ---
 
@@ -8,13 +9,17 @@ import Header from "../../../components/Header.astro";
 
     <main class="game-page">
         <!-- TOP BAR -->
+
         <div class="game-topbar">
             <a href="/belajar/kelas-2" class="back-button">← Pilih latihan</a>
+
             <div class="game-class">Kelas 2 SD</div>
+
             <div class="game-score">⭐ <span id="score">0</span></div>
         </div>
 
         <!-- BANNER LATIHAN -->
+
         <section class="exercise-banner">
             <img
                 src="/assets/banner-latihan.png"
@@ -23,18 +28,23 @@ import Header from "../../../components/Header.astro";
         </section>
 
         <!-- INFO LATIHAN -->
+
         <div class="exercise-info">
             <div>
                 <span class="lesson-badge">Latihan 03</span>
+
                 <h1>Membandingkan Bilangan</h1>
+
                 <p id="subtitle">
                     Bandingkan jumlah benda dan bilangan bersama Mimi.
                 </p>
             </div>
+
             <div id="progress" class="progress">Soal 1 / 10</div>
         </div>
 
         <!-- MODE -->
+
         <section class="comparison-modes">
             <button
                 type="button"
@@ -43,51 +53,71 @@ import Header from "../../../components/Header.astro";
             >
                 03A · Mana Lebih Banyak
             </button>
+
             <button type="button" class="comparison-mode" data-mode="number">
                 03B · Mana Lebih Besar
             </button>
+
             <button type="button" class="comparison-mode" data-mode="symbol">
                 03C · Operator yang cocok
+            </button>
+            <button type="button" class="comparison-mode" data-mode="order">
+                03D · Urutkan Bilangan
             </button>
         </section>
 
         <!-- MIMI -->
+
         <section id="mimi-area">
             <div id="mimi">
                 <img id="mimi-image" src="/assets/mimi.png" alt="Mimi" />
             </div>
+
             <div id="mimi-message" class="mimi-message">
                 <strong>Mimi</strong>
+
                 <p>Yuk, bandingkan jumlah benda! 😊</p>
             </div>
         </section>
 
         <!-- SOAL -->
+
         <section class="question-card">
             <p id="question-instruction" class="question-instruction">
                 Pilih wadah yang berisi lebih banyak.
             </p>
+
             <div class="question-box">
                 <div id="question"></div>
             </div>
         </section>
 
         <!-- JAWABAN -->
+
         <section id="answers" class="answers"></section>
 
         <!-- HASIL -->
+
         <section id="result-screen" class="result-screen hidden">
             <div class="result-icon">🎉</div>
+
             <span class="lesson-badge">Latihan 03</span>
+
             <h1>Hebat!</h1>
+
             <p>Latihanmu sudah selesai.</p>
+
             <div class="result-score">
                 <span>Skor kamu</span>
+
                 <strong id="final-score">0</strong>
             </div>
+
             <div class="result-actions">
                 <button id="play-again" type="button">Coba Lagi</button>
+
                 <a href="/permainan" class="choose-game">🎁 Pilih Games</a>
+
                 <a href="/belajar/kelas-2" class="back-to-lessons"
                     >Pilih Latihan</a
                 >
@@ -96,21 +126,28 @@ import Header from "../../../components/Header.astro";
     </main>
 
     <!-- FOOTER -->
+
     <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-brand">
                 <img src="/assets/mimi.png" alt="Mimi Matematika" />
+
                 <div>
                     <strong>Mimi Matematika</strong>
+
                     <span>Langkah kecil hari ini, prestasi besar nanti.</span>
                 </div>
             </div>
+
             <div class="footer-links">
                 <a href="/belajar">Belajar</a>
+
                 <a href="/ngobrol">Mimi Ngobrol</a>
+
                 <a href="/permainan">Permainan</a>
             </div>
         </div>
+
         <div class="footer-bottom">© 2026 Mimi Matematika</div>
     </footer>
 
@@ -161,7 +198,7 @@ import Header from "../../../components/Header.astro";
             font-weight: 600;
         }
 
-        .back-button\:hover {
+        .back-button:hover {
             text-decoration: underline;
         }
 
@@ -420,10 +457,15 @@ import Header from "../../../components/Header.astro";
 
         .question-instruction {
             margin: 0 0 9px;
+
             text-align: center;
+
             color: #7c837c;
+
             font-size: 20px;
+
             font-weight: 600;
+
             line-height: 1.3;
         }
 
@@ -525,10 +567,10 @@ import Header from "../../../components/Header.astro";
             transition:
                 transform 0.15s,
                 box-shadow 0.15s,
-                * background * 0.15s;
+                * * background * * 0.15s;
         }
 
-        .answers button\:hover {
+        .answers button:hover {
             background: #e1ebe2;
 
             transform: translateY(-2px);
@@ -536,11 +578,11 @@ import Header from "../../../components/Header.astro";
             box-shadow: 0 5px 14px rgba(50, 70, 55, 0.08);
         }
 
-        .answers button\:active {
+        .answers button:active {
             transform: scale(0.97);
         }
 
-        .answers button\:disabled {
+        .answers button:disabled {
             cursor: default;
         }
 
@@ -659,7 +701,7 @@ import Header from "../../../components/Header.astro";
             transition: transform 0.15s ease;
         }
 
-        .choose-game\:hover {
+        .choose-game:hover {
             transform: translateY(-2px);
         }
 
@@ -765,7 +807,7 @@ import Header from "../../../components/Header.astro";
             text-decoration: none;
         }
 
-        .footer-links a\:hover {
+        .footer-links a:hover {
             text-decoration: underline;
         }
 
@@ -796,6 +838,212 @@ import Header from "../../../components/Header.astro";
    MOBILE
 
 ======================================== */
+
+        /* 03D — mengurutkan bilangan + siklus kehidupan */
+        .ordering-question {
+            width: 100%;
+        }
+        .ordering-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            width: 100%;
+        }
+        .order-card {
+            min-width: 0;
+            height: 145px;
+            box-sizing: border-box;
+            padding: 4px;
+            border: 2px solid #dce6de;
+            border-radius: 14px;
+            background: #fffdf9;
+            cursor: grab;
+            user-select: none;
+            touch-action: none;
+            transition:
+                transform 0.15s ease,
+                border-color 0.15s ease,
+                box-shadow 0.15s ease,
+                opacity 0.15s ease;
+        }
+
+        .order-card:active {
+            cursor: grabbing;
+        }
+
+        .order-card.selected {
+            border-color: #8fb39a;
+            box-shadow: 0 0 0 3px rgba(143, 179, 154, 0.18);
+            transform: translateY(-2px);
+        }
+
+        .order-card.dragging {
+            opacity: 0.45;
+        }
+
+        .order-card img {
+            display: block;
+            width: 100%;
+            height: 108px;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+
+        .order-card .order-number {
+            display: block;
+            margin-top: 2px;
+            padding: 4px;
+            border-radius: 8px;
+            background: #f5eadc;
+            color: #29372f;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .ordering-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b918b;
+            font-size: 18px;
+            font-weight: 800;
+            padding: 5px 0;
+        }
+        .ordering-drop-zone {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            width: 100%;
+            position: relative;
+        }
+
+        .ordering-drop-zone .order-slot {
+            position: relative;
+        }
+
+        .ordering-drop-zone .order-slot:not(:last-child)::after {
+            content: "→";
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            color: #8fa096;
+            font-size: 17px;
+            font-weight: 800;
+            pointer-events: none;
+        }
+        .order-slot {
+            height: 145px;
+            box-sizing: border-box;
+            padding: 4px;
+            border: 2px dashed #cbd9ce;
+            border-radius: 14px;
+            background: #f7fbf7;
+            color: #758178;
+            cursor: pointer;
+            transition:
+                background 0.15s ease,
+                border-color 0.15s ease,
+                transform 0.15s ease;
+        }
+
+        .order-slot .placed-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            gap: 2px;
+        }
+        .order-slot .placed-card img {
+            display: block;
+            width: 100%;
+            height: 108px;
+            object-fit: contain;
+        }
+
+        .order-slot .placed-number {
+            display: block;
+            margin-top: 2px;
+            padding: 4px 12px;
+            border-radius: 8px;
+            background: #f5eadc;
+            color: #29372f;
+            font-size: 19px;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .order-slot.over {
+            border-color: #8fb39a;
+            background: #edf6ef;
+            transform: translateY(-2px);
+        }
+        .order-slot.filled {
+            border-style: solid;
+            border-color: #b8cdbd;
+            background: #fffdf9;
+        }
+
+        .order-slot .slot-label {
+            display: none;
+        }
+        .order-slot .slot-label {
+            display: block;
+            margin-bottom: 4px;
+            color: #9aa39c;
+            font-size: 9px;
+            font-weight: 700;
+        }
+        .order-slot .slot-number {
+            display: block;
+            color: #29372f;
+            font-size: 27px;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .ordering-cycle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 10px;
+            padding: 9px 12px;
+            border-radius: 14px;
+            background: #edf6ef;
+            color: #55705e;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .ordering-cycle .cycle-step {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .ordering-cycle img {
+            width: 31px;
+            height: 31px;
+            object-fit: contain;
+        }
+        .ordering-cycle .cycle-arrow {
+            color: #91a096;
+            font-size: 15px;
+        }
+        .order-success {
+            animation: orderSuccess 0.7s ease;
+        }
+        @keyframes orderSuccess {
+            0% {
+                transform: scale(1);
+            }
+            45% {
+                transform: scale(1.025);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
 
         @media (max-width: 600px) {
             .game-page {
@@ -986,7 +1234,7 @@ import Header from "../../../components/Header.astro";
                 transition: transform 0.15s ease;
             }
 
-            .choose-game\:hover {
+            .choose-game:hover {
                 transform: translateY(-2px);
             }
 
@@ -1068,27 +1316,38 @@ import Header from "../../../components/Header.astro";
         }
 
         /* ========================================
+
            MEMBANDINGKAN BILANGAN
+
         ======================================== */
 
         .comparison-modes {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 7px;
-            margin: 6px 0 3px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
         }
 
         .comparison-mode {
             min-height: 42px;
+
             padding: 7px 10px;
+
             border: none;
+
             border-radius: 13px;
+
             background: #edf3ee;
+
             color: #45604e;
+
             font-size: 11px;
+
             font-weight: 700;
+
             line-height: 1.2;
+
             cursor: pointer;
+
             transition:
                 transform 0.15s,
                 background 0.15s;
@@ -1096,11 +1355,13 @@ import Header from "../../../components/Header.astro";
 
         .comparison-mode:hover {
             background: #e1ebe2;
+
             transform: translateY(-1px);
         }
 
         .comparison-mode.active {
             background: #dbe8d9;
+
             color: #39704b;
         }
 
@@ -1109,29 +1370,44 @@ import Header from "../../../components/Header.astro";
         }
 
         /* 03A — visual comparison */
+
         .visual-question {
             display: grid;
+
             grid-template-columns: 1fr 38px 1fr;
+
             align-items: center;
+
             gap: 8px;
+
             width: 100%;
         }
 
         .visual-vs {
             text-align: center;
+
             color: #8b918b;
+
             font-size: 13px;
+
             font-weight: 800;
         }
 
         .container-choice {
             width: 100%;
+
             min-height: 210px;
+
             padding: 9px;
+
             border: 2px solid #dce6de;
+
             border-radius: 17px;
+
             background: #fffdf9;
+
             cursor: pointer;
+
             transition:
                 transform 0.15s,
                 box-shadow 0.15s,
@@ -1140,127 +1416,189 @@ import Header from "../../../components/Header.astro";
 
         .container-choice:hover {
             transform: translateY(-2px);
+
             border-color: #9fbaa5;
+
             box-shadow: 0 5px 14px rgba(50, 70, 55, 0.08);
         }
 
         .container-object-area {
             min-height: 165px;
+
             display: flex;
+
             flex-wrap: wrap;
+
             align-items: center;
+
             justify-content: center;
+
             align-content: center;
+
             gap: 5px;
+
             padding: 9px;
+
             border-radius: 13px;
+
             overflow: hidden;
         }
 
         .number-visual-question .number-box {
             min-height: 165px;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             background: #f5eadc;
+
             border: 3px solid #ae8d6b;
+
             border-radius: 13px;
+
             box-sizing: border-box;
         }
 
         .number-object {
             font-size: 52px;
+
             font-weight: 700;
+
             color: #29352f;
+
             line-height: 1;
         }
 
         .object {
             font-size: 31px;
+
             line-height: 1;
+
             user-select: none;
         }
 
         .basket {
             border: 4px solid #b88b61;
+
             border-top: 0;
+
             border-radius: 0 0 38px 38px;
+
             background: #f6eadb;
         }
 
         .house {
             border: 3px solid #c7a77f;
+
             border-radius: 9px;
+
             background: #f7eee2;
         }
 
         .bag {
             border: 3px solid #b7a58f;
+
             border-radius: 10px 10px 22px 22px;
+
             background: #eee8df;
         }
 
         .aquarium {
             border: 3px solid #7da7ad;
+
             border-radius: 10px;
+
             background: linear-gradient(#e9f8f7 0 70%, #d7eee5 70%);
         }
 
         .pot {
             border: 3px solid #b98162;
+
             border-radius: 7px 7px 22px 22px;
+
             background: #f0e2d7;
         }
 
         .box {
             border: 3px solid #ae8d6b;
+
             border-radius: 7px;
+
             background: #f5eadc;
         }
 
         /* 03B — number comparison */
+
         .number-question {
             display: grid;
+
             grid-template-columns: 1fr 35px 1fr;
+
             align-items: center;
+
             gap: 8px;
+
             width: 100%;
+
             max-width: 680px;
+
             margin: 0 auto;
         }
 
         .number-card {
             min-height: 125px;
+
             display: grid;
+
             place-items: center;
+
             border-radius: 17px;
+
             background: #fff;
+
             color: #29372f;
+
             font-size: clamp(42px, 8vw, 64px);
+
             font-weight: 700;
         }
 
         .number-question .question-mark {
             text-align: center;
+
             color: #8b918b;
+
             font-size: 25px;
+
             font-weight: 800;
         }
 
         /* 03C — symbols */
+
         .symbol-question {
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             gap: 13px;
+
             width: 100%;
+
             color: #29372f;
+
             font-size: clamp(40px, 8vw, 62px);
+
             font-weight: 700;
         }
 
         .symbol-number {
             min-width: 120px;
+
             text-align: center;
         }
 
@@ -1275,19 +1613,24 @@ import Header from "../../../components/Header.astro";
         @media (max-width: 600px) {
             @media (max-width: 600px) {
                 .comparison-modes {
-                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-columns: repeat(2, 1fr);
+
                     gap: 5px;
                 }
 
                 .comparison-mode {
                     min-height: 38px;
+
                     padding: 7px 4px;
+
                     font-size: 9px;
+
                     line-height: 1.15;
                 }
 
                 .visual-question {
                     grid-template-columns: 1fr;
+
                     gap: 5px;
                 }
 
@@ -1313,20 +1656,75 @@ import Header from "../../../components/Header.astro";
 
                 .number-card {
                     min-height: 100px;
+
                     font-size: 43px;
                 }
 
                 .symbol-question {
                     gap: 5px;
+
                     font-size: 43px;
                 }
 
                 .symbol-number {
                     min-width: 85px;
                 }
+                .ordering-cards {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 6px;
+                }
+                .order-card {
+                    height: 125px;
+                    padding: 3px;
+                    border-radius: 12px;
+                }
+
+                .order-card img {
+                    height: 91px;
+                }
+
+                .order-card .order-number {
+                    margin-top: 1px;
+                    padding: 3px;
+                    font-size: 19px;
+                }
+                .ordering-drop-zone {
+                    gap: 6px;
+                }
+                .order-slot {
+                    min-height: 62px;
+                    padding: 6px 4px;
+                    border-radius: 11px;
+                }
+                .order-slot .slot-number {
+                    font-size: 23px;
+                }
+                .ordering-cycle {
+                    gap: 4px;
+                    padding: 8px 6px;
+                    font-size: 10px;
+                }
+                .ordering-cycle img {
+                    width: 27px;
+                    height: 27px;
+                }
             }
+            .order-card {
+                padding: 6px;
+                border-radius: 13px;
+            }
+
+            .order-card img {
+                height: 78px;
+            }
+
+            .order-card .order-number {
+                font-size: 20px;
+            }
+
             .visual-question {
                 grid-template-columns: 1fr;
+
                 gap: 5px;
             }
 
@@ -1352,11 +1750,13 @@ import Header from "../../../components/Header.astro";
 
             .number-card {
                 min-height: 100px;
+
                 font-size: 43px;
             }
 
             .symbol-question {
                 gap: 5px;
+
                 font-size: 43px;
             }
 
@@ -1367,63 +1767,106 @@ import Header from "../../../components/Header.astro";
     </style>
 
     <script>
-        type Mode = "visual" | "number" | "symbol";
+        type Mode = "visual" | "number" | "symbol" | "order";
+
+        type OrderStage = {
+            image: string;
+            label: string;
+        };
 
         type Question =
             | {
                   mode: "visual";
+
                   leftCount: number;
+
                   rightCount: number;
+
                   object: string;
+
                   container: string;
+
                   instruction: "greater" | "smaller";
+
                   correctSide: "left" | "right";
               }
             | {
                   mode: "number";
+
                   left: number;
+
                   right: number;
+
                   relation: "greater" | "smaller";
+
                   correctSide: "left" | "right";
               }
             | {
                   mode: "symbol";
+
                   left: number;
+
                   right: number;
+
                   symbol: ">" | "<" | "=";
+              }
+            | {
+                  mode: "order";
+                  stages: OrderStage[];
+                  correctOrder: number[];
               };
 
         const totalQuestions: Record<Mode, number> = {
             visual: 10,
+
             number: 10,
+
             symbol: 12,
+            order: 10,
         };
 
         let mode: Mode = "visual";
+
         let score = 0;
+
         let questionNumber = 0;
+
         let answering = false;
+
         let currentQuestion: Question | null = null;
 
         let usedVisualPairs: string[] = [];
+
         let usedNumberPairs: string[] = [];
+
         let usedSymbolPairs: string[] = [];
 
         let numberRelations: ("greater" | "smaller")[] = [];
+
         let symbolRelations: (">" | "<" | "=")[] = [];
 
         const scoreElement = document.getElementById("score")!;
+
         const progressElement = document.getElementById("progress")!;
+
         const questionElement = document.getElementById("question")!;
+
         const instructionElement = document.getElementById(
             "question-instruction",
         )!;
+
         const answersElement = document.getElementById("answers")!;
+
         const mimiElement = document.getElementById("mimi")!;
+
         const mimiMessage = document.getElementById("mimi-message")!;
+
         const resultScreen = document.getElementById("result-screen")!;
+
         const finalScoreElement = document.getElementById("final-score")!;
+
         const playAgainButton = document.getElementById("play-again")!;
+
         const subtitleElement = document.getElementById("subtitle")!;
 
         const modeButtons =
@@ -1431,18 +1874,40 @@ import Header from "../../../components/Header.astro";
 
         const visualObjects = [
             { object: "🍎", container: "basket" },
+
             { object: "🐜", container: "house" },
+
             { object: "✏️", container: "bag" },
+
             { object: "🐟", container: "aquarium" },
+
             { object: "🌷", container: "pot" },
+
             { object: "⚽", container: "box" },
         ];
+        const frogStages: OrderStage[] = [
+            { image: "/assets/meta-telurkatak.png", label: "Telur" },
+            { image: "/assets/meta-berudu.png", label: "Berudu" },
+            { image: "/assets/meta-katakmuda.png", label: "Katak Muda" },
+            { image: "/assets/meta-katakdewasa.png", label: "Katak Dewasa" },
+        ];
+
+        const butterflyStages: OrderStage[] = [
+            { image: "/assets/meta-telurkupu.png", label: "Telur" },
+            { image: "/assets/meta-ulat.png", label: "Ulat" },
+            { image: "/assets/meta-kepompong.png", label: "Kepompong" },
+            { image: "/assets/meta-kupu.png", label: "Kupu-kupu" },
+        ];
+
+        let selectedOrderCard: number | null = null;
+        let orderPlaced: (number | null)[] = [null, null, null, null];
 
         function shuffle<T>(array: T[]): T[] {
             const copy = [...array];
 
             for (let i = copy.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
+
                 [copy[i], copy[j]] = [copy[j], copy[i]];
             }
 
@@ -1455,17 +1920,25 @@ import Header from "../../../components/Header.astro";
 
         function setMimiMessage(message: string) {
             mimiMessage.classList.remove("wrong-message");
+
             mimiMessage.innerHTML = `
+
                 <strong>Mimi</strong>
+
                 <p>${message}</p>
+
             `;
         }
 
         function setWrongMessage(message: string) {
             mimiMessage.classList.add("wrong-message");
+
             mimiMessage.innerHTML = `
+
                 <strong>Mimi</strong>
+
                 <p>${message}</p>
+
             `;
         }
 
@@ -1475,47 +1948,76 @@ import Header from "../../../components/Header.astro";
 
         function resetSession() {
             score = 0;
+
             questionNumber = 0;
+
             answering = false;
+
             currentQuestion = null;
 
             usedVisualPairs = [];
+
             usedNumberPairs = [];
+
             usedSymbolPairs = [];
 
             numberRelations = shuffle([
                 "greater",
+
                 "greater",
+
                 "greater",
+
                 "greater",
+
                 "greater",
+
                 "smaller",
+
                 "smaller",
+
                 "smaller",
+
                 "smaller",
+
                 "smaller",
             ]);
 
             symbolRelations = shuffle([
                 ">",
+
                 ">",
+
                 ">",
+
                 ">",
+
                 "<",
+
                 "<",
+
                 "<",
+
                 "<",
+
                 "=",
+
                 "=",
+
                 "=",
+
                 "=",
             ]);
 
             scoreElement.textContent = "0";
+
             resultScreen.classList.add("hidden");
+
             document
+
                 .querySelector(".question-card")!
                 .classList.remove("hidden");
+
             answersElement.classList.remove("hidden");
 
             generateQuestion();
@@ -1531,14 +2033,22 @@ import Header from "../../../components/Header.astro";
             if (mode === "visual") {
                 subtitleElement.textContent =
                     "Bandingkan jumlah benda di dalam wadah.";
+
                 setMimiMessage("Yuk, bandingkan jumlah benda! 😊");
             } else if (mode === "number") {
                 subtitleElement.textContent = "Bandingkan dua bilangan.";
+
                 setMimiMessage("Ayo bandingkan kedua bilangan! 😊");
-            } else {
+            } else if (mode === "symbol") {
                 subtitleElement.textContent =
                     "Pilih tanda yang tepat: >, <, atau =.";
+
                 setMimiMessage("Ayo pilih tanda yang tepat! 😊");
+            } else {
+                subtitleElement.textContent =
+                    "Urutkan bilangan dan susun siklus kehidupan katak/kupu!";
+
+                setMimiMessage("Ayo urutkan bilangan dan susun siklusnya! 😊");
             }
 
             resetSession();
@@ -1546,7 +2056,9 @@ import Header from "../../../components/Header.astro";
 
         function generateQuestion() {
             answering = false;
+
             resetMimi();
+
             questionNumber++;
 
             progressElement.textContent = `Soal ${questionNumber} / ${totalQuestions[mode]}`;
@@ -1555,13 +2067,16 @@ import Header from "../../../components/Header.astro";
                 generateVisualQuestion();
             } else if (mode === "number") {
                 generateNumberQuestion();
-            } else {
+            } else if (mode === "symbol") {
                 generateSymbolQuestion();
+            } else {
+                generateOrderQuestion();
             }
         }
 
         function generateVisualQuestion() {
             let left = randomInt(3, 8);
+
             let right = randomInt(3, 8);
 
             while (
@@ -1570,6 +2085,7 @@ import Header from "../../../components/Header.astro";
                 usedVisualPairs.includes(`${right}-${left}`)
             ) {
                 left = randomInt(3, 8);
+
                 right = randomInt(3, 8);
             }
 
@@ -1591,11 +2107,17 @@ import Header from "../../../components/Header.astro";
 
             currentQuestion = {
                 mode: "visual",
+
                 leftCount: left,
+
                 rightCount: right,
+
                 object: item.object,
+
                 container: item.container,
+
                 instruction,
+
                 correctSide,
             };
 
@@ -1605,23 +2127,33 @@ import Header from "../../../components/Header.astro";
                     : "Pilih wadah yang berisi lebih sedikit.";
 
             questionElement.innerHTML = `
+
                 <div class="visual-question">
+
                     <button class="container-choice" type="button" data-side="left">
+
                         ${createContainerHTML(item.container, left, item.object)}
+
                     </button>
 
                     <div class="visual-vs">VS</div>
 
                     <button class="container-choice" type="button" data-side="right">
+
                         ${createContainerHTML(item.container, right, item.object)}
+
                     </button>
+
                 </div>
+
             `;
 
             answersElement.innerHTML = "";
 
             questionElement
+
                 .querySelectorAll<HTMLButtonElement>(".container-choice")
+
                 .forEach((button) => {
                     button.addEventListener("click", () => {
                         checkSideAnswer(
@@ -1633,18 +2165,25 @@ import Header from "../../../components/Header.astro";
 
         function createContainerHTML(
             container: string,
+
             count: number,
+
             object: string,
         ) {
             const objects = Array.from(
                 { length: count },
+
                 () => `<span class="object">${object}</span>`,
             ).join("");
 
             return `
+
             <div class="container-object-area ${container}">
+
                 ${objects}
+
             </div>
+
             `;
         }
 
@@ -1652,6 +2191,7 @@ import Header from "../../../components/Header.astro";
             const relation = numberRelations[questionNumber - 1];
 
             let left = randomInt(10, 50);
+
             let right = randomInt(10, 50);
 
             while (
@@ -1660,6 +2200,7 @@ import Header from "../../../components/Header.astro";
                 usedNumberPairs.includes(`${right}-${left}`)
             ) {
                 left = randomInt(10, 50);
+
                 right = randomInt(10, 50);
             }
 
@@ -1676,9 +2217,13 @@ import Header from "../../../components/Header.astro";
 
             currentQuestion = {
                 mode: "number",
+
                 left,
+
                 right,
+
                 relation,
+
                 correctSide,
             };
 
@@ -1688,27 +2233,41 @@ import Header from "../../../components/Header.astro";
                     : "Bilangan mana yang lebih kecil?";
 
             questionElement.innerHTML = `
+
     <div class="visual-question number-visual-question">
+
         <button class="container-choice number-choice" type="button" data-side="left">
+
             <div class="container-object-area number-box">
+
                 <span class="number-object">${left}</span>
+
             </div>
+
         </button>
 
         <div class="visual-vs">VS</div>
 
         <button class="container-choice number-choice" type="button" data-side="right">
+
             <div class="container-object-area number-box">
+
                 <span class="number-object">${right}</span>
+
             </div>
+
         </button>
+
     </div>
+
 `;
 
             answersElement.innerHTML = "";
 
             questionElement
+
                 .querySelectorAll<HTMLButtonElement>(".number-choice")
+
                 .forEach((button) => {
                     button.addEventListener("click", () => {
                         checkSideAnswer(
@@ -1734,6 +2293,23 @@ import Header from "../../../components/Header.astro";
                 ) {
                     left = randomInt(10, 50);
                     right = randomInt(10, 50);
+                }
+
+                // Pastikan angka selalu sesuai dengan operator yang ditentukan.
+                if (symbol === ">" && left < right) {
+                    [left, right] = [right, left];
+                }
+
+                if (symbol === ">" && left > right) {
+                    // sudah benar
+                }
+
+                if (symbol === "<" && left > right) {
+                    [left, right] = [right, left];
+                }
+
+                if (symbol === "<" && left < right) {
+                    // sudah benar
                 }
             }
 
@@ -1775,6 +2351,395 @@ import Header from "../../../components/Header.astro";
                 });
         }
 
+        function generateOrderQuestion() {
+            const stages = Math.random() < 0.5 ? frogStages : butterflyStages;
+
+            // Generate 4 angka unik secara random.
+            // Angka terkecil selalu dipasangkan dengan fase pertama,
+            // lalu naik sesuai urutan metamorfosis.
+            const numbers = shuffle(
+                Array.from({ length: 41 }, (_, index) => index + 10),
+            )
+                .slice(0, 4)
+                .sort((a, b) => a - b);
+
+            const correctOrder = [...numbers];
+
+            currentQuestion = {
+                mode: "order",
+                stages,
+                correctOrder,
+            };
+
+            instructionElement.textContent =
+                "Urutkan bilangan dari yang paling kecil ke paling besar.";
+
+            renderOrderQuestion(stages, numbers);
+        }
+
+        function renderOrderQuestion(stages: OrderStage[], numbers: number[]) {
+            selectedOrderCard = null;
+            orderPlaced = [null, null, null, null];
+
+            // Pairing is locked to lifecycle order:
+            // smallest number → stage 1, next → stage 2, etc.
+            // Only the cards themselves are shuffled for the starting layout.
+            const shuffled = shuffle(
+                numbers.map((number, index) => ({
+                    number,
+                    stageIndex: index,
+                })),
+            );
+
+            questionElement.innerHTML = `
+                <div class="ordering-question">
+                    <div class="ordering-cards">
+                    ${shuffled
+                        .map(
+                            (card) => `
+    <button
+        type="button"
+        class="order-card"
+        draggable="true"
+        data-number="${card.number}"
+    >
+        <img
+            src="${stages[card.stageIndex].image}"
+            alt="${stages[card.stageIndex].label}"
+            draggable="false"
+        />
+        <span class="order-number">${card.number}</span>
+    </button>
+`,
+                        )
+                        .join("")}
+                    </div>
+
+                    <div class="ordering-arrow" aria-hidden="true">
+                        ↓ KLIK & PINDAHKAN
+                    </div>
+
+                    <div class="ordering-drop-zone">
+                        ${[0, 1, 2, 3]
+                            .map(
+                                (slot) => `
+                            <button
+                                type="button"
+                                class="order-slot"
+                                data-slot="${slot}"
+                            >
+                                <span class="slot-label">Urutan ${slot + 1}</span>
+                                <span class="slot-number">—</span>
+                            </button>
+                        `,
+                            )
+                            .join("")}
+                    </div>
+
+                    <div id="ordering-cycle" class="ordering-cycle hidden"></div>
+                </div>
+            `;
+
+            answersElement.innerHTML = "";
+
+            questionElement
+                .querySelectorAll<HTMLButtonElement>(".order-card")
+                .forEach((card) => {
+                    card.addEventListener("dragstart", () => {
+                        card.classList.add("dragging");
+                    });
+
+                    card.addEventListener("dragend", () => {
+                        card.classList.remove("dragging");
+                    });
+
+                    card.addEventListener("click", () => {
+                        if (answering) return;
+
+                        const number = Number(card.dataset.number);
+
+                        questionElement
+                            .querySelectorAll(".order-card")
+                            .forEach((other) =>
+                                other.classList.remove("selected"),
+                            );
+
+                        if (selectedOrderCard === number) {
+                            selectedOrderCard = null;
+                        } else {
+                            selectedOrderCard = number;
+                            card.classList.add("selected");
+                        }
+                    });
+                });
+
+            questionElement
+                .querySelectorAll<HTMLButtonElement>(".order-slot")
+                .forEach((slot) => {
+                    slot.addEventListener("dragover", (event) => {
+                        event.preventDefault();
+                        slot.classList.add("over");
+                    });
+
+                    slot.addEventListener("dragleave", () => {
+                        slot.classList.remove("over");
+                    });
+
+                    slot.addEventListener("drop", (event) => {
+                        event.preventDefault();
+                        slot.classList.remove("over");
+
+                        const card = document.querySelector(
+                            ".order-card.dragging",
+                        ) as HTMLButtonElement | null;
+
+                        if (card) {
+                            placeOrderCard(
+                                Number(card.dataset.number),
+                                Number(slot.dataset.slot),
+                            );
+                        }
+                    });
+
+                    slot.addEventListener("click", () => {
+                        if (answering) return;
+
+                        const slotIndex = Number(slot.dataset.slot);
+                        const placedNumber = orderPlaced[slotIndex];
+
+                        // Kalau slot sudah berisi kartu:
+                        // klik = kembalikan kartu ke area kartu asal.
+                        if (placedNumber !== null) {
+                            const card =
+                                questionElement.querySelector<HTMLButtonElement>(
+                                    `.order-card[data-number="${placedNumber}"]`,
+                                );
+
+                            if (card) {
+                                card.style.opacity = "1";
+                                card.classList.remove("selected");
+                            }
+
+                            orderPlaced[slotIndex] = null;
+                            slot.dataset.value = "";
+                            slot.classList.remove("filled", "over");
+
+                            slot.innerHTML = `
+            <span class="slot-label">
+                Urutan ${slotIndex + 1}
+            </span>
+            <span class="slot-number">—</span>
+        `;
+
+                            selectedOrderCard = null;
+                            return;
+                        }
+
+                        // Kalau slot kosong dan ada kartu yang dipilih:
+                        // masukkan / pindahkan kartu ke slot ini.
+                        if (selectedOrderCard !== null) {
+                            placeOrderCard(selectedOrderCard, slotIndex);
+                        }
+                    });
+                });
+        }
+
+        function placeOrderCard(number: number, slotIndex: number) {
+            if (
+                answering ||
+                !currentQuestion ||
+                currentQuestion.mode !== "order"
+            ) {
+                return;
+            }
+
+            const slot = questionElement.querySelector<HTMLButtonElement>(
+                `.order-slot[data-slot="${slotIndex}"]`,
+            );
+
+            if (!slot) return;
+
+            const oldNumber = orderPlaced[slotIndex];
+
+            // Kalau target slot sudah berisi kartu lain,
+            // jangan timpa kartu tersebut.
+            if (oldNumber !== null && oldNumber !== number) {
+                return;
+            }
+
+            // Cari apakah kartu ini sebelumnya sudah berada
+            // di slot lain.
+            const previousSlotIndex = orderPlaced.findIndex(
+                (value) => value === number,
+            );
+
+            // Kalau kartu dipindahkan dari slot lama ke slot baru,
+            // kosongkan slot lamanya.
+            if (previousSlotIndex !== -1 && previousSlotIndex !== slotIndex) {
+                const previousSlot =
+                    questionElement.querySelector<HTMLButtonElement>(
+                        `.order-slot[data-slot="${previousSlotIndex}"]`,
+                    );
+
+                if (previousSlot) {
+                    previousSlot.dataset.value = "";
+                    previousSlot.classList.remove("filled", "over");
+
+                    previousSlot.innerHTML = `
+                <span class="slot-label">
+                    Urutan ${previousSlotIndex + 1}
+                </span>
+                <span class="slot-number">—</span>
+            `;
+                }
+
+                orderPlaced[previousSlotIndex] = null;
+            }
+
+            orderPlaced[slotIndex] = number;
+            slot.dataset.value = String(number);
+
+            const stageIndex = currentQuestion.stages.findIndex(
+                (stage, index) =>
+                    currentQuestion.correctOrder[index] === number,
+            );
+
+            const placedStage =
+                stageIndex >= 0
+                    ? currentQuestion.stages[stageIndex]
+                    : currentQuestion.stages[0];
+
+            slot.innerHTML = `
+        <span class="placed-card">
+            <img
+                src="${placedStage.image}"
+                alt="${placedStage.label}"
+                draggable="false"
+            />
+            <span class="placed-number">${number}</span>
+        </span>
+    `;
+
+            slot.classList.add("filled");
+
+            const card = questionElement.querySelector<HTMLButtonElement>(
+                `.order-card[data-number="${number}"]`,
+            );
+
+            if (card) {
+                card.classList.remove("selected");
+                card.style.opacity = "0.35";
+            }
+
+            selectedOrderCard = null;
+
+            if (orderPlaced.every((value) => value !== null)) {
+                checkOrderAnswer();
+            }
+        }
+
+        function checkOrderAnswer() {
+            if (
+                answering ||
+                !currentQuestion ||
+                currentQuestion.mode !== "order"
+            ) {
+                return;
+            }
+
+            const correct = orderPlaced.every(
+                (value, index) =>
+                    value === currentQuestion!.correctOrder[index],
+            );
+
+            if (!correct) {
+                setWrongMessage(
+                    "Belum tepat. Coba susun dari yang paling kecil! 💪",
+                );
+
+                mimiElement.classList.remove("correct", "wrong");
+                void mimiElement.offsetWidth;
+                mimiElement.classList.add("wrong");
+
+                setTimeout(resetOrderBoard, 700);
+                return;
+            }
+
+            answering = true;
+            score += 10;
+            scoreElement.textContent = String(score);
+
+            setMimiMessage("Hebat! Urutannya benar! 🎉");
+            launchConfetti();
+
+            mimiElement.classList.remove("wrong", "correct");
+            void mimiElement.offsetWidth;
+            mimiElement.classList.add("correct");
+
+            questionElement
+                .querySelector(".ordering-question")
+                ?.classList.add("order-success");
+
+            showOrderingCycle();
+
+            setTimeout(nextQuestion, 1800);
+        }
+
+        function resetOrderBoard() {
+            if (!currentQuestion || currentQuestion.mode !== "order") return;
+
+            orderPlaced = [null, null, null, null];
+            selectedOrderCard = null;
+
+            questionElement
+                .querySelectorAll<HTMLButtonElement>(".order-card")
+                .forEach((card) => {
+                    card.style.opacity = "1";
+                    card.classList.remove("selected");
+                });
+
+            questionElement
+                .querySelectorAll<HTMLButtonElement>(".order-slot")
+                .forEach((slot) => {
+                    slot.dataset.value = "";
+                    slot.classList.remove("filled", "over");
+
+                    slot.innerHTML = `
+                        <span class="slot-label">
+                            Urutan ${Number(slot.dataset.slot) + 1}
+                        </span>
+                        <span class="slot-number">—</span>
+                    `;
+                });
+
+            setMimiMessage("Coba lagi. Susun dari yang paling kecil ya! 😊");
+            resetMimi();
+        }
+
+        function showOrderingCycle() {
+            if (!currentQuestion || currentQuestion.mode !== "order") return;
+
+            const cycle =
+                questionElement.querySelector<HTMLDivElement>(
+                    "#ordering-cycle",
+                );
+            if (!cycle) return;
+
+            cycle.classList.remove("hidden");
+
+            cycle.innerHTML = currentQuestion.stages
+                .map(
+                    (stage, index) => `
+                        ${index > 0 ? `<span class="cycle-arrow">→</span>` : ""}
+                        <span class="cycle-step">
+                            <img src="${stage.image}" alt="${stage.label}" />
+                            <span>${stage.label}</span>
+                        </span>
+                    `,
+                )
+                .join("");
+        }
+
         function restoreAnswersClass() {
             answersElement.className = "answers";
         }
@@ -1790,6 +2755,7 @@ import Header from "../../../components/Header.astro";
             }
 
             const correct = side === currentQuestion.correctSide;
+
             handleAnswer(correct);
         }
 
@@ -1802,13 +2768,24 @@ import Header from "../../../components/Header.astro";
                 return;
             }
 
-            handleAnswer(symbol === currentQuestion.symbol);
+            const { left, right } = currentQuestion;
+
+            const correct =
+                symbol === ">"
+                    ? left > right
+                    : symbol === "<"
+                      ? left < right
+                      : left === right;
+
+            handleAnswer(correct);
         }
 
         function handleAnswer(correct: boolean) {
             if (correct) {
                 answering = true;
+
                 score += 10;
+
                 scoreElement.textContent = String(score);
 
                 setMimiMessage("Hebat! Jawabanmu benar! 🎉");
@@ -1816,11 +2793,15 @@ import Header from "../../../components/Header.astro";
                 launchConfetti();
 
                 mimiElement.classList.remove("wrong", "correct");
+
                 void mimiElement.offsetWidth;
+
                 mimiElement.classList.add("correct");
 
                 answersElement
+
                     .querySelectorAll<HTMLButtonElement>("button")
+
                     .forEach((button) => {
                         button.disabled = true;
                     });
@@ -1830,7 +2811,9 @@ import Header from "../../../components/Header.astro";
                 setWrongMessage("Belum tepat. Coba lagi! 💪");
 
                 mimiElement.classList.remove("correct", "wrong");
+
                 void mimiElement.offsetWidth;
+
                 mimiElement.classList.add("wrong");
             }
         }
@@ -1842,6 +2825,7 @@ import Header from "../../../components/Header.astro";
                 showResult();
             } else {
                 restoreAnswersClass();
+
                 generateQuestion();
             }
         }
@@ -1852,6 +2836,7 @@ import Header from "../../../components/Header.astro";
 
         playAgainButton.addEventListener("click", () => {
             restoreAnswersClass();
+
             resetSession();
         });
 
@@ -1867,60 +2852,89 @@ import Header from "../../../components/Header.astro";
             const container = document.createElement("div");
 
             container.style.position = "fixed";
+
             container.style.left = "0";
+
             container.style.top = "0";
+
             container.style.width = "100vw";
+
             container.style.height = "100vh";
+
             container.style.pointerEvents = "none";
+
             container.style.overflow = "hidden";
+
             container.style.zIndex = "999999";
 
             document.body.appendChild(container);
 
             const colors = [
                 "#7FAF8B",
+
                 "#E8B86D",
+
                 "#D98282",
+
                 "#8FA8C7",
+
                 "#C99A6B",
+
                 "#F3C6C6",
+
                 "#A8D8B9",
             ];
 
             for (let i = 0; i < 100; i++) {
                 const piece = document.createElement("div");
+
                 const size = 8 + Math.random() * 7;
 
                 piece.style.position = "absolute";
+
                 piece.style.width = `${size}px`;
+
                 piece.style.height = `${size * 1.5}px`;
+
                 piece.style.backgroundColor =
                     colors[Math.floor(Math.random() * colors.length)];
+
                 piece.style.left = `${Math.random() * 100}vw`;
+
                 piece.style.top = "-30px";
+
                 piece.style.borderRadius = "3px";
 
                 container.appendChild(piece);
 
                 const x = (Math.random() - 0.5) * 300;
+
                 const y = 500 + Math.random() * 400;
+
                 const rotation = 360 + Math.random() * 720;
 
                 piece.animate(
                     [
                         {
                             transform: "translate3d(0, 0, 0) rotate(0deg)",
+
                             opacity: 1,
                         },
+
                         {
                             transform: `translate3d(${x}px, ${y}px, 0) rotate(${rotation}deg)`,
+
                             opacity: 0,
                         },
                     ],
+
                     {
                         duration: 1800 + Math.random() * 1000,
+
                         delay: Math.random() * 200,
+
                         easing: "cubic-bezier(.2,.8,.3,1)",
+
                         fill: "forwards",
                     },
                 );
