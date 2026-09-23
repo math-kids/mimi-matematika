@@ -61,65 +61,113 @@ import Header from "../../../components/Header.astro";
         </div>
 
         <!-- SUB LATIHAN -->
+
         <div class="subexercise-selector" role="tablist" aria-label="Bagian latihan">
+
             <button
+
                 type="button"
+
                 class="subexercise-button active"
+
                 data-subexercise="01A"
+
                 role="tab"
+
                 aria-selected="true"
+
             >
+
                 01A · Menghitung Benda
+
             </button>
 
             <button
+
                 type="button"
+
                 class="subexercise-button"
+
                 data-subexercise="01B"
+
                 role="tab"
+
                 aria-selected="false"
+
             >
+
                 01B · Menghitung dengan Mengelompokkan
+
             </button>
+
         </div>
 
 
+
         <!-- 01B · MENGHITUNG DENGAN MENGELOMPOKKAN -->
+
         <section id="grouping-content" class="grouping-content hidden">
+
             <div class="grouping-instruction">
+
                 <strong>🎣 Sekali menjaring, dapat 10 ikan!</strong>
-                <span>Jaring ikan sampai tidak cukup untuk membuat kelompok 10 lagi.</span>
+
+                <span>Jaring sampai semua ikan masuk ke tank kanan.</span>
+
             </div>
 
             <div class="grouping-game">
+
                 <div class="pond-area" id="pond-area">
+
                     <div class="pond-water"></div>
+
                     <div id="fish-layer" class="fish-layer"></div>
+
                     <div id="net" class="fish-net" role="button" tabindex="0" aria-label="Jaring ikan">
+
                         <span class="net-hoop"></span>
+
                         <span class="net-handle"></span>
+
                     </div>
+
                     <div id="scoop-effect" class="scoop-effect hidden">✨</div>
+
                 </div>
 
                 <div class="grouping-result-area">
+
                     <div class="group-title">Kelompok ikan</div>
+
                     <div id="fish-groups" class="fish-groups"></div>
+
                 </div>
+
             </div>
 
             <div id="grouping-question" class="grouping-question hidden">
+
                 <p>Berapa kelompok 10 dan berapa ikan yang tersisa?</p>
+
                 <div id="grouping-answers" class="grouping-answers"></div>
+
             </div>
 
             <div id="grouping-mimi" class="grouping-mimi">
+
                 <img src="/assets/mimi.png" alt="Mimi" />
+
                 <div id="grouping-mimi-message">
+
                     <strong>Mimi</strong>
+
                     <p>Ayo jaring ikan! 🎣</p>
+
                 </div>
+
             </div>
+
         </section>
 
         <!-- MIMI -->
@@ -441,69 +489,117 @@ import Header from "../../../components/Header.astro";
     }
 
     /* ========================================
+
        SUB LATIHAN
+
     ======================================== */
 
     .subexercise-selector {
+
         display: grid;
+
         grid-template-columns: 1fr 1fr;
+
         gap: 5px;
+
         margin: 0 0 8px;
+
     }
 
     .subexercise-button {
+
         min-height: 36px;
+
         padding: 6px 10px;
+
         border: none;
+
         border-radius: 12px;
+
         background: #edf3ee;
+
         color: #45604e;
+
         font-size: 11px;
+
         font-weight: 700;
+
         cursor: pointer;
+
         transition:
-            background 0.15s ease,
+
+            *background* 0.15s ease,
+
             transform 0.15s ease;
+
     }
 
     .subexercise-button:hover {
+
         background: #e1ebe2;
+
         transform: translateY(-1px);
+
     }
 
     .subexercise-button.active {
+
         background: #dbe8d9;
+
         color: #39704b;
+
     }
 
     .grouping-content {
+
         margin-bottom: 8px;
+
     }
 
     .grouping-placeholder {
+
         min-height: 180px;
+
         display: flex;
+
         flex-direction: column;
+
         align-items: center;
+
         justify-content: center;
+
         padding: 24px;
+
         background: #f8f3e9;
+
         border-radius: 20px;
+
         text-align: center;
+
     }
 
     .grouping-placeholder h2 {
+
         margin: 10px 0 5px;
+
         color: #173f4b;
+
         font-size: 24px;
+
     }
 
     .grouping-placeholder p {
+
         max-width: 520px;
+
         margin: 0;
+
         color: #718078;
+
         font-size: 13px;
+
         line-height: 1.5;
+
     }
 
     /* ========================================
@@ -806,7 +902,7 @@ import Header from "../../../components/Header.astro";
 
             box-shadow 0.15s,
 
-            background 0.15s;
+            *background* 0.15s;
 
     }
 
@@ -1117,435 +1213,825 @@ import Header from "../../../components/Header.astro";
     }
 
     /* ========================================
+
        01B · GROUPING GAME
+
     ======================================== */
 
     .grouping-content {
+
         margin-bottom: 8px;
+
     }
 
     .grouping-instruction {
+
         display: flex;
+
         align-items: center;
+
         justify-content: center;
+
         flex-direction: column;
+
         gap: 2px;
+
         margin-bottom: 7px;
+
         text-align: center;
+
     }
 
     .grouping-instruction strong {
+
         color: #39704b;
+
         font-size: 14px;
+
     }
 
     .grouping-instruction span {
+
         color: #718078;
+
         font-size: 11px;
+
     }
 
     .grouping-game {
+
         display: grid;
+
         grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+
         gap: 8px;
+
     }
 
     .pond-area {
+
         position: relative;
+
         min-height: 310px;
+
         overflow: hidden;
+
         border-radius: 22px;
+
         background: #d8eee5;
+
         box-shadow: inset 0 0 0 4px rgba(255,255,255,.35);
+
         touch-action: none;
+
     }
 
     .pond-water {
+
         position: absolute;
+
         inset: 0;
+
         background:
+
             radial-gradient(circle at 20% 25%, rgba(255,255,255,.34) 0 3px, transparent 4px),
+
             radial-gradient(circle at 75% 68%, rgba(255,255,255,.25) 0 4px, transparent 5px),
+
             linear-gradient(145deg, #c9e9df, #b9ddd8);
+
     }
 
     .pond-water::after {
+
         content: "";
+
         position: absolute;
+
         inset: 14px;
+
         border: 1px dashed rgba(71,133,126,.18);
+
         border-radius: 18px;
+
         pointer-events: none;
+
     }
 
     .fish-layer {
+
         position: absolute;
+
         inset: 14px;
+
         display: grid;
-        grid-template-columns: repeat(10, 1fr);
-        grid-template-rows: repeat(5, 1fr);
+
+        grid-template-columns: repeat(8, 1fr);
+
+        grid-template-rows: repeat(4, 1fr);
+
         align-items: center;
+
         justify-items: center;
+
         border-radius: 14px;
+
         overflow: hidden;
+
     }
 
     .pond-fish {
+
         position: relative;
-        width: 34px;
-        height: 34px;
+
+        width: 58%;
+
+        height: 58%;
+
         object-fit: contain;
+
         display: block;
+
         user-select: none;
+
         pointer-events: none;
+
         animation: fishSwim 1.7s ease-in-out infinite;
+
         animation-delay: var(--fish-delay, 0s);
+
     }
 
     @keyframes fishSwim {
+
         0%, 100% {
+
             transform: translateX(0) rotate(var(--fish-tilt, 0deg)) scaleX(var(--fish-direction, 1));
+
         }
+
         25% {
+
             transform: translateX(2px) rotate(calc(var(--fish-tilt, 0deg) + 2deg)) scaleX(var(--fish-direction, 1));
+
         }
+
         50% {
+
             transform: translateX(0) rotate(var(--fish-tilt, 0deg)) scaleX(var(--fish-direction, 1));
+
         }
+
         75% {
+
             transform: translateX(-2px) rotate(calc(var(--fish-tilt, 0deg) - 2deg)) scaleX(var(--fish-direction, 1));
+
         }
+
     }
 
     .pond-fish.caught {
+
         animation: none;
+
         opacity: 0;
+
         transform: scale(var(--fish-direction, 1)) scale(.35) translateY(-18px);
+
     }
 
     .pond-fish.facing-left {
+
         --fish-direction: -1;
+
     }
 
     .fish-net {
+
         position: absolute;
+
         left: 50%;
+
         top: 50%;
+
         width: 134px;
+
         height: 175px;
+
         z-index: 5;
+
         cursor: grab;
+
         transform: translate(-50%, -50%) rotate(-8deg);
+
         touch-action: none;
+
         user-select: none;
+
         filter: drop-shadow(0 5px 5px rgba(50,80,70,.16));
+
     }
 
     .fish-net:active,
+
     .fish-net.dragging {
+
         cursor: grabbing;
+
     }
 
     .net-hoop {
+
         position: absolute;
+
         left: 12px;
+
         top: 6px;
+
         width: 98px;
+
         height: 98px;
+
         border: 7px solid #8a6b4e;
+
         border-radius: 50%;
+
         background:
+
             repeating-linear-gradient(45deg, transparent 0 7px, rgba(115,145,137,.38) 8px 9px),
+
             repeating-linear-gradient(-45deg, transparent 0 7px, rgba(115,145,137,.38) 8px 9px),
+
             rgba(225,245,239,.25);
+
     }
 
     .net-handle {
+
         position: absolute;
+
         width: 16px;
+
         height: 86px;
+
         left: 62px;
+
         top: 93px;
+
         border-radius: 8px;
+
         background: #8a6b4e;
+
         transform: rotate(-5deg);
+
         transform-origin: top center;
+
     }
 
     .scoop-effect {
+
         position: absolute;
+
         z-index: 8;
+
         left: 50%;
+
         top: 50%;
+
         transform: translate(-50%, -50%);
+
         font-size: 35px;
+
         pointer-events: none;
+
         animation: scoopPop .65s ease forwards;
+
     }
 
     @keyframes scoopPop {
+
         0% { opacity: 0; transform: translate(-50%, -50%) scale(.4); }
+
         35% { opacity: 1; transform: translate(-50%, -60%) scale(1.15); }
+
         100% { opacity: 0; transform: translate(-50%, -90%) scale(1); }
+
     }
 
     .grouping-result-area {
+
         min-height: 310px;
+
         padding: 10px;
+
         border-radius: 22px;
+
         background: #f8f3e9;
+
         box-sizing: border-box;
+
         overflow: hidden;
+
     }
 
     .group-title {
+
         margin-bottom: 8px;
+
         color: #587264;
+
         font-size: 12px;
+
         font-weight: 700;
+
         text-align: center;
+
     }
 
     .fish-groups {
+
         display: grid;
+
         grid-template-columns: repeat(2, minmax(0, 1fr));
+
         grid-template-rows: repeat(2, minmax(0, 1fr));
-        gap: 6px;
+
+        gap: 0;
+
         height: 264px;
+
+        margin: 0;
+
     }
 
-    .fish-group {
+    :global(.fish-group) {
+
         position: relative;
+
         width: 100%;
+
         min-width: 0;
+
         min-height: 0;
+
         margin: 0;
+
         display: flex;
+
         align-items: center;
+
         justify-content: center;
+
         gap: 0;
+
         padding: 4px;
+
         box-sizing: border-box;
-        border: 3px solid #73aeb8;
+
+        border: none;
+
         border-radius: 14px 14px 18px 18px;
-        background: linear-gradient(180deg, #e5f7f7 0%, #c5e8eb 28%, #a9dce1 100%);
-        box-shadow: inset 0 5px 0 rgba(255,255,255,.48), inset 0 -8px 0 rgba(88,150,158,.12), 0 4px 8px rgba(70,110,115,.16);
+
+        background: transparent;
+
+        box-shadow: none;
+
         animation: groupAppear .35s ease;
+
         overflow: hidden;
+
     }
 
     /* Bibir akuarium */
-    .fish-group::before {
+
+    :global(.fish-group)::before {
+
+        display: none;
+
         content: "";
+
         position: absolute;
+
         left: 8px;
+
         right: 8px;
+
         top: 5px;
+
         height: 7px;
+
         border-radius: 50%;
+
         border-top: 2px solid rgba(255,255,255,.7);
+
         background: rgba(255,255,255,.18);
+
         z-index: 2;
+
         pointer-events: none;
+
     }
 
     /* Gelembung akuarium */
-    .fish-group::after {
+
+    :global(.fish-group)::after {
+
+        display: none;
+
         content: "•••";
+
         position: absolute;
+
         right: 8px;
+
         top: 20px;
+
         color: rgba(255,255,255,.7);
+
         font-size: 9px;
+
         line-height: 1;
+
         letter-spacing: 2px;
+
         transform: rotate(-8deg);
+
         z-index: 2;
+
         pointer-events: none;
+
     }
 
-    .fish-group .group-fish {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
+    :global(.group-cell-grid) {
+        position: absolute;
+        inset: 10px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+        border: none !important;
+        border-radius: 0;
+        overflow: hidden;
+        z-index: 20 !important;
+        pointer-events: none;
+        box-sizing: border-box;
+    }
+
+    /* Grid kecil hanya disembunyikan secara visual; cell tetap menjadi container ikan. */
+    :global(.group-cell-grid) {
+        border: none !important;
+        background: transparent !important;
+    }
+
+    :global(.group-cell) {
+        min-width: 0;
+        min-height: 0;
+        display: grid;
+        place-items: center;
+        border: none !important;
+        box-sizing: border-box;
+    }
+
+    :global(.group-cell:nth-child(3n)) {
+        border-right: none !important;
+    }
+
+    :global(.group-cell:nth-child(n + 4)) {
+        border-bottom: none !important;
+    }
+
+    :global(.fish-group .group-fish) {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 3;
+        width: 94%;
+        height: 94%;
         max-width: 100%;
         max-height: 100%;
         object-fit: contain;
         display: block;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Ikan sisa ditempatkan LANGSUNG di cell kecil grid 2 × 5.
+       Tidak ada grid tambahan/overlay. */
+    :global(.remainder-fish) {
+        width: 88%;
+        height: 88%;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        display: block;
+        position: relative;
+        z-index: 3;
+        animation: fishSwim 1.7s ease-in-out infinite;
+        animation-delay: var(--fish-delay, 0s);
     }
 
     @keyframes groupAppear {
+
         from { opacity: 0; transform: scale(.92) translateY(5px); }
+
         to { opacity: 1; transform: scale(1) translateY(0); }
+
     }
 
     .grouping-question {
+
         position: relative;
+
         z-index: 20;
+
         pointer-events: auto;
+
         margin-top: 8px;
+
         padding: 10px;
+
         border-radius: 16px;
+
         background: #f8f3e9;
+
         text-align: center;
+
     }
 
     .grouping-question p {
+
         margin: 0 0 8px;
+
         color: #526258;
+
         font-size: 13px;
+
         font-weight: 700;
+
     }
 
     .grouping-answers {
+
         position: relative;
+
         z-index: 21;
+
         pointer-events: auto;
+
         display: grid;
+
         grid-template-columns: repeat(2, 1fr);
+
         gap: 7px;
+
     }
 
     .grouping-answer {
+
         position: relative;
+
         z-index: 22;
+
         pointer-events: auto;
+
         width: 100%;
+
         min-height: 50px;
+
         padding: 0 10px;
+
         border: none;
+
         border-radius: 14px;
+
         background: #edf3ee;
+
         color: #263f35;
+
         font-family: inherit;
+
         font-size: 21px;
+
         font-weight: 700;
+
         cursor: pointer;
+
         appearance: none;
+
         -webkit-appearance: none;
+
         transition:
+
             transform 0.15s,
+
             box-shadow 0.15s,
-            background 0.15s;
+
+            *background* 0.15s;
+
     }
 
     .grouping-answer:hover {
+
         background: #e1ebe2;
+
         transform: translateY(-2px);
+
         box-shadow: 0 5px 14px rgba(50, 70, 55, 0.08);
+
     }
 
     .grouping-answer:active {
+
         transform: scale(0.97);
+
     }
 
     .grouping-answer:disabled {
+
         cursor: default;
+
     }
 
     /* 01B — samakan tombol jawaban persis dengan tombol 01A */
+
     .grouping-answers .grouping-answer {
+
         width: 100% !important;
+
         min-height: 50px !important;
+
         padding: 0 10px !important;
+
         border: none !important;
+
         border-radius: 14px !important;
+
         background: #edf3ee !important;
+
         color: #263f35 !important;
+
         font-family: inherit !important;
+
         font-size: 21px !important;
+
         font-weight: 700 !important;
+
         line-height: normal !important;
+
         text-align: center !important;
+
         cursor: pointer !important;
+
         appearance: none !important;
+
         -webkit-appearance: none !important;
+
         box-shadow: none !important;
+
         outline: none;
+
     }
 
     .grouping-answers .grouping-answer:hover {
+
         background: #e1ebe2 !important;
+
         transform: translateY(-2px);
+
         box-shadow: 0 5px 14px rgba(50, 70, 55, 0.08) !important;
+
     }
 
     .grouping-answers .grouping-answer:active {
+
         transform: scale(0.97);
+
     }
 
     /* 01B answer buttons are created dynamically by JavaScript.
+
        Astro scoped CSS does not attach the scope attribute to those
+
        runtime-created buttons, so this block must be global. */
+
     :global(.grouping-answers .grouping-answer) {
+
         width: 100%;
+
         min-height: 50px;
+
         padding: 0;
+
         border: none;
+
         border-radius: 14px;
+
         background: #edf3ee;
+
         color: #263f35;
+
         font-family: inherit;
+
         font-size: 21px;
+
         font-weight: 700;
+
         line-height: normal;
+
         text-align: center;
+
         cursor: pointer;
+
         appearance: none;
+
         -webkit-appearance: none;
+
         box-shadow: none;
+
         outline: none;
+
         transition:
+
             transform 0.15s,
+
             box-shadow 0.15s,
-            background 0.15s;
+
+            *background* 0.15s;
+
     }
 
     :global(.grouping-answers .grouping-answer:hover) {
+
         background: #e1ebe2;
+
         transform: translateY(-2px);
+
         box-shadow: 0 5px 14px rgba(50, 70, 55, 0.08);
+
     }
 
     :global(.grouping-answers .grouping-answer:active) {
+
         transform: scale(0.97);
+
     }
 
     :global(.grouping-answers .grouping-answer:disabled) {
+
         cursor: default;
+
     }
 
     .grouping-mimi {
+
         display: flex;
+
         align-items: center;
+
         justify-content: center;
+
         gap: 8px;
+
         margin-top: 7px;
+
     }
 
     .grouping-mimi img {
+
         width: 44px;
+
         height: 44px;
+
         object-fit: contain;
+
     }
 
     #grouping-mimi-message {
+
         padding: 6px 12px;
+
         border-radius: 14px;
+
         background: #edf3eb;
+
         color: #526258;
+
     }
 
     #grouping-mimi-message strong {
+
         display: block;
+
         color: #6d8a78;
+
         font-size: 11px;
+
     }
 
     #grouping-mimi-message p {
+
         margin: 1px 0 0;
+
         font-size: 12px;
+
     }
 
     /* ========================================
@@ -1669,69 +2155,141 @@ import Header from "../../../components/Header.astro";
         /* SUB LATIHAN */
 
         .subexercise-selector {
+
             grid-template-columns: 1fr 1fr;
+
             gap: 5px;
+
             margin-bottom: 7px;
+
         }
 
         .subexercise-button {
+
             min-height: 38px;
+
             padding: 6px 7px;
+
             border-radius: 11px;
+
             font-size: 10px;
+
             line-height: 1.2;
+
         }
 
         .grouping-placeholder {
+
             min-height: 180px;
+
             padding: 20px 14px;
+
             border-radius: 18px;
+
         }
 
         .grouping-placeholder h2 {
+
             font-size: 21px;
+
         }
 
         .grouping-placeholder p {
+
             font-size: 12px;
+
         }
 
         /* 01B · GROUPING GAME */
+
         .grouping-game {
+
             grid-template-columns: minmax(0, 1.25fr) minmax(145px, .75fr);
+
             gap: 6px;
+
         }
 
         .pond-area,
+
         .grouping-result-area {
+
             min-height: 245px;
+
         }
 
         .fish-layer {
+
             inset: 10px;
-            grid-template-columns: repeat(10, 1fr);
-            grid-template-rows: repeat(5, 1fr);
+
+            grid-template-columns: repeat(8, 1fr);
+
+            grid-template-rows: repeat(4, 1fr);
+
         }
 
         .pond-fish {
-            width: 20px;
-            height: 20px;
+
+            width: 58%;
+
+            height: 58%;
+
+        }
+
+        :global(.group-cell-grid) {
+            inset: 6px;
+        }
+
+        .remainder-fish-grid {
+            padding: 6px;
+        }
+
+        :global(.remainder-fish) {
+            width: 88%;
+            height: 88%;
+            max-width: 100%;
+            max-height: 100%;
         }
 
         .fish-groups {
+
             height: 205px;
+
             gap: 4px;
+
         }
 
-        .fish-group {
+        :global(.fish-group) {
+
             border-width: 2px;
+
             border-radius: 10px;
+
             padding: 2px;
+
+        }
+
+        :global(.group-cell-grid) {
+            inset: 5px;
+        }
+
+        .remainder-fish-grid {
+            padding: 5px;
+        }
+
+        :global(.remainder-fish) {
+            width: 88%;
+            height: 88%;
+            max-width: 100%;
+            max-height: 100%;
         }
 
         .group-title {
+
             margin-bottom: 5px;
+
             font-size: 10px;
+
         }
 
         /* MIMI */
@@ -2045,214 +2603,378 @@ import Header from "../../../components/Header.astro";
     const playAgainButton = document.getElementById("play-again")!;
 
     const exerciseInfo = document.querySelector(".exercise-info")!;
+
     const subexerciseButtons = document.querySelectorAll(".subexercise-button");
+
     const groupingContent = document.getElementById("grouping-content")!;
+
     const exerciseTitle = document.querySelector(".exercise-info h1")!;
+
     const exerciseDescription = document.querySelector(".exercise-info p")!;
+
     const subexercise01A = document.querySelectorAll(".subexercise-01a");
 
     /* ========================================
+
        01B · GROUPING GAME
+
     ======================================== */
 
     const pondArea = document.getElementById("pond-area") as HTMLDivElement;
+
     const fishLayer = document.getElementById("fish-layer") as HTMLDivElement;
+
     const net = document.getElementById("net") as HTMLDivElement;
+
     const fishGroups = document.getElementById("fish-groups") as HTMLDivElement;
+
     const groupingQuestion = document.getElementById("grouping-question") as HTMLDivElement;
+
     const groupingAnswers = document.getElementById("grouping-answers") as HTMLDivElement;
+
     const groupingMimiMessage = document.getElementById("grouping-mimi-message") as HTMLDivElement;
+
     const scoopEffect = document.getElementById("scoop-effect") as HTMLDivElement;
 
     let groupingActive = false;
+
     let groupingTotalFish = 0;
+
     let groupingRemaining = 0;
+
     let groupingCount = 0;
+
     let groupingQuestionNumber = 0;
+
     let groupingAnswering = false;
+
     let groupingCorrectGroups = 0;
+
     let groupingCorrectRemaining = 0;
+
     let netDragging = false;
+
     let netPointerOffsetX = 0;
+
     let netPointerOffsetY = 0;
 
-    const groupingTotals = [10, 14, 17, 20, 23, 27, 30, 34, 37, 40];
+    const groupingTotals = [10, 14, 16, 20, 23, 26, 30];
 
     function setGroupingMessage(message: string, wrong = false) {
+
         groupingMimiMessage.classList.toggle("wrong-message", wrong);
+
         groupingMimiMessage.innerHTML = `
+
             <strong>Mimi</strong>
+
             <p>${message}</p>
+
         `;
+
     }
 
     function randomGroupingTotal() {
+
         return groupingTotals[Math.floor(Math.random() * groupingTotals.length)];
+
     }
 
     function resetNetPosition() {
+
         net.style.left = "50%";
+
         net.style.top = "50%";
+
         net.style.transform = "translate(-50%, -50%) rotate(-8deg)";
+
     }
 
     function renderFish() {
+
         fishLayer.innerHTML = "";
 
-        const fishCount = Math.min(groupingRemaining, 50);
-        const cells = Array.from({ length: 50 }, (_, index) => index);
+        const fishCount = Math.min(groupingRemaining, 30);
 
-        // Acak posisi grid 10 kolom × 5 baris, lalu isi sebanyak ikan yang tersisa.
+        const cells = Array.from({ length: 32 }, (_, index) => index);
+
+        // Acak posisi grid 8 kolom × 4 baris, lalu isi sebanyak ikan yang tersisa.
+
         for (let i = cells.length - 1; i > 0; i--) {
+
             const j = Math.floor(Math.random() * (i + 1));
+
             [cells[i], cells[j]] = [cells[j], cells[i]];
+
         }
 
         // Maksimal 50% ikan menghadap kanan. Sisanya menghadap kiri.
+
         const leftIndices = Array.from({ length: fishCount }, (_, index) => index);
+
         const rightCount = Math.floor(fishCount / 2);
 
         for (let i = leftIndices.length - 1; i > 0; i--) {
+
             const j = Math.floor(Math.random() * (i + 1));
+
             [leftIndices[i], leftIndices[j]] = [leftIndices[j], leftIndices[i]];
+
         }
 
         const rightIndices = new Set(leftIndices.slice(0, rightCount));
 
         for (let i = 0; i < fishCount; i++) {
+
             const cell = cells[i];
-            const column = (cell % 10) + 1;
-            const row = Math.floor(cell / 10) + 1;
+
+            const column = (cell % 8) + 1;
+
+            const row = Math.floor(cell / 8) + 1;
 
             const fish = document.createElement("img");
+
             fish.className = rightIndices.has(i)
+
                 ? "pond-fish"
+
                 : "pond-fish facing-left";
+
             fish.src = "/assets/ikan.png";
+
             fish.alt = "Ikan";
+
             fish.draggable = false;
+
             fish.style.gridColumn = String(column);
+
             fish.style.gridRow = String(row);
+
             fish.style.setProperty(
+
                 "--fish-tilt",
+
                 Math.random() > 0.5 ? "4deg" : "-4deg",
+
             );
+
             fish.style.setProperty(
+
                 "--fish-delay",
+
                 `${-(Math.random() * 1.7).toFixed(2)}s`,
+
             );
+
             fishLayer.appendChild(fish);
+
         }
+
     }
 
-    function renderGroups() {
+    function renderGroups(remainderFish = 0) {
         fishGroups.innerHTML = "";
 
-        for (let i = 0; i < groupingCount; i++) {
+        // Tank kanan selalu memiliki tepat 4 grid besar (2 × 2).
+        // Setiap grid besar dibagi menjadi 2 baris × 3 kolom = 6 cell kecil.
+        for (let slot = 0; slot < 4; slot++) {
             const group = document.createElement("div");
             group.className = "fish-group";
 
-            const bundledFish = document.createElement("img");
-            bundledFish.className = "group-fish";
-            bundledFish.src = "/assets/ikan-bungkus.png";
-            bundledFish.alt = "10 ikan";
-            bundledFish.draggable = false;
+            const cellGrid = document.createElement("div");
+            cellGrid.className = "group-cell-grid";
 
-            group.appendChild(bundledFish);
+            const cells: HTMLDivElement[] = [];
+
+            for (let cell = 0; cell < 6; cell++) {
+                const cellElement = document.createElement("div");
+                cellElement.className = "group-cell";
+                cellGrid.appendChild(cellElement);
+                cells.push(cellElement);
+            }
+
+            group.appendChild(cellGrid);
+
+            // Satu kantong = satu kelompok 10 dan menempati satu grid besar.
+            if (slot < groupingCount) {
+                const bundledFish = document.createElement("img");
+                bundledFish.className = "group-fish";
+                bundledFish.src = "/assets/ikan-bungkus.png";
+                bundledFish.alt = "10 ikan";
+                bundledFish.draggable = false;
+                group.appendChild(bundledFish);
+            }
+
+            // Ikan sisa masuk ke grid BESAR berikutnya, langsung ke cell kecilnya.
+            // Urutan: 3 ikan di baris atas, lalu lanjut ke baris berikutnya.
+            if (slot === groupingCount && remainderFish > 0) {
+                for (let i = 0; i < remainderFish && i < cells.length; i++) {
+                    const fish = document.createElement("img");
+                    fish.className = "remainder-fish";
+                    fish.src = "/assets/ikan.png";
+                    fish.alt = "Ikan";
+                    fish.draggable = false;
+                    fish.style.setProperty(
+                        "--fish-tilt",
+                        Math.random() > 0.5 ? "4deg" : "-4deg",
+                    );
+                    fish.style.setProperty(
+                        "--fish-delay",
+                        `${-(Math.random() * 1.7).toFixed(2)}s`,
+                    );
+                    cells[i].appendChild(fish);
+                }
+            }
+
             fishGroups.appendChild(group);
         }
-
     }
 
     function formatGroupingAnswer(groups: number, remainder: number) {
+
         return remainder === 0
+
             ? `${groups} kelompok 10`
+
             : `${groups} kelompok 10 dan ${remainder} ikan`;
+
     }
 
     function prepareGroupingQuestion() {
+
         groupingQuestion.classList.remove("hidden");
+
         groupingAnswers.innerHTML = "";
+
         groupingAnswering = false;
 
         const correctText = formatGroupingAnswer(
+
             groupingCorrectGroups,
+
             groupingCorrectRemaining,
+
         );
+
         const choices = [correctText];
 
         while (choices.length < 4) {
+
             const groups = Math.max(1, groupingCorrectGroups + Math.floor(Math.random() * 3) - 1);
+
             const remainder = Math.floor(Math.random() * 8);
+
             const text = formatGroupingAnswer(groups, remainder);
 
             if (!choices.includes(text)) {
+
                 choices.push(text);
+
             }
+
         }
 
         choices.sort(() => Math.random() - 0.5);
 
         choices.forEach((choice) => {
+
             const button = document.createElement("button");
+
             button.type = "button";
+
             button.className = "grouping-answer";
+
             button.textContent = choice;
+
             button.addEventListener("click", () => checkGroupingAnswer(choice));
+
             groupingAnswers.appendChild(button);
+
         });
 
         setGroupingMessage("Sekarang, berapa kelompok 10 dan berapa ikan yang tersisa?");
+
     }
 
     function finishGroupingQuestion() {
+
         groupingQuestion.classList.add("hidden");
+
         groupingCount = 0;
+
         groupingRemaining = 0;
+
         groupingActive = false;
+
         resetNetPosition();
 
         if (groupingQuestionNumber >= totalQuestions) {
+
             window.location.href =
+
                 `/hasil-latihan?kelas=2&latihan=menghitung-benda&skor=${score}`;
+
             return;
+
         }
 
         startGroupingQuestion();
+
     }
 
     function checkGroupingAnswer(answer: string) {
+
         if (groupingAnswering) return;
+
         groupingAnswering = true;
 
         const correct =
+
             answer === formatGroupingAnswer(
+
                 groupingCorrectGroups,
+
                 groupingCorrectRemaining,
+
             );
 
         if (correct) {
+
             score += 10;
+
             scoreElement.textContent = String(score);
+
             setGroupingMessage("Hebat! Kamu sudah mengelompokkannya! 🎉");
+
             launchConfetti();
+
             setTimeout(finishGroupingQuestion, 700);
+
         } else {
+
             groupingAnswering = false;
+
             setGroupingMessage("Belum tepat. Coba perhatikan kelompok 10-nya lagi! 💪", true);
+
         }
+
     }
 
-    function scoopTenFish() {
-        if (!groupingActive || groupingRemaining < 10 || groupingAnswering) return;
+    function scoopFish() {
+        if (!groupingActive || groupingRemaining <= 0 || groupingAnswering) return;
 
+        const scoopCount = Math.min(10, groupingRemaining);
         const fish = Array.from(fishLayer.querySelectorAll(".pond-fish"));
-        fish.slice(0, 10).forEach((fishElement, index) => {
+
+        fish.slice(0, scoopCount).forEach((fishElement, index) => {
             setTimeout(() => fishElement.classList.add("caught"), index * 22);
         });
 
-        groupingRemaining -= 10;
-        groupingCount += 1;
+        groupingRemaining -= scoopCount;
+
+        if (scoopCount === 10) {
+            groupingCount += 1;
+        }
 
         scoopEffect.classList.remove("hidden");
         void scoopEffect.offsetWidth;
@@ -2260,136 +2982,228 @@ import Header from "../../../components/Header.astro";
 
         setTimeout(() => {
             renderFish();
-            renderGroups();
 
-            if (groupingRemaining < 10) {
-                // Sisa ikan tetap terlihat di kolam kiri.
+            const remainderFish =
+                groupingRemaining === 0 && scoopCount < 10 ? scoopCount : 0;
+
+            renderGroups(remainderFish);
+
+            if (groupingRemaining === 0) {
                 groupingActive = false;
                 net.style.cursor = "default";
                 prepareGroupingQuestion();
             } else {
-                setGroupingMessage("Bagus! Satu kelompok lagi berisi 10 ikan. 🎣");
+                setGroupingMessage(
+                    "Bagus! Satu kelompok lagi berisi 10 ikan. 🎣",
+                );
             }
         }, 350);
     }
 
     function netIsOverPond() {
+
         const netRect = net.getBoundingClientRect();
+
         const pondRect = pondArea.getBoundingClientRect();
+
         const cx = netRect.left + netRect.width / 2;
+
         const cy = netRect.top + netRect.height / 2;
+
         return (
+
             cx >= pondRect.left + 15 &&
+
             cx <= pondRect.right - 15 &&
+
             cy >= pondRect.top + 15 &&
+
             cy <= pondRect.bottom - 15
+
         );
+
     }
 
     function startGroupingQuestion() {
+
         groupingQuestionNumber++;
+
         progressElement.textContent = `Soal ${groupingQuestionNumber} / ${totalQuestions}`;
+
         groupingTotalFish = randomGroupingTotal();
+
         groupingRemaining = groupingTotalFish;
+
         groupingCount = 0;
+
         groupingCorrectGroups = Math.floor(groupingTotalFish / 10);
+
         groupingCorrectRemaining = groupingTotalFish % 10;
+
         groupingActive = true;
+
         groupingAnswering = false;
+
         groupingQuestion.classList.add("hidden");
+
         net.style.cursor = "grab";
+
         resetNetPosition();
+
         renderFish();
+
         fishGroups.innerHTML = "";
-        setGroupingMessage("Ayo jaring ikan! Sekali menjaring, dapat 10 ikan. 🎣");
+
+        setGroupingMessage("Ayo jaring ikan! Sekali menjaring, dapat 10 ikan. Jika tersisa kurang dari 10, jaring semuanya. 🎣");
+
     }
 
     function activateGroupingMode() {
+
         groupingQuestionNumber = 0;
+
         startGroupingQuestion();
+
     }
 
     function updateNetPosition(clientX: number, clientY: number) {
+
         const rect = pondArea.getBoundingClientRect();
+
         const x = Math.max(48, Math.min(rect.width - 48, clientX - rect.left - netPointerOffsetX));
+
         const y = Math.max(55, Math.min(rect.height - 55, clientY - rect.top - netPointerOffsetY));
+
         net.style.left = `${x}px`;
+
         net.style.top = `${y}px`;
+
         net.style.transform = "translate(-50%, -50%) rotate(-8deg)";
+
     }
 
     net.addEventListener("pointerdown", (event) => {
-        if (!groupingActive || groupingRemaining < 10) return;
+
+        if (!groupingActive || groupingRemaining <= 0) return;
+
         netDragging = true;
+
         net.setPointerCapture(event.pointerId);
+
         const netRect = net.getBoundingClientRect();
+
         netPointerOffsetX = event.clientX - (netRect.left + netRect.width / 2);
+
         netPointerOffsetY = event.clientY - (netRect.top + netRect.height / 2);
+
         net.classList.add("dragging");
+
     });
 
     net.addEventListener("pointermove", (event) => {
+
         if (!netDragging) return;
+
         updateNetPosition(event.clientX, event.clientY);
+
     });
 
     net.addEventListener("pointerup", () => {
+
         if (!netDragging) return;
+
         netDragging = false;
+
         net.classList.remove("dragging");
 
         if (netIsOverPond()) {
-            scoopTenFish();
+
+            scoopFish();
+
         } else {
+
             resetNetPosition();
+
         }
+
     });
 
     net.addEventListener("keydown", (event) => {
+
         if ((event.key === "Enter" || event.key === " ") && groupingActive) {
+
             event.preventDefault();
-            scoopTenFish();
+
+            scoopFish();
+
         }
+
     });
 
 
+
     /* ========================================
+
        SUB LATIHAN
+
     ======================================== */
 
     function switchSubexercise(subexercise: string) {
+
         subexerciseButtons.forEach((button) => {
+
             const isActive =
+
                 (button as HTMLButtonElement).dataset.subexercise === subexercise;
 
             button.classList.toggle("active", isActive);
+
             button.setAttribute("aria-selected", String(isActive));
+
         });
 
         if (subexercise === "01B") {
+
             subexercise01A.forEach((element) => element.classList.add("hidden"));
+
             groupingContent.classList.remove("hidden");
+
             exerciseTitle.textContent = "Menghitung dengan Mengelompokkan";
+
             exerciseDescription.textContent =
+
                 "Jaring ikan menjadi kelompok 10.";
+
             activateGroupingMode();
+
         } else {
+
             groupingContent.classList.add("hidden");
+
             subexercise01A.forEach((element) => element.classList.remove("hidden"));
 
             exerciseTitle.textContent = "Menghitung Benda di Alam";
+
             exerciseDescription.textContent =
+
                 "Hitung jumlah benda yang ada di gambar.";
+
         }
+
     }
 
     subexerciseButtons.forEach((button) => {
+
         button.addEventListener("click", () => {
+
             const subexercise =
+
                 (button as HTMLButtonElement).dataset.subexercise || "01A";
 
             switchSubexercise(subexercise);
+
         });
+
     });
 
     /* ========================================
