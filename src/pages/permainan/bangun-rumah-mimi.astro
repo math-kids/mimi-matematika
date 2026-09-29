@@ -1,0 +1,1256 @@
+---
+
+import MainLayout from "../../layouts/MainLayout.astro";
+
+import Header from "../../components/Header.astro";
+
+---
+
+<MainLayout title="Bangun Rumah Mimi — Mimi Matematika">
+
+ <Header />
+
+ <main class="game-page">
+
+<div class="game-body">
+
+<div class="game-topbar">
+
+<a href="/permainan">← Kembali ke permainan</a>
+
+<span>🏠 Game Mimi</span>
+
+<span></span>
+
+</div>
+
+            <section class="game-content">
+
+                <!-- INTRO -->
+
+                <div id="game-intro">
+
+                    <div class="game-icon">🏠</div>
+
+                    <h1>Bangun Rumah Mimi</h1>
+
+                    <button id="start-game" class="start-game-button" type="button">
+
+                        <span>🪑</span>
+
+                        <strong>Mulai Game</strong>
+
+                        <span>▶</span>
+
+                    </button>
+
+                </div>
+
+                <!-- GAME -->
+
+                <div id="house-game" class="house-game hidden">
+
+                    <div class="house-title-row">
+
+                        <h1>🏠 Bangun Rumah Mimi</h1>
+
+                    </div>
+
+                    <!-- MAIN GAME AREA — IXL-STYLE DECORATION SCREEN -->
+
+                    <div class="game-stage">
+
+                        <div class="decorate-card">
+<!-- LARGE HOUSE / PLAY AREA -->
+
+                            <div class="stage-main">
+
+                                <div class="house-screen">
+
+                                    <div class="house-screen-top">
+
+                                        <span class="house-screen-title">👆 klik furniture, lalu klik ruangan.</span>
+
+                                    </div>
+
+                                    <div id="house-board" class="house-board" aria-label="Rumah Mimi">
+    <img id="house-base" class="house-base" src="/assets/dekorumah/rumah.png" alt="Rumah Mimi" draggable="false" />
+    <div id="room-grids" class="room-grids" aria-hidden="false">
+        <!-- ROOM TILES: these define the exact usable floor area of each room. Each room uses its own grid dimensions. -->
+        <div class="room-tile" data-tile-room="kamar" data-room-pos="top-left"><div class="room-grid" data-grid-room="kamar"></div></div>
+        <div class="room-tile" data-tile-room="dapur" data-room-pos="top-right"><div class="room-grid" data-grid-room="dapur"></div></div>
+        <div class="room-tile" data-tile-room="ruang-tamu" data-room-pos="bottom-left"><div class="room-grid" data-grid-room="ruang-tamu"></div></div>
+        <div class="room-tile" data-tile-room="perpustakaan" data-room-pos="bottom-right"><div class="room-grid" data-grid-room="perpustakaan"></div></div>
+    </div>
+    <div id="placed-items" class="placed-items"></div>
+</div>
+
+<!-- FLOATING FURNITURE PANEL -->
+
+                                    <div id="furniture-panel" class="furniture-panel">
+                                <div class="mouse-coord-display" id="mouse-coord-display">Mouse: —</div>
+                                <div class="room-tabs-bottom" role="tablist" aria-label="Pilih ruangan">
+                                    <button class="room-tab active" type="button" data-room="kamar" role="tab" aria-selected="true">
+                                        <span class="room-tab-icon">🛏️</span>
+                                        <span class="room-tab-label">Kamar</span>
+                                    </button>
+                                    <button class="room-tab" type="button" data-room="dapur" role="tab" aria-selected="false">
+                                        <span class="room-tab-icon">🍳</span>
+                                        <span class="room-tab-label">Dapur</span>
+                                    </button>
+                                    <button class="room-tab" type="button" data-room="ruang-tamu" role="tab" aria-selected="false">
+                                        <span class="room-tab-icon">🛋️</span>
+                                        <span class="room-tab-label">Ruang Tamu</span>
+                                    </button>
+                                    <button class="room-tab" type="button" data-room="perpustakaan" role="tab" aria-selected="false">
+                                        <span class="room-tab-icon">📚</span>
+                                        <span class="room-tab-label">Perpustakaan</span>
+                                    </button>
+                                </div>
+<!-- KAMAR -->
+<div class="room-content active" data-content="kamar">
+    <div class="asset-group">
+        <span class="asset-group-title">🛏️ Bed — 3×4 grid</span>
+        <div class="asset-row">
+            { ["bed1", "bed2"].map((name) => (
+                <button class="asset-card" type="button" data-type="bed" data-src={`/assets/dekorumah/kamar/${name}.png`}>
+                    <img src={`/assets/dekorumah/kamar/${name}.png`} alt={name} draggable="false" />
+                </button>
+            )) }
+        </div>
+    </div>
+    <div class="asset-group">
+        <span class="asset-group-title">🧸 Rug — 4×4 grid</span>
+        <div class="asset-row">
+            { ["rug1", "rug2", "rug3"].map((name) => (
+                <button class="asset-card" type="button" data-type="rug" data-src={`/assets/dekorumah/kamar/${name}.png`}>
+                    <img src={`/assets/dekorumah/kamar/${name}.png`} alt={name} draggable="false" />
+                </button>
+            )) }
+        </div>
+    </div>
+    <div class="asset-group">
+        <span class="asset-group-title">🪑 Furniture Kamar</span>
+        <div class="asset-row">
+            { [
+                "bangku1", "bantal1", "bantal2", "bantal3",
+                "bufet1", "kotak-main1",
+                "lemari1", "lemari2", "meja-belajar1", "meja-rias1",
+                "nakas1", "nakas2", "tanaman1"
+            ].map((name) => (
+                <button
+  class="asset-card"
+  type="button"
+  data-type={
+    (name === "lemari1" || name === "lemari2")
+      ? "wardrobe"
+      : (["nakas1","nakas2","meja-rias1","meja-belajar1"].includes(name)
+          ? "tallDecor"
+          : "decor")
+  }
+  data-src={`/assets/dekorumah/kamar/${name}.png`}
+>
+  <img
+    src={`/assets/dekorumah/kamar/${name}.png`}
+    alt={name}
+    draggable="false"
+  />
+</button>
+            )) }
+        </div>
+    </div>
+</div>
+
+<!-- DAPUR -->
+<div class="room-content" data-content="dapur">
+    <div class="asset-group">
+        <span class="asset-group-title">🍽️ Meja Makan — 5×4 grid</span>
+        <div class="asset-row">
+            <button class="asset-card" type="button" data-type="diningTable" data-src="/assets/dekorumah/dapur/meja-makan1.png">
+                <img src="/assets/dekorumah/dapur/meja-makan1.png" alt="meja-makan1" draggable="false" />
+            </button>
+        </div>
+    </div>
+    <div class="asset-group">
+        <span class="asset-group-title">🧶 Karpet</span>
+        <div class="asset-row">
+            { [ "rug-makan2"].map((name) => (
+                <button class="asset-card" type="button" data-type="diningRug" data-src={`/assets/dekorumah/dapur/${name}.png`}>
+                    <img src={`/assets/dekorumah/dapur/${name}.png`} alt={name} draggable="false" />
+                </button>
+            )) }
+        </div>
+    </div>
+    <div class="asset-group">
+        <span class="asset-group-title">🪵 Bufet & Kursi Makan</span>
+        <div class="asset-row">
+            { ["bufet-makan1", "bufet-makan2"].map((name) => (
+                <button class="asset-card" type="button" data-type="diningBuffet" data-src={`/assets/dekorumah/dapur/${name}.png`}>
+                    <img src={`/assets/dekorumah/dapur/${name}.png`} alt={name} draggable="false" />
+                </button>
+            )) }
+        </div>
+    </div>
+    <div class="asset-group">
+        <span class="asset-group-title">🛒 Troli Makan — 2×3 grid</span>
+        <div class="asset-row">
+            { ["troli-makan1", "troli-makan2"].map((name) => (
+                <button class="asset-card" type="button" data-type="diningTrolley" data-src={`/assets/dekorumah/dapur/${name}.png`}>
+                    <img src={`/assets/dekorumah/dapur/${name}.png`} alt={name} draggable="false" />
+                </button>
+            )) }
+        </div>
+    </div>
+    <div class="asset-group">
+        <span class="asset-group-title">🌿 Tanaman Indoor</span>
+        <div class="asset-row">
+            { ["tanaman-makan2", "tanaman-makan3"].map((name) => (
+                <button class="asset-card" type="button" data-type="diningPlant" data-src={`/assets/dekorumah/dapur/${name}.png`}>
+                    <img src={`/assets/dekorumah/dapur/${name}.png`} alt={name} draggable="false" />
+                </button>
+            )) }
+        </div>
+    </div>
+    <div class="asset-group">
+        <span class="asset-group-title">🖼️ Hiasan Dinding</span>
+        <div class="asset-row">
+            { ["lukisan1", "lukisan2", "lukisan3", "lukisan4"].map((name) => (
+                <button class="asset-card" type="button" data-type="wallArt" data-src={`/assets/dekorumah/dapur/${name}.png`}>
+                    <img src={`/assets/dekorumah/dapur/${name}.png`} alt={name} draggable="false" />
+                </button>
+            )) }
+        </div>
+    </div>
+    <div class="asset-group">
+        <span class="asset-group-title">🐢🐱 Peliharaan</span>
+        <div class="asset-row">
+            { ["pet-kura1", "kucing"].map((name) => (
+                <button class="asset-card" type="button" data-type="pet" data-src={`/assets/dekorumah/dapur/${name}.png`}>
+                    <img src={`/assets/dekorumah/dapur/${name}.png`} alt={name} draggable="false" />
+                </button>
+            )) }
+        </div>
+    </div>
+    <div class="asset-group">
+        <span class="asset-group-title">🥣 Tempat Makan & Minum</span>
+        <div class="asset-row">
+            { ["makan-kura1", "minum-kura1"].map((name) => (
+                <button class="asset-card" type="button" data-type={name === "makan-kura1" ? "petBowl" : "petWater"} data-src={`/assets/dekorumah/dapur/${name}.png`}>
+                    <img src={`/assets/dekorumah/dapur/${name}.png`} alt={name} draggable="false" />
+                </button>
+            )) }
+        </div>
+    </div>
+</div>
+
+<!-- RUANG TAMU -->
+<div class="room-content" data-content="ruang-tamu">
+    <div class="asset-group">
+        <span class="asset-group-title">🛋️ Furniture Ruang Tamu</span>
+        <div class="asset-row">
+            { ["sofa", "meja-tamu", "bufet1", "monstera", "meja-akuarium-ikan"].map((name) => (
+                <button class="asset-card" type="button" data-type={name === "sofa" ? "sofa" : (name === "meja-akuarium-ikan" ? "aquariumTable" : (name === "meja-tamu" ? "coffeeTable" : (name === "monstera" ? "largePlant" : "livingBuffet")))} data-src={`/assets/dekorumah/ruang-tamu/${name}.png`}>
+                    <img src={`/assets/dekorumah/ruang-tamu/${name}.png`} alt={name} draggable="false" />
+                </button>
+            )) }
+        </div>
+    </div>
+</div>
+
+<!-- PERPUSTAKAAN -->
+<div class="room-content" data-content="perpustakaan">
+    <div class="asset-group">
+        <span class="asset-group-title">📚 Furniture Perpustakaan</span>
+        <div class="asset-row">
+            
+            <button class="asset-card" type="button" data-type="lampu" data-src="/assets/dekorumah/perpustakaan/lampu1.png">
+                <img src="/assets/dekorumah/perpustakaan/lampu1.png" alt="lampu1" draggable="false" />
+            </button>
+            { ["rak-buku1", "rak-buku2"].map((name) => (
+                <button class="asset-card" type="button" data-type="tallDecor" data-src={`/assets/dekorumah/perpustakaan/${name}.png`}>
+                    <img src={`/assets/dekorumah/perpustakaan/${name}.png`} alt={name} draggable="false" />
+                </button>
+            )) }
+            <button class="asset-card" type="button" data-type="diningPlant" data-src="/assets/dekorumah/perpustakaan/tanaman-makan1.png">
+                <img src="/assets/dekorumah/perpustakaan/tanaman-makan1.png" alt="tanaman-makan1" draggable="false" />
+            </button>
+        </div>
+    </div>
+</div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                </div>
+
+                </div>
+
+                <!-- RESULT -->
+
+                <div id="game-result" class="game-result hidden"></div>
+
+            </section>
+
+        </div>
+
+
+        <footer class="site-footer">
+
+            <div class="footer-inner">
+
+                <div class="footer-brand">
+
+                    <img src="/assets/mimi.png" alt="Mimi Matematika" />
+
+                    <div>
+
+                        <strong>Mimi Matematika</strong>
+
+                        <span>Langkah kecil hari ini, prestasi besar nanti.</span>
+
+                    </div>
+
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="/belajar">Belajar</a>
+
+                    <a href="/ngobrol">Mimi Ngobrol</a>
+
+                    <a href="/permainan">Permainan</a>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">© 2026 Mimi Matematika</div>
+
+        </footer>
+
+    </main>
+
+</MainLayout>
+
+<style>
+  .game-page{width:100%;max-width:1180px;min-height:calc(100vh - 80px);margin:0 auto;padding:10px 20px 0;background:#f3faf5;display:flex;flex-direction:column;box-sizing:border-box}
+  .game-body{flex:1;display:flex;flex-direction:column}
+  .game-topbar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin-bottom:8px;font-size:12px}
+  .game-topbar a{color:#39704b;text-decoration:none;font-weight:700}.game-topbar span{color:#718078;font-weight:700}
+  .game-content{flex:1;width:100%;text-align:center;display:flex;flex-direction:column;align-items:center}
+  #game-intro{display:flex;flex-direction:column;align-items:center}.game-icon{font-size:52px;line-height:1;margin:8px 0}
+  .game-content h1{margin:0;color:#173f4b;font-size:28px;line-height:1.15}.game-intro-text{margin:6px 0 16px;color:#718078;font-size:13px}
+  .start-game-button{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:48px;padding:0 24px;border:0;border-radius:15px;background:#dcecdf;color:#39704b;font-size:14px;font-weight:700;cursor:pointer}
+  .start-game-button:hover{transform:translateY(-2px)}.hidden{display:none!important}
+  .house-game{width:100%;display:flex;flex-direction:column;align-items:center}.house-title-row{width:100%;display:flex;justify-content:center;margin:2px 0 0}.house-title-row h1{margin:0}
+  .game-hint{margin:5px 0 10px;color:#718078;font-size:11px}
+  .game-stage{width:min(100%,1240px);display:flex;justify-content:center}
+  .decorate-card{width:100%;padding:10px;display:block;background:#fffdf9;border:2px solid #eadfce;border-radius:22px;box-shadow:0 7px 22px rgba(91,70,54,.10);box-sizing:border-box}
+  .furniture-sidebar{display:none}
+  .furniture-tools{display:none}
+  .room-tabs-vertical{display:none}.room-tabs-bottom{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding:0 0 5px}.room-tab{min-width:0;min-height:46px;padding:5px 8px;border:0;border-radius:10px;background:rgba(255,255,255,.14);color:#fff;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;font-family:inherit;text-align:center}.room-tab:hover{background:rgba(255,255,255,.24)}.room-tab.active{background:#8e35ba;box-shadow:inset 0 -3px 0 #fff}
+  .room-tab-icon{width:34px;height:34px;flex:0 0 34px;display:flex;align-items:center;justify-content:center;border-radius:9px;background:rgba(255,255,255,.92);font-size:18px}.room-tab-label{font-size:11px;line-height:1.1;font-weight:800}
+  .stage-main{position:relative;min-width:0;display:block}.house-screen{position:relative;width:100%;overflow:hidden;border-radius:16px;background:#ffe39b;border:1px solid #f0ce76;display:flex;flex-direction:column;align-items:center;padding:42px 18px 18px;box-sizing:border-box}
+  .house-screen-top{position:absolute;top:10px;left:14px;right:14px;z-index:70;display:flex;align-items:center;justify-content:space-between;pointer-events:none}.house-screen-title{color:#8c5d25;font-size:17px;font-weight:800}.house-screen-actions{display:flex;gap:5px;pointer-events:auto}.house-screen-actions button{width:32px;height:32px;border:0;border-radius:50%;background:#f3a322;color:#fff;font-size:17px;font-weight:800;cursor:pointer}
+  .house-board{position:relative;width:min(100%,980px);aspect-ratio:3/2;overflow:hidden;background:#ffe39b;border-radius:12px;touch-action:none;user-select:none;flex:none}
+  .house-base{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;user-select:none;z-index:1}
+  .room-grids{position:absolute;inset:0;z-index:50;pointer-events:none}.room-tile{position:absolute;box-sizing:border-box;pointer-events:none}.room-tile[data-room-pos=top-left]{left:18.3%;top:5.875%;width:27.7875%;height:35.2125%}.room-tile[data-room-pos=top-right]{left:48.4%;top:9.9875%;width:33.9625%;height:31.3%}.room-tile[data-room-pos=bottom-left]{left:16.5%;top:43.0%;width:30.875%;height:31.3%}.room-tile[data-room-pos=bottom-right]{left:57.6%;top:42.9%;width:24.7%;height:31.3%}.room-grid{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;transform:none;cursor:pointer;box-sizing:border-box;border:2px solid rgba(104,74,48,.28);background-image:linear-gradient(to right,rgba(104,74,48,.18) 1px,transparent 1px),linear-gradient(to bottom,rgba(104,74,48,.18) 1px,transparent 1px);background-size:var(--cell-w) var(--cell-h);opacity:.52;transition:opacity .12s ease,background-color .12s ease;pointer-events:auto;--grid-cols:8;--grid-rows:8;--cell-w:12.5%;--cell-h:12.5%;--hover-col:-1;--hover-row:-1}.room-grid[data-grid-room="kamar"]{--grid-cols:9;--grid-rows:9;--cell-w:11.111111%;--cell-h:11.111111%}.room-grid[data-grid-room="ruang-tamu"]{--grid-cols:10;--grid-rows:8;--cell-w:10%;--cell-h:12.5%;background-size:10% 12.5%}.room-grid[data-grid-room="dapur"]{
+    --grid-cols:11;
+    --grid-rows:8;
+    --cell-w:9.090909%;
+    --cell-h:12.5%;
+    width:100%;
+    height:100%;
+    clip-path:none;
+    background-size:9.090909% 12.5%;
+}.room-grid.active{opacity:.72;background-color:rgba(255,255,255,.06)}.room-grid:hover{background-color:rgba(255,255,255,.10);opacity:.8}.room-grid.grid-hovering::after{content:"";position:absolute;left:calc(var(--hover-col) * var(--cell-w));top:calc(var(--hover-row) * var(--cell-h));width:var(--cell-w);height:var(--cell-h);box-sizing:border-box;border:2px solid rgba(255,255,255,.95);background:rgba(255,255,255,.18);box-shadow:inset 0 0 0 1px rgba(104,74,48,.18);pointer-events:none;z-index:5}.room-grid.footprint-preview::before{content:"";position:absolute;left:calc(var(--hover-col) * (100% / var(--grid-cols)));top:calc(var(--hover-row) * (100% / var(--grid-rows)));width:calc(var(--hover-cols) * var(--cell-w));height:calc(var(--hover-rows) * var(--cell-h));box-sizing:border-box;border:2px solid rgba(210,35,35,.95);background:rgba(210,35,35,.10);pointer-events:none;z-index:6}.room-grid.footprint-invalid::before{border-color:rgba(210,35,35,.98);background:rgba(210,35,35,.20);border-style:dashed} .grid-mouse-coord{position:absolute;z-index:80;left:calc(var(--mouse-col) * var(--cell-w));top:calc(var(--mouse-row) * var(--cell-h));width:var(--cell-w);height:var(--cell-h);box-sizing:border-box;display:flex;align-items:center;justify-content:center;pointer-events:none;transform:none;color:#fff;font:700 12px/1 Arial,sans-serif;text-shadow:0 1px 2px rgba(0,0,0,.75);background:rgba(210,35,35,.82);border:1px solid rgba(255,255,255,.95);border-radius:4px;white-space:nowrap;}
+  .placed-items{position:absolute;inset:0;z-index:60;pointer-events:none}.placed-item{position:absolute;object-fit:contain;transform:none;cursor:pointer;pointer-events:auto;user-select:none;-webkit-user-drag:none;filter:drop-shadow(0 4px 4px rgba(75,55,38,.15));touch-action:none;box-sizing:border-box}.placed-item.selected{z-index:100;outline:3px solid rgba(255,255,255,.9);outline-offset:2px;filter:drop-shadow(0 7px 7px rgba(75,55,38,.28))}.placed-item.dragging{cursor:pointer;z-index:100;filter:drop-shadow(0 7px 7px rgba(75,55,38,.22))}
+  .room-grid > .origin-marker{position:absolute;z-index:5;width:12.5%;height:12.5%;box-sizing:border-box;border:2px solid #e53935;background:rgba(229,57,53,.12);pointer-events:none;display:flex;align-items:flex-start;justify-content:flex-start;}
+  .origin-marker::before{content:"";width:8px;height:8px;margin:3px;border-radius:50%;background:#e53935;border:1px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.28);box-sizing:border-box;}
+  .origin-marker::after{content:"0,0";position:absolute;left:13px;top:1px;font:700 9px/12px Arial,sans-serif;color:#e53935;background:rgba(255,255,255,.92);padding:0 2px;border-radius:3px;white-space:nowrap;box-shadow:0 1px 2px rgba(0,0,0,.12);}
+  .furniture-panel{width:100%;max-width:980px;margin:6px auto 0;padding:7px;border-radius:14px;background:#c75bea;border:1px solid rgba(255,255,255,.2);box-shadow:0 5px 16px rgba(91,42,111,.18);color:#fff;text-align:left;box-sizing:border-box}
+  .mouse-coord-display{display:flex;align-items:center;justify-content:center;min-height:28px;margin:0 0 6px;padding:4px 10px;border-radius:9px;background:rgba(92,32,122,.34);border:1px solid rgba(255,255,255,.28);color:#fff;font:700 12px/1 Arial,sans-serif;letter-spacing:.2px;box-sizing:border-box}
+  .panel-heading{min-height:28px;display:flex;align-items:center;margin-bottom:6px}.panel-heading-text strong{display:block;color:#fff;font-size:11px}.panel-heading-text span{display:block;margin-top:2px;color:rgba(255,255,255,.78);font-size:8px}
+  .room-content{display:none}.room-content.active{display:block}.asset-group{margin-bottom:5px}.asset-group:last-child{margin-bottom:0}.asset-group-title{display:none;margin-bottom:4px;color:rgba(255,255,255,.9);font-size:9px;font-weight:800}.asset-row{display:flex;flex-wrap:wrap;gap:6px}
+  .asset-card{width:var(--thumb-size,40px);height:var(--thumb-size,40px);padding:4px;border:1px solid rgba(255,255,255,.42);border-radius:9px;background:rgba(255,255,255,.13);cursor:pointer;touch-action:none;box-sizing:border-box}.asset-card:hover{background:rgba(255,255,255,.25);transform:translateY(-2px)}.asset-card.selected{background:#8e35ba;border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.35)}.asset-card img{width:100%;height:100%;object-fit:contain;pointer-events:none;user-select:none;-webkit-user-drag:none}
+  .empty-room{display:flex;align-items:center;gap:7px;padding:8px;border-radius:9px;background:rgba(255,255,255,.10);font-size:9px}.empty-room-icon{font-size:18px}.empty-room strong{font-size:10px}.empty-room span{opacity:.8}
+  .game-result{padding:24px;text-align:center}.game-result-icon{font-size:50px;margin-bottom:8px}.game-result-score{margin:12px 0;font-weight:800;color:#39704b}
+  .site-footer{margin-top:18px}.footer-inner{display:flex;justify-content:space-between;gap:20px}.footer-brand{display:flex;gap:8px;align-items:center}.footer-brand img{width:34px;height:34px}.footer-brand strong,.footer-brand span{display:block}.footer-brand strong{font-size:12px}.footer-brand span{font-size:9px;color:#718078}.footer-links{display:flex;gap:12px;align-items:center}.footer-links a{font-size:10px;color:#39704b;text-decoration:none}.footer-bottom{text-align:center;padding:8px;font-size:9px;color:#718078}
+  @media(max-width:800px){.game-page{padding-left:10px;padding-right:10px}.decorate-card{padding:7px}.house-screen{padding:38px 7px 7px}.house-board{width:100%}.furniture-panel{margin-top:7px}.room-tab{min-height:42px}.room-tab-label{font-size:9px}.footer-inner{flex-direction:column}}.decorate-card{grid-template-columns:88px minmax(0,1fr);padding:7px;gap:7px}.room-tab{min-height:52px}.room-tab-icon{width:28px;height:28px;flex-basis:28px;font-size:15px}.room-tab-label{font-size:9px}.furniture-panel{margin-top:6px}.house-screen{padding:38px 7px 7px}.house-board{width:100%}.footer-inner{flex-direction:column}}
+  @media(max-width:560px){.room-tabs-bottom{gap:4px}.room-tab{min-height:40px;padding:4px 3px;gap:3px}.room-tab-icon{font-size:15px}.room-tab-label{font-size:8px}.game-content h1{font-size:22px}.game-hint{font-size:10px}}.furniture-tools{justify-content:center}.tool-tab{width:32px;height:32px;font-size:15px}.room-tab{justify-content:center;min-height:48px}.room-tab-label{display:none}.room-tab-icon{margin:0}.game-content h1{font-size:22px}.game-hint{font-size:10px}}
+
+  /* COMPACT FURNITURE TRAY */
+  .furniture-panel{padding:6px;margin-top:5px}
+  .room-tabs-bottom{padding-bottom:4px}
+  .panel-heading{display:none!important}
+  .asset-group-title{display:none!important}
+  .asset-row{gap:5px}
+  .asset-card{padding:3px}
+
+  /* ===== BANGUN RUMAH — LAYOUT DISELARASKAN DENGAN DOKTER GIGI ===== */
+  .game-page{
+    width:100%;
+    max-width:1180px;
+    min-height:calc(100vh - 80px);
+    margin:0 auto;
+    padding:0 24px 0;
+    background:#f3faf5;
+    display:flex;
+    flex-direction:column;
+    box-sizing:border-box;
+  }
+  .game-body{flex:1;display:flex;flex-direction:column}
+  .game-topbar{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    margin-bottom:0;
+    font-size:12px;
+  }
+  .game-content{
+    flex:1;
+    width:100%;
+    max-width:none;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+  }
+  .house-game{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .house-title-row{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0;
+    padding:0;
+  }
+  .game-hint{
+    margin:5px 0 8px;
+    color:#718078;
+    font-size:11px;
+    line-height:1.5;
+  }
+  .game-stage{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin-top:0;
+  }
+  .decorate-card{
+    width:100%;
+    padding:0;
+    display:block;
+    background:transparent;
+    border:0;
+    border-radius:0;
+    box-shadow:none;
+    box-sizing:border-box;
+  }
+  .stage-main{position:relative;min-width:0;display:block}
+  .house-screen{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+    border-radius:24px;
+    background:#ffe39b;
+    border:4px solid #d8ad68;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:32px 18px 18px;
+    box-sizing:border-box;
+  }
+  .house-screen-title{color:#8c5d25;font-size:17px;font-weight:800}
+  .house-screen-actions button{
+    background:#c98232;
+  }
+  .house-board{
+    position:relative;
+    width:min(100%,980px);
+    aspect-ratio:3/2;
+    overflow:hidden;
+    background:#ffe39b;
+    border-radius:16px;
+    touch-action:none;
+    user-select:none;
+    flex:none;
+  }
+
+  /* Panel furniture: dari ungu -> palet kayu/coklat */
+  .furniture-panel{
+    width:min(100%,980px);
+    max-width:980px;
+    margin:8px auto 0;
+    padding:7px;
+    border-radius:14px;
+    background:#9b642f;
+    border:1px solid #c18a4d;
+    box-shadow:0 5px 16px rgba(91,58,29,.20);
+    color:#fff8ed;
+    text-align:left;
+    box-sizing:border-box;
+  }
+  .mouse-coord-display{
+    background:rgba(76,43,20,.34);
+    border:1px solid rgba(255,244,220,.30);
+    color:#fff8ed;
+  }
+  .room-tab{
+    background:rgba(255,244,220,.13);
+    color:#fff8ed;
+  }
+  .room-tab:hover{background:rgba(255,244,220,.24)}
+  .room-tab.active{
+    background:#6f4524;
+    box-shadow:inset 0 -3px 0 #fff8ed;
+  }
+  .room-tab-icon{background:rgba(255,250,241,.94)}
+  .asset-card{
+    background:rgba(255,244,220,.13);
+    border-color:rgba(255,244,220,.42);
+  }
+  .asset-card:hover{background:rgba(255,244,220,.25)}
+  .asset-card.selected{
+    background:#6f4524;
+    border-color:#fff8ed;
+    box-shadow:0 0 0 2px rgba(255,248,237,.35);
+  }
+
+  /* ===== DESKTOP COMPACT — POSISI MAKSIMAL MENDEKATI GAME DOKTER GIGI ===== */
+  @media(min-width:769px){
+    .game-page{padding-top:0}
+    .game-topbar{margin-bottom:0}
+    .game-content{justify-content:flex-start}
+    .house-title-row{margin-top:0}
+    .game-stage{margin-top:0}
+    .house-screen{padding-top:32px}
+  }
+
+  /* Mobile: sama prinsip Dokter Gigi — full width tanpa frame samping */
+  @media(max-width:768px){
+    .game-page{
+      width:100%;
+      max-width:none;
+      min-height:100svh;
+      padding:0;
+      background:#f3faf5;
+    }
+    .game-body{flex:0 0 auto;width:100%}
+    .game-topbar{
+      width:100%;
+      padding:6px 10px 4px;
+      margin:0;
+      font-size:10px;
+      background:#f3faf5;
+      box-sizing:border-box;
+    }
+    .game-content{
+      width:100%;
+      max-width:none;
+      flex:0 0 auto;
+      align-items:stretch;
+      padding:0;
+      margin:0;
+    }
+    .house-game{
+      width:100%;
+      flex:1 1 auto;
+      padding:0;
+      margin:0;
+      min-width:0;
+    }
+    .house-title-row{
+      width:100%;
+      padding:6px 0;
+      margin:0;
+      background:#f3faf5;
+      border-bottom:2px solid #e0eee5;
+      flex-shrink:0;
+    }
+    .house-title-row h1{font-size:25px}
+    .game-hint{
+      width:100%;
+      margin:0;
+      padding:3px 0;
+      font-size:9px;
+      background:#f3faf5;
+      border-bottom:1px solid #e0eee5;
+      flex-shrink:0;
+    }
+    .game-stage{width:100%;display:block}
+    .decorate-card{width:100%;padding:0}
+    .house-screen{
+      width:100%;
+      border-radius:0;
+      border:0;
+      padding:7px;
+      background:#ffe39b;
+    }
+    .house-screen-top{
+      top:7px;
+      left:10px;
+      right:10px;
+    }
+    .house-screen-title{font-size:13px}
+    .house-screen-actions button{
+      width:28px;
+      height:28px;
+      font-size:15px;
+    }
+    .house-board{
+      width:100%;
+      border-radius:12px;
+    }
+    .furniture-panel{
+      width:100%;
+      max-width:none;
+      margin:7px 0 0;
+      border-radius:0;
+      border-left:0;
+      border-right:0;
+      box-shadow:none;
+      padding:6px;
+    }
+    .room-tabs-bottom{gap:4px}
+    .room-tab{min-height:40px;padding:4px 3px;gap:3px}
+    .room-tab-icon{font-size:15px}
+    .room-tab-label{font-size:8px}
+  }
+
+</style>
+
+<script>
+
+    const intro = document.getElementById("game-intro") as HTMLDivElement;
+
+    const startButton = document.getElementById("start-game") as HTMLButtonElement;
+
+    const houseGame = document.getElementById("house-game") as HTMLDivElement;
+
+    const board = document.getElementById("house-board") as HTMLDivElement;
+
+    const placedItems = document.getElementById("placed-items") as HTMLDivElement;
+
+    const resultScreen = document.getElementById("game-result") as HTMLDivElement;
+
+    const panelTitle = document.getElementById("panel-title") as HTMLElement;
+
+    const panelSubtitle = document.getElementById("panel-subtitle") as HTMLElement;
+
+    type FurnitureType = "bed" | "rug" | "decor" | "wardrobe" | "tallDecor" | "lampu" | "diningTable" | "diningChair" | "diningRug" | "diningBuffet" | "diningTrolley" | "diningPlant" | "wallArt" | "pet" | "petBowl" | "petWater" | "sofa" | "coffeeTable" | "livingBuffet" | "largePlant" | "aquariumTable";
+    type PlacedItem = { id:number; src:string; type:FurnitureType; room:string; col:number; row:number; };
+
+    const ROOM_GRID_SIZES: Record<string,number> = { kamar:9, dapur:11, "ruang-tamu":10, perpustakaan:8 };
+    // Kamar: 9×9 total = 2 baris existing di atas + 7 baris tambahan di bawah.
+    // Semua cell Kamar memakai ukuran fisik yang sama.
+    // Dapur: 11×7.
+    // Cell size is matched to the Perpustakaan 8×8 grid cell size.
+    const ROOM_GRID_COLS: Record<string,number> = { kamar:9, dapur:11, "ruang-tamu":10, perpustakaan:8 };
+    const ROOM_GRID_ROWS: Record<string,number> = { kamar:9, dapur:8, "ruang-tamu":8, perpustakaan:8 };
+    const getGridCols = (room:string) => ROOM_GRID_COLS[room] ?? 8;
+    const getGridRows = (room:string) => ROOM_GRID_ROWS[room] ?? 8;
+    const getGridSize = (room:string) => ROOM_GRID_SIZES[room] ?? 8;
+    const FOOTPRINTS: Record<FurnitureType,{cols:number;rows:number}> = {
+        bed: { cols:3, rows:4 },
+        rug: { cols:4, rows:4 },
+        // Lemari dibuat lebih tinggi: 2 kolom × 4 baris.
+        wardrobe: { cols:2, rows:4 },
+        // Nakas, meja, dan rak buku dibuat lebih tinggi agar proporsinya tidak gepeng.
+        tallDecor: { cols:2, rows:3 },
+        lampu: { cols:1, rows:2 },
+        diningTable: { cols:5, rows:4 },
+        diningChair: { cols:1, rows:2 },
+        diningRug: { cols:4, rows:4 },
+        diningBuffet: { cols:3, rows:2 },
+        diningTrolley: { cols:2, rows:3 },
+        diningPlant: { cols:2, rows:2 },
+        wallArt: { cols:2, rows:2 },
+        pet: { cols:2, rows:2 },
+        petBowl: { cols:2, rows:1 },
+        petWater: { cols:1, rows:1 },
+        sofa: { cols:5, rows:3 },
+        coffeeTable: { cols:3, rows:2 },
+        livingBuffet: { cols:3, rows:2 },
+        largePlant: { cols:2, rows:2 },
+        aquariumTable: { cols:5, rows:4 },
+        // Default bedroom decor.
+        decor: { cols:2, rows:2 }
+    };
+    const ROOM_IDS = ["kamar","dapur","ruang-tamu","perpustakaan"];
+
+    // NEW FLOORPLAN GEOMETRY
+    // Coordinate planes are fitted to the visible floor of house-floorplan.png.
+    // Door leaves / wall intrusions are blocked so furniture footprints cannot occupy them.
+    const ROOM_GEOMETRY: Record<string,{blocked:Set<string>}> = {
+        kamar: { blocked: new Set() },
+        dapur: { blocked: new Set(["1,7","2,7", ...Array.from({length:5}, (_,row) => [8,9,10].map(col => `${col},${row+3}`)).flat()]) },
+        "ruang-tamu": { blocked: new Set(["7,0","7,1","7,2","7,6","7,7"]) },
+        perpustakaan: { blocked: new Set(["0,0","0,1","0,2","1,0","1,1"]) }
+    };
+
+    function isCellValid(room:string, col:number, row:number) {
+        return !ROOM_GEOMETRY[room]?.blocked.has(`${col},${row}`);
+    }
+
+    function isFootprintValid(room:string, type:FurnitureType, col:number, row:number) {
+        const f = FOOTPRINTS[type];
+        const gridCols = getGridCols(room);
+        const gridRows = getGridRows(room);
+        if (col < 0 || row < 0 || col + f.cols > gridCols || row + f.rows > gridRows) return false;
+        for (let r = row; r < row + f.rows; r++) {
+            for (let c = col; c < col + f.cols; c++) {
+                if (!isCellValid(room,c,r)) return false;
+            }
+        }
+        return true;
+    }
+
+    function findValidOrigin(room:string, type:FurnitureType, preferredCol:number, preferredRow:number) {
+        const normalized = normalizeGridPosition(type, preferredCol, preferredRow, room);
+        if (isFootprintValid(room,type,normalized.col,normalized.row)) return normalized;
+
+        let best:{col:number;row:number;dist:number}|null = null;
+        const gridCols = getGridCols(room);
+        const gridRows = getGridRows(room);
+        for (let row=0; row<=gridRows-FOOTPRINTS[type].rows; row++) {
+            for (let col=0; col<=gridCols-FOOTPRINTS[type].cols; col++) {
+                if (!isFootprintValid(room,type,col,row)) continue;
+                const dist = Math.abs(col-normalized.col) + Math.abs(row-normalized.row);
+                if (!best || dist < best.dist) best = {col,row,dist};
+            }
+        }
+        return best ? {col:best.col,row:best.row} : null;
+    }
+    let items:PlacedItem[] = [];
+    let nextId = 1;
+    let activeRoom = "kamar";
+    let selectedFurniture:{src:string;type:FurnitureType}|null = null;
+    let selectedPlacedId:number|null = null;
+
+    const getRoomGrid = (room:string) => document.querySelector<HTMLDivElement>(`[data-grid-room="${room}"]`);
+
+    /**
+     * GRID IS THE ONLY COORDINATE SYSTEM.
+     * Every furniture item is stored as:
+     *   room = room tile id
+     *   col  = top-left / (0,0) cell of the furniture footprint
+     *   row  = top-left / (0,0) cell of the furniture footprint
+     *
+     * No screen/pixel coordinates are stored in the item model.
+     * Every move is converted to a room + grid cell first, then committed.
+     */
+    function normalizeGridPosition(type:FurnitureType, col:number, row:number, room:string = "kamar") {
+        const f = FOOTPRINTS[type];
+        const gridCols = getGridCols(room);
+        const gridRows = getGridRows(room);
+        return {
+            col: Math.max(0, Math.min(gridCols - f.cols, Math.floor(col))),
+            row: Math.max(0, Math.min(gridRows - f.rows, Math.floor(row)))
+        };
+    }
+
+    function roomAtPoint(clientX:number, clientY:number):string|null {
+        for (const room of ROOM_IDS) {
+            const grid = getRoomGrid(room);
+            if (!grid) continue;
+            const r = grid.getBoundingClientRect();
+            if (clientX >= r.left && clientX < r.right && clientY >= r.top && clientY < r.bottom) return room;
+        }
+        return null;
+    }
+
+    /** Convert mouse -> furniture origin (0,0) cell. The hovered cell IS the top-left origin; footprint extends right/down. */
+    function pointToGrid(clientX:number, clientY:number, room:string, type:FurnitureType) {
+        const grid = getRoomGrid(room);
+        if (!grid) return null;
+        const r = grid.getBoundingClientRect();
+        if (clientX < r.left || clientX >= r.right || clientY < r.top || clientY >= r.bottom) return null;
+
+        const gridCols = getGridCols(room);
+        const gridRows = getGridRows(room);
+        const col = Math.floor(((clientX - r.left) / r.width) * gridCols);
+        const row = Math.floor(((clientY - r.top) / r.height) * gridRows);
+        const pos = findValidOrigin(room,type,col,row);
+        return pos ? { room, ...pos } : null;
+    }
+
+    function rawGridCell(clientX:number, clientY:number, room:string) {
+        const grid = getRoomGrid(room);
+        if (!grid) return null;
+        const r = grid.getBoundingClientRect();
+        if (clientX < r.left || clientX >= r.right || clientY < r.top || clientY >= r.bottom) return null;
+        return {
+            col: Math.max(0, Math.min(getGridCols(room) - 1, Math.floor(((clientX - r.left) / r.width) * getGridCols(room)))),
+            row: Math.max(0, Math.min(getGridRows(room) - 1, Math.floor(((clientY - r.top) / r.height) * getGridRows(room))))
+        };
+    }
+
+    function showMouseGridCoord(room:string, col:number, row:number) {
+        const display = document.getElementById('mouse-coord-display');
+        if (display) display.textContent = `Mouse: ${room}  (${col}, ${row})`;
+    }
+
+    function clearGridHover() {
+        document.querySelectorAll<HTMLDivElement>('.room-grid.grid-hovering').forEach(grid => {
+            grid.classList.remove('grid-hovering','footprint-preview','footprint-invalid');
+            grid.style.setProperty('--hover-col', '-1');
+            grid.style.setProperty('--hover-row', '-1');
+            grid.style.setProperty('--hover-cols', '0');
+            grid.style.setProperty('--hover-rows', '0');
+        });
+        const display = document.getElementById('mouse-coord-display');
+        if (display) display.textContent = 'Mouse: —';
+    }
+
+    function getActiveFurnitureType():FurnitureType|null {
+        if (selectedPlacedId !== null) {
+            const item = items.find(x => x.id === selectedPlacedId);
+            return item?.type || null;
+        }
+        return selectedFurniture?.type || null;
+    }
+
+    function showGridHover(target:{room:string;col:number;row:number}|null, type:FurnitureType|null = null) {
+        clearGridHover();
+        if (!target) return;
+        const grid = getRoomGrid(target.room);
+        if (!grid) return;
+        grid.style.setProperty('--hover-col', String(target.col));
+        grid.style.setProperty('--hover-row', String(target.row));
+        if (type) {
+            const f = FOOTPRINTS[type];
+            grid.style.setProperty('--hover-cols', String(f.cols));
+            grid.style.setProperty('--hover-rows', String(f.rows));
+            grid.classList.add('footprint-preview');
+            if (!isFootprintValid(target.room,type,target.col,target.row)) {
+                grid.classList.add('footprint-invalid');
+            }
+        }
+        grid.classList.add('grid-hovering');
+    }
+
+    function updateGridHover(clientX:number, clientY:number) {
+        // Mouse coordinate is independent from furniture selection.
+        // Always show the raw cell under the pointer for this room.
+        const room = roomAtPoint(clientX, clientY);
+        if (!room) {
+            clearGridHover();
+            return null;
+        }
+
+        const raw = rawGridCell(clientX, clientY, room);
+        if (!raw) {
+            clearGridHover();
+            return null;
+        }
+
+        showMouseGridCoord(room, raw.col, raw.row);
+
+        // The visual placement hover is only needed when an object is selected.
+        const type = getActiveFurnitureType();
+        if (type) {
+            const target = pointToGrid(clientX, clientY, room, type);
+            showGridHover(target, type);
+            return target;
+        }
+
+        // Still highlight the exact mouse cell for debugging/mapping.
+        clearGridHover();
+        const grid = getRoomGrid(room);
+        if (grid) {
+            grid.style.setProperty('--hover-col', String(raw.col));
+            grid.style.setProperty('--hover-row', String(raw.row));
+            grid.classList.add('grid-hovering');
+        }
+        return { room, ...raw };
+    }
+
+    /**
+     * THE ONLY COMMIT FUNCTION.
+     * Once this runs, the item's position is locked to the selected room tile
+     * and integer room-specific grid coordinate. Pixel coordinates are never persisted.
+     */
+    function moveItemToGrid(item:PlacedItem, room:string, col:number, row:number) {
+        const pos = findValidOrigin(room,item.type,col,row);
+        if (!pos) return false;
+        item.room = room;
+        item.col = pos.col;
+        item.row = pos.row;
+        return true;
+    }
+
+    function applyGridPosition(element:HTMLImageElement, item:PlacedItem, grid:HTMLDivElement) {
+        const f = FOOTPRINTS[item.type];
+        const boardRect = board.getBoundingClientRect();
+        const roomRect = grid.getBoundingClientRect();
+        const cellW = roomRect.width / getGridCols(item.room);
+        const cellH = roomRect.height / getGridRows(item.room);
+
+        // Furniture is rendered in #placed-items (a sibling of the room grids).
+        // The room grid is ONLY the coordinate plane. The stored room + col + row
+        // are converted here into board-relative pixels.
+        element.style.position = 'absolute';
+        element.style.left = `${(roomRect.left - boardRect.left) + item.col * cellW}px`;
+        element.style.top = `${(roomRect.top - boardRect.top) + item.row * cellH}px`;
+        element.style.width = `${f.cols * cellW}px`;
+        element.style.height = `${f.rows * cellH}px`;
+        element.dataset.gridRoom = item.room;
+        element.dataset.gridCol = String(item.col);
+        element.dataset.gridRow = String(item.row);
+    }
+
+    function getItemElement(id:number) {
+        return document.querySelector<HTMLImageElement>(`.placed-item[data-item-id="${id}"]`);
+    }
+
+    function updateThumbnailSize() {
+        const widths = ROOM_IDS.map(id => getRoomGrid(id)?.getBoundingClientRect().width || 0).filter(Boolean);
+        const roomWidth = Math.min(...widths);
+        if (!roomWidth || !Number.isFinite(roomWidth)) return;
+        document.documentElement.style.setProperty("--thumb-size", `${Math.max(30, Math.min(52, roomWidth * 0.05))}px`);
+        renderItems();
+    }
+
+    function clearSelections() {
+        document.querySelectorAll(".asset-card").forEach(c => c.classList.remove("selected"));
+        document.querySelectorAll(".placed-item").forEach(c => c.classList.remove("selected"));
+    }
+
+    function selectInventory(src:string, type:FurnitureType, card:HTMLButtonElement) {
+        selectedFurniture = { src, type };
+        selectedPlacedId = null;
+        clearSelections();
+        card.classList.add("selected");
+    }
+
+    function selectPlaced(id:number) {
+        const item = items.find(x => x.id === id);
+        if (!item) return;
+        selectedPlacedId = id;
+        selectedFurniture = null;
+        clearSelections();
+        getItemElement(id)?.classList.add("selected");
+    }
+
+    function placeFurnitureAt(room:string, col:number, row:number) {
+        if (selectedPlacedId !== null) {
+            const item = items.find(x => x.id === selectedPlacedId);
+            if (!item) return;
+            moveItemToGrid(item, room, col, row);
+            selectedPlacedId = null;
+            selectedFurniture = null;
+            clearSelections();
+            renderItems();
+            return;
+        }
+
+        if (!selectedFurniture) return;
+        const pos = findValidOrigin(room, selectedFurniture.type, col, row);
+        if (!pos) return;
+        const item:PlacedItem = {
+            id:nextId++, src:selectedFurniture.src, type:selectedFurniture.type,
+            room, col:pos.col, row:pos.row
+        };
+        items = [...items, item];
+        // IMPORTANT: keep selectedFurniture active after placement.
+        // One click in the tray arms the furniture type; every subsequent
+        // grid click creates another independent copy until another asset
+        // or a placed object is selected.
+        selectedPlacedId = null;
+        clearSelections();
+        document.querySelectorAll<HTMLButtonElement>('.asset-card').forEach(card => {
+            if (card.dataset.src === selectedFurniture?.src && card.dataset.type === selectedFurniture?.type) {
+                card.classList.add('selected');
+            }
+        });
+        renderItems();
+    }
+
+    function renderItems() {
+        placedItems.replaceChildren();
+        document.querySelectorAll<HTMLDivElement>('.origin-marker').forEach(el => el.remove());
+
+        // Render from the GRID MODEL only. The house image is visual reference;
+        // room-grid is the calibrated coordinate plane used for placement.
+        for (const item of items) {
+            const grid = getRoomGrid(item.room);
+            if (!grid) continue;
+
+            const img = document.createElement('img');
+            img.className = 'placed-item';
+            img.dataset.itemId = String(item.id);
+            img.src = item.src;
+            img.alt = item.type;
+            img.draggable = false;
+            applyGridPosition(img, item, grid);
+
+            // Explicitly lock geometry on every render. The image must never be
+            // allowed to fall back to its intrinsic PNG size during/after drag.
+            img.style.position = 'absolute';
+
+            // Explicit stacking: rug below bed. Overlap is allowed.
+            img.style.zIndex = item.type === "rug" ? "50" : (item.type === "bed" ? "70" : "60");
+            img.style.pointerEvents = 'auto';
+
+            const originMarker = document.createElement('div');
+            originMarker.className = 'origin-marker';
+            originMarker.dataset.itemId = String(item.id);
+            originMarker.dataset.gridCol = String(item.col);
+            originMarker.dataset.gridRow = String(item.row);
+            const originCols = getGridCols(item.room);
+            const originRows = getGridRows(item.room);
+            originMarker.style.left = `${item.col * 100 / originCols}%`;
+            originMarker.style.top = `${item.row * 100 / originRows}%`;
+            originMarker.style.width = `${100 / originCols}%`;
+            originMarker.style.height = `${100 / originRows}%`;
+            grid.appendChild(originMarker);
+
+            let dragging = false;
+            let suppressClick = false;
+            let dragPointerId:number|null = null;
+            let lastTarget:{room:string;col:number;row:number}|null = null;
+            let startX = 0;
+            let startY = 0;
+
+            // Screen -> calibrated room -> room-specific grid cell.
+            // This is the same coordinate model used by the mouse readout,
+            // so the cell shown in the purple panel is the cell used for commit.
+            const getDragTarget = (clientX:number, clientY:number) => {
+                const room = roomAtPoint(clientX, clientY);
+                if (!room) return null;
+                const raw = rawGridCell(clientX, clientY, room);
+                if (!raw) return null;
+                const pos = findValidOrigin(room,item.type,raw.col,raw.row);
+                return pos ? { room, ...pos } : null;
+            };
+
+            const cleanupDragStyles = () => {
+                // IMPORTANT: never clear the geometry inline styles here.
+                // The furniture is already rendered with an explicit board-relative
+                // left/top/width/height matching its grid footprint. Clearing those
+                // styles makes the <img> fall back to its intrinsic PNG dimensions,
+                // which is exactly what caused the huge "zoom" on drag.
+                img.classList.remove('dragging');
+                img.style.position = 'absolute';
+                img.style.zIndex = item.type === "rug" ? "50" : (item.type === "bed" ? "70" : "60");
+                img.style.pointerEvents = 'auto';
+                img.style.opacity = '';
+            };
+
+            const finishDrag = (event:PointerEvent) => {
+                if (dragPointerId !== event.pointerId) return;
+
+                window.removeEventListener('pointermove', onMove);
+                window.removeEventListener('pointerup', onUp);
+                window.removeEventListener('pointercancel', onUp);
+
+                // The release cell is converted using the exact same calibrated
+                // room/grid mapping as hover. If release happens just outside,
+                // keep the last valid grid cell rather than reverting.
+                const releaseTarget = getDragTarget(event.clientX, event.clientY);
+                const releaseRoom = roomAtPoint(event.clientX,event.clientY);
+
+                if (dragging) {
+                    if (releaseTarget) {
+                        // Move the existing item. Never create a second item.
+                        moveItemToGrid(item, releaseTarget.room, releaseTarget.col, releaseTarget.row);
+                    } else if (!releaseRoom) {
+                        // Drag completely outside all rooms = delete this existing item.
+                        items = items.filter(x => x.id !== item.id);
+                    } else if (lastTarget) {
+                        // Invalid door/wall area: keep the last valid placement.
+                        moveItemToGrid(item,lastTarget.room,lastTarget.col,lastTarget.row);
+                    }
+                }
+
+                try {
+                    if (img.hasPointerCapture(event.pointerId)) img.releasePointerCapture(event.pointerId);
+                } catch (_) {}
+
+                dragPointerId = null;
+                lastTarget = null;
+                selectedPlacedId = null;
+                selectedFurniture = null;
+                clearSelections();
+                cleanupDragStyles();
+                clearGridHover();
+                renderItems();
+            };
+
+            const onUp = (event:PointerEvent) => {
+                finishDrag(event);
+            };
+
+            const onMove = (moveEvent:PointerEvent) => {
+                if (dragPointerId !== moveEvent.pointerId) return;
+
+                const distance = Math.hypot(moveEvent.clientX - startX, moveEvent.clientY - startY);
+                if (!dragging && distance < 5) return;
+
+                dragging = true;
+                suppressClick = true;
+                img.classList.add('dragging');
+                // IMPORTANT: do NOT move/resize the real furniture element while
+                // dragging. Its rendered size is already locked to the footprint.
+                // Moving the <img> itself during pointermove caused the browser to
+                // temporarily resolve its intrinsic image size, producing the huge
+                // zoom/jump seen on the first drag. The real item stays visually
+                // stable until pointerup; the red footprint preview shows the
+                // destination cell/footprint.
+                img.style.pointerEvents = 'none';
+                img.style.opacity = '0.72';
+
+                const target = getDragTarget(moveEvent.clientX, moveEvent.clientY);
+                if (!target) {
+                    // Outside all rooms: don't invent a coordinate.
+                    // The last valid grid coordinate remains the commit candidate.
+                    return;
+                }
+
+                lastTarget = target;
+
+                // Keep the model untouched during the drag. Commit only on pointerup
+                // so the furniture cannot visually jump while the pointer moves.
+                showGridHover(target, item.type);
+                const raw = rawGridCell(moveEvent.clientX, moveEvent.clientY, target.room);
+                if (raw) showMouseGridCoord(target.room, raw.col, raw.row);
+            };
+
+            img.addEventListener('pointerdown', event => {
+                event.preventDefault();
+                event.stopPropagation();
+
+                dragging = false;
+                suppressClick = false;
+                dragPointerId = event.pointerId;
+                startX = event.clientX;
+                startY = event.clientY;
+                lastTarget = { room:item.room, col:item.col, row:item.row };
+
+                selectPlaced(item.id);
+
+                // Pointer capture makes the drag/commit reliable even when the
+                // furniture crosses room boundaries or leaves the original grid.
+                try { img.setPointerCapture(event.pointerId); } catch (_) {}
+
+                window.addEventListener('pointermove', onMove);
+                window.addEventListener('pointerup', onUp);
+                window.addEventListener('pointercancel', onUp);
+            });
+
+            img.addEventListener('click', event => {
+                event.preventDefault();
+                event.stopPropagation();
+                if (suppressClick) { suppressClick = false; return; }
+                selectPlaced(item.id);
+            });
+
+            placedItems.appendChild(img);
+        }
+    }
+
+    document.querySelectorAll<HTMLButtonElement>(".asset-card").forEach(card => {
+        card.addEventListener("click", event => {
+            event.preventDefault();
+            const src = card.dataset.src;
+            const type = card.dataset.type as FurnitureType | undefined;
+            if (!src || !type) return;
+            selectInventory(src, type, card);
+        });
+    });
+
+    // CLICK-TO-MOVE / PLACE: board owns the commit. Furniture is a sibling
+    // of the grids, so clicking a destination cannot be intercepted by the
+    // source room's DOM tree. The hovered cell is always the furniture (0,0).
+    board.addEventListener("pointerdown", event => {
+        const targetElement = event.target as HTMLElement;
+        if (targetElement.closest('.placed-item')) return;
+
+        const type = getActiveFurnitureType();
+        if (!type) return;
+
+        const room = roomAtPoint(event.clientX, event.clientY);
+        if (!room) return;
+
+        const target = pointToGrid(event.clientX, event.clientY, room, type);
+        if (!target) return;
+
+        event.preventDefault();
+        event.stopPropagation();
+        placeFurnitureAt(target.room, target.col, target.row);
+        clearGridHover();
+    });
+
+    document.querySelectorAll<HTMLDivElement>(".room-grid").forEach(grid => {
+        grid.addEventListener("pointermove", event => {
+            const room = grid.dataset.gridRoom;
+            if (!room) return;
+            const raw = rawGridCell(event.clientX, event.clientY, room);
+            if (raw) showMouseGridCoord(room, raw.col, raw.row);
+            updateGridHover(event.clientX, event.clientY);
+        });
+        grid.addEventListener("pointerleave", () => clearGridHover());
+    });
+
+    document.querySelectorAll<HTMLButtonElement>(".room-tab").forEach(tab => {
+        tab.addEventListener("click", () => {
+            const room = tab.dataset.room;
+            if (!room) return;
+            document.querySelectorAll(".room-tab").forEach(button => {
+                button.classList.remove("active");
+                button.setAttribute("aria-selected", "false");
+            });
+            document.querySelectorAll(".room-content").forEach(content => content.classList.remove("active"));
+            tab.classList.add("active");
+            tab.setAttribute("aria-selected", "true");
+            activeRoom = room;
+            document.querySelector(`[data-content="${room}"]`)?.classList.add("active");
+            updateThumbnailSize();
+        });
+    });
+
+    startButton.addEventListener("click", () => {
+        intro.classList.add("hidden");
+        resultScreen.classList.add("hidden");
+        houseGame.classList.remove("hidden");
+        updateThumbnailSize();
+    });
+
+    clearButton.addEventListener("click", () => {
+        items = [];
+        renderItems();
+    });
+
+    finishButton.addEventListener("click", () => {
+        houseGame.classList.add("hidden");
+        resultScreen.innerHTML = `<div class="game-result-icon">🏠✨</div><h1>Rumah Mimi Selesai!</h1><p>Rumahmu sudah dihias. Keren banget!</p><div class="game-result-score">🪑 ${items.length} furniture ditempatkan</div><button class="start-game-button" id="decorate-again" type="button">🎨 Hias Lagi</button>`;
+        resultScreen.classList.remove("hidden");
+        document.getElementById("decorate-again")?.addEventListener("click", () => {
+            resultScreen.classList.add("hidden");
+            houseGame.classList.remove("hidden");
+            updateThumbnailSize();
+        });
+    });
+
+    window.addEventListener("mousemove", event => updateGridHover(event.clientX, event.clientY));
+    window.addEventListener("mouseleave", clearGridHover);
+    window.addEventListener("resize", updateThumbnailSize);
+    new ResizeObserver(updateThumbnailSize).observe(board);
+    updateThumbnailSize();
+
+    function clampInt(v:number, min:number, max:number) {
+        return Math.max(min, Math.min(max, Math.round(v)));
+    }
+</script>
