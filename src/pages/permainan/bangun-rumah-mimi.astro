@@ -103,7 +103,7 @@ import Header from "../../components/Header.astro";
                                         <span class="room-tab-label">Ruang Tamu</span>
                                     </button>
                                     <button class="room-tab" type="button" data-room="perpustakaan" role="tab" aria-selected="false">
-                                        <span class="room-tab-icon">📚</span>
+                                        <span class="room-tab-icon">🪴</span>
                                         <span class="room-tab-label">Perpustakaan</span>
                                     </button>
                                 </div>
@@ -171,16 +171,7 @@ import Header from "../../components/Header.astro";
             </button>
         </div>
     </div>
-    <div class="asset-group">
-        <span class="asset-group-title">🧶 Karpet</span>
-        <div class="asset-row">
-            { [ "rug-makan2"].map((name) => (
-                <button class="asset-card" type="button" data-type="diningRug" data-src={`/assets/dekorumah/dapur/${name}.png`}>
-                    <img src={`/assets/dekorumah/dapur/${name}.png`} alt={name} draggable="false" />
-                </button>
-            )) }
-        </div>
-    </div>
+
     <div class="asset-group">
         <span class="asset-group-title">🪵 Bufet & Kursi Makan</span>
         <div class="asset-row">
@@ -248,9 +239,51 @@ import Header from "../../components/Header.astro";
     <div class="asset-group">
         <span class="asset-group-title">🛋️ Furniture Ruang Tamu</span>
         <div class="asset-row">
-            { ["sofa", "meja-tamu", "bufet1", "monstera", "meja-akuarium-ikan"].map((name) => (
-                <button class="asset-card" type="button" data-type={name === "sofa" ? "sofa" : (name === "meja-akuarium-ikan" ? "aquariumTable" : (name === "meja-tamu" ? "coffeeTable" : (name === "monstera" ? "largePlant" : "livingBuffet")))} data-src={`/assets/dekorumah/ruang-tamu/${name}.png`}>
-                    <img src={`/assets/dekorumah/ruang-tamu/${name}.png`} alt={name} draggable="false" />
+            { [
+                "sofa",
+                "japan-armchair",
+                "japan-bufet",
+                "japan-cushion1",
+                "japan-cushion2",
+                "japan-sofa",
+                "japan-tatami",
+                "shoji",
+                "meja-tamu",
+                "bufet1",
+                "monstera",
+                "meja-akuarium-ikan"
+            ].map((name) => (
+                <button
+                    class="asset-card"
+                    type="button"
+          data-type={
+    name === "sofa" || name === "japan-sofa"
+        ? "sofa"
+        : name === "japan-armchair"
+            ? "kursikotak"
+            : name === "shoji"
+                ? "shoji"
+                : name === "japan-cushion1" || name === "japan-cushion2"
+                ? "decor"
+                : name === "japan-bufet"
+                    ? "livingBuffet"
+                    : name === "japan-tatami"
+                        ? "rug"
+                        : name === "meja-akuarium-ikan"
+                            ? "aquariumTable"
+                            : name === "meja-tamu"
+                                ? "coffeeTable"
+                                : name === "monstera"
+                                    ? "largePlant"
+                                    : "livingBuffet"
+}
+                    data-src={`/assets/dekorumah/ruang-tamu/${name}.png`}
+                >
+                    <img
+                        src={`/assets/dekorumah/ruang-tamu/${name}.png`}
+                        alt={name}
+                        draggable="false"
+                    />
                 </button>
             )) }
         </div>
@@ -271,9 +304,25 @@ import Header from "../../components/Header.astro";
                     <img src={`/assets/dekorumah/perpustakaan/${name}.png`} alt={name} draggable="false" />
                 </button>
             )) }
+            <button class="asset-card" type="button" data-type="mirror" data-src="/assets/dekorumah/perpustakaan/mirror.png">
+                <img src="/assets/dekorumah/perpustakaan/mirror.png" alt="mirror" draggable="false" />
+            </button>
             <button class="asset-card" type="button" data-type="diningPlant" data-src="/assets/dekorumah/perpustakaan/tanaman-makan1.png">
                 <img src="/assets/dekorumah/perpustakaan/tanaman-makan1.png" alt="tanaman-makan1" draggable="false" />
             </button>
+            { [ "kursi1", "basket", "tub", "shower-box", "tisyu", "towel-tower", "toilet"].map((name) => (
+                <button class="asset-card" type="button" data-type={
+                    name === "toilet" ? "toilet"
+                    : name === "kursi1" ? "kursikotak"
+                    : name === "basket" ? "basket"
+                    : name === "tub" ? "tub"
+                    : name === "tisyu" ? "tisyu"
+                    : name === "towel-tower" ? "towelTower"
+                    : "showerBox"
+                } data-src={`/assets/dekorumah/perpustakaan/${name}.png`}>
+                    <img src={`/assets/dekorumah/perpustakaan/${name}.png`} alt={name} draggable="false" />
+                </button>
+            )) }
         </div>
     </div>
 </div>
@@ -359,16 +408,18 @@ import Header from "../../components/Header.astro";
   .house-screen-top{position:absolute;top:10px;left:14px;right:14px;z-index:70;display:flex;align-items:center;justify-content:space-between;pointer-events:none}.house-screen-title{color:#8c5d25;font-size:17px;font-weight:800}.house-screen-actions{display:flex;gap:5px;pointer-events:auto}.house-screen-actions button{width:32px;height:32px;border:0;border-radius:50%;background:#f3a322;color:#fff;font-size:17px;font-weight:800;cursor:pointer}
   .house-board{position:relative;width:min(100%,980px);aspect-ratio:3/2;overflow:hidden;background:#ffe39b;border-radius:12px;touch-action:none;user-select:none;flex:none}
   .house-base{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;user-select:none;z-index:1}
-  .room-grids{position:absolute;inset:0;z-index:50;pointer-events:none}.room-tile{position:absolute;box-sizing:border-box;pointer-events:none}.room-tile[data-room-pos=top-left]{left:18.3%;top:5.875%;width:27.7875%;height:35.2125%}.room-tile[data-room-pos=top-right]{left:48.4%;top:9.9875%;width:33.9625%;height:31.3%}.room-tile[data-room-pos=bottom-left]{left:16.5%;top:43.0%;width:30.875%;height:31.3%}.room-tile[data-room-pos=bottom-right]{left:57.6%;top:42.9%;width:24.7%;height:31.3%}.room-grid{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;transform:none;cursor:pointer;box-sizing:border-box;border:2px solid rgba(104,74,48,.28);background-image:linear-gradient(to right,rgba(104,74,48,.18) 1px,transparent 1px),linear-gradient(to bottom,rgba(104,74,48,.18) 1px,transparent 1px);background-size:var(--cell-w) var(--cell-h);opacity:.52;transition:opacity .12s ease,background-color .12s ease;pointer-events:auto;--grid-cols:8;--grid-rows:8;--cell-w:12.5%;--cell-h:12.5%;--hover-col:-1;--hover-row:-1}.room-grid[data-grid-room="kamar"]{--grid-cols:9;--grid-rows:9;--cell-w:11.111111%;--cell-h:11.111111%}.room-grid[data-grid-room="ruang-tamu"]{--grid-cols:10;--grid-rows:8;--cell-w:10%;--cell-h:12.5%;background-size:10% 12.5%}.room-grid[data-grid-room="dapur"]{
+  .room-grids{position:absolute;inset:0;z-index:50;pointer-events:none}.room-tile{position:absolute;box-sizing:border-box;pointer-events:none}.room-tile[data-room-pos=top-left]{left:18.3%;top:5.875%;width:27.7875%;height:35.2125%}.room-tile[data-room-pos=top-right]{left:48.4%;top:6.075%;width:33.9625%;height:35.2125%}.room-tile[data-room-pos=bottom-left]{left:16.5%;top:39.0875%;width:30.875%;height:35.2125%}.room-tile[data-room-pos=bottom-right]{left:57.6%;top:42.9%;width:24.7%;height:31.3%}.room-grid{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;transform:none;cursor:pointer;box-sizing:border-box;border:2px solid rgba(104,74,48,.28);background-image:linear-gradient(to right,rgba(104,74,48,.18) 1px,transparent 1px),linear-gradient(to bottom,rgba(104,74,48,.18) 1px,transparent 1px);background-size:var(--cell-w) var(--cell-h);opacity:.52;transition:opacity .12s ease,background-color .12s ease;pointer-events:auto;--grid-cols:8;--grid-rows:8;--cell-w:12.5%;--cell-h:12.5%;--hover-col:-1;--hover-row:-1}.room-grid[data-grid-room="kamar"]{--grid-cols:9;--grid-rows:9;--cell-w:11.111111%;--cell-h:11.111111%}.room-grid[data-grid-room="ruang-tamu"]{--grid-cols:10;--grid-rows:9;--cell-w:10%;--cell-h:11.111111%;background-size:10% 11.111111%;}.room-grid[data-grid-room="dapur"]{
     --grid-cols:11;
-    --grid-rows:8;
+    --grid-rows:9;
     --cell-w:9.090909%;
-    --cell-h:12.5%;
+    --cell-h:11.111111%;
     width:100%;
     height:100%;
     clip-path:none;
     background-size:9.090909% 12.5%;
-}.room-grid.active{opacity:.72;background-color:rgba(255,255,255,.06)}.room-grid:hover{background-color:rgba(255,255,255,.10);opacity:.8}.room-grid.grid-hovering::after{content:"";position:absolute;left:calc(var(--hover-col) * var(--cell-w));top:calc(var(--hover-row) * var(--cell-h));width:var(--cell-w);height:var(--cell-h);box-sizing:border-box;border:2px solid rgba(255,255,255,.95);background:rgba(255,255,255,.18);box-shadow:inset 0 0 0 1px rgba(104,74,48,.18);pointer-events:none;z-index:5}.room-grid.footprint-preview::before{content:"";position:absolute;left:calc(var(--hover-col) * (100% / var(--grid-cols)));top:calc(var(--hover-row) * (100% / var(--grid-rows)));width:calc(var(--hover-cols) * var(--cell-w));height:calc(var(--hover-rows) * var(--cell-h));box-sizing:border-box;border:2px solid rgba(210,35,35,.95);background:rgba(210,35,35,.10);pointer-events:none;z-index:6}.room-grid.footprint-invalid::before{border-color:rgba(210,35,35,.98);background:rgba(210,35,35,.20);border-style:dashed} .grid-mouse-coord{position:absolute;z-index:80;left:calc(var(--mouse-col) * var(--cell-w));top:calc(var(--mouse-row) * var(--cell-h));width:var(--cell-w);height:var(--cell-h);box-sizing:border-box;display:flex;align-items:center;justify-content:center;pointer-events:none;transform:none;color:#fff;font:700 12px/1 Arial,sans-serif;text-shadow:0 1px 2px rgba(0,0,0,.75);background:rgba(210,35,35,.82);border:1px solid rgba(255,255,255,.95);border-radius:4px;white-space:nowrap;}
+}
+
+.room-grid.active{opacity:.72;background-color:rgba(255,255,255,.06)}.room-grid:hover{background-color:rgba(255,255,255,.10);opacity:.8}.room-grid.grid-hovering::after{content:"";position:absolute;left:calc(var(--hover-col) * var(--cell-w));top:calc(var(--hover-row) * var(--cell-h));width:var(--cell-w);height:var(--cell-h);box-sizing:border-box;border:2px solid rgba(255,255,255,.95);background:rgba(255,255,255,.18);box-shadow:inset 0 0 0 1px rgba(104,74,48,.18);pointer-events:none;z-index:5}.room-grid.footprint-preview::before{content:"";position:absolute;left:calc(var(--hover-col) * (100% / var(--grid-cols)));top:calc(var(--hover-row) * (100% / var(--grid-rows)));width:calc(var(--hover-cols) * var(--cell-w));height:calc(var(--hover-rows) * var(--cell-h));box-sizing:border-box;border:2px solid rgba(210,35,35,.95);background:rgba(210,35,35,.10);pointer-events:none;z-index:6}.room-grid.footprint-invalid::before{border-color:rgba(210,35,35,.98);background:rgba(210,35,35,.20);border-style:dashed} .grid-mouse-coord{position:absolute;z-index:80;left:calc(var(--mouse-col) * var(--cell-w));top:calc(var(--mouse-row) * var(--cell-h));width:var(--cell-w);height:var(--cell-h);box-sizing:border-box;display:flex;align-items:center;justify-content:center;pointer-events:none;transform:none;color:#fff;font:700 12px/1 Arial,sans-serif;text-shadow:0 1px 2px rgba(0,0,0,.75);background:rgba(210,35,35,.82);border:1px solid rgba(255,255,255,.95);border-radius:4px;white-space:nowrap;}
   .placed-items{position:absolute;inset:0;z-index:60;pointer-events:none}.placed-item{position:absolute;object-fit:contain;transform:none;cursor:pointer;pointer-events:auto;user-select:none;-webkit-user-drag:none;filter:drop-shadow(0 4px 4px rgba(75,55,38,.15));touch-action:none;box-sizing:border-box}.placed-item.selected{z-index:100;outline:3px solid rgba(255,255,255,.9);outline-offset:2px;filter:drop-shadow(0 7px 7px rgba(75,55,38,.28))}.placed-item.dragging{cursor:pointer;z-index:100;filter:drop-shadow(0 7px 7px rgba(75,55,38,.22))}
   .room-grid > .origin-marker{position:absolute;z-index:5;width:12.5%;height:12.5%;box-sizing:border-box;border:2px solid #e53935;background:rgba(229,57,53,.12);pointer-events:none;display:flex;align-items:flex-start;justify-content:flex-start;}
   .origin-marker::before{content:"";width:8px;height:8px;margin:3px;border-radius:50%;background:#e53935;border:1px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.28);box-sizing:border-box;}
@@ -528,6 +579,22 @@ import Header from "../../components/Header.astro";
     box-shadow:0 0 0 2px rgba(255,248,237,.35);
   }
 
+  /* ROOM GRID — hidden by default, visible only on hover / furniture move */
+.room-grid {
+  visibility: visible;
+  opacity: 0 !important;
+  pointer-events: auto;
+  transition: opacity .12s ease, background-color .12s ease;
+}
+.room-grid.grid-hovering,
+.room-grid.drag-grid-visible {
+  opacity: .72 !important;
+}
+.room-grid.grid-hovering:hover,
+.room-grid.drag-grid-visible:hover {
+  opacity: .82 !important;
+}
+
   /* ===== DESKTOP COMPACT — POSISI MAKSIMAL MENDEKATI GAME DOKTER GIGI ===== */
   @media(min-width:769px){
     .game-page{padding-top:0}
@@ -627,6 +694,8 @@ import Header from "../../components/Header.astro";
     .room-tab{min-height:40px;padding:4px 3px;gap:3px}
     .room-tab-icon{font-size:15px}
     .room-tab-label{font-size:8px}
+    /* ===== HIDE ROOM GRID VISUAL ===== */
+  
   }
 
 </style>
@@ -649,7 +718,7 @@ import Header from "../../components/Header.astro";
 
     const panelSubtitle = document.getElementById("panel-subtitle") as HTMLElement;
 
-    type FurnitureType = "bed" | "rug" | "decor" | "wardrobe" | "tallDecor" | "lampu" | "diningTable" | "diningChair" | "diningRug" | "diningBuffet" | "diningTrolley" | "diningPlant" | "wallArt" | "pet" | "petBowl" | "petWater" | "sofa" | "coffeeTable" | "livingBuffet" | "largePlant" | "aquariumTable";
+    type FurnitureType = "bed" | "rug" | "shoji" | "mirror" | "decor" | "wardrobe" | "tallDecor" | "lampu" | "diningTable" | "diningChair" | "diningBuffet" | "diningTrolley" | "diningPlant" | "wallArt" | "pet" | "petBowl" | "petWater" | "sofa" | "coffeeTable" | "livingBuffet" | "largePlant" | "aquariumTable" | "toilet" | "kursi" | "kursikotak" | "basket" | "tub" | "tisyu" | "towelTower" | "showerBox";
     type PlacedItem = { id:number; src:string; type:FurnitureType; room:string; col:number; row:number; };
 
     const ROOM_GRID_SIZES: Record<string,number> = { kamar:9, dapur:11, "ruang-tamu":10, perpustakaan:8 };
@@ -658,13 +727,15 @@ import Header from "../../components/Header.astro";
     // Dapur: 11×7.
     // Cell size is matched to the Perpustakaan 8×8 grid cell size.
     const ROOM_GRID_COLS: Record<string,number> = { kamar:9, dapur:11, "ruang-tamu":10, perpustakaan:8 };
-    const ROOM_GRID_ROWS: Record<string,number> = { kamar:9, dapur:8, "ruang-tamu":8, perpustakaan:8 };
+    const ROOM_GRID_ROWS: Record<string,number> = { kamar:9, dapur:9, "ruang-tamu":9, perpustakaan:8 };
     const getGridCols = (room:string) => ROOM_GRID_COLS[room] ?? 8;
     const getGridRows = (room:string) => ROOM_GRID_ROWS[room] ?? 8;
     const getGridSize = (room:string) => ROOM_GRID_SIZES[room] ?? 8;
     const FOOTPRINTS: Record<FurnitureType,{cols:number;rows:number}> = {
         bed: { cols:3, rows:4 },
         rug: { cols:4, rows:4 },
+        shoji: { cols:4, rows:3 },
+        mirror: { cols:2, rows:3 },
         // Lemari dibuat lebih tinggi: 2 kolom × 4 baris.
         wardrobe: { cols:2, rows:4 },
         // Nakas, meja, dan rak buku dibuat lebih tinggi agar proporsinya tidak gepeng.
@@ -672,19 +743,27 @@ import Header from "../../components/Header.astro";
         lampu: { cols:1, rows:2 },
         diningTable: { cols:5, rows:4 },
         diningChair: { cols:1, rows:2 },
-        diningRug: { cols:4, rows:4 },
-        diningBuffet: { cols:3, rows:2 },
+        diningBuffet: { cols:2, rows:3 },
         diningTrolley: { cols:2, rows:3 },
         diningPlant: { cols:2, rows:2 },
-        wallArt: { cols:2, rows:2 },
-        pet: { cols:2, rows:2 },
+        wallArt: { cols:1, rows:1 },
+        pet: { cols:1, rows:1 },
         petBowl: { cols:2, rows:1 },
         petWater: { cols:1, rows:1 },
         sofa: { cols:5, rows:3 },
         coffeeTable: { cols:3, rows:2 },
-        livingBuffet: { cols:3, rows:2 },
+        livingBuffet: { cols:5, rows:3 },
         largePlant: { cols:2, rows:2 },
         aquariumTable: { cols:5, rows:4 },
+        // Bathroom / utility assets — masing-masing punya footprint sendiri.
+        toilet: { cols:2, rows:2 },
+        kursi: { cols:2, rows:2 },
+        kursikotak: { cols:2, rows:2 },
+        basket: { cols:3, rows:2 },
+        tub: { cols:3, rows:2 }, // lebar 4 × tinggi 2
+        tisyu: { cols:1, rows:1 },
+        towelTower: { cols:2, rows:3 }, // lebar 2 × tinggi 3
+        showerBox: { cols:3, rows:4 }, // lebar 2 × tinggi 4
         // Default bedroom decor.
         decor: { cols:2, rows:2 }
     };
@@ -695,8 +774,8 @@ import Header from "../../components/Header.astro";
     // Door leaves / wall intrusions are blocked so furniture footprints cannot occupy them.
     const ROOM_GEOMETRY: Record<string,{blocked:Set<string>}> = {
         kamar: { blocked: new Set() },
-        dapur: { blocked: new Set(["1,7","2,7", ...Array.from({length:5}, (_,row) => [8,9,10].map(col => `${col},${row+3}`)).flat()]) },
-        "ruang-tamu": { blocked: new Set(["7,0","7,1","7,2","7,6","7,7"]) },
+        dapur: { blocked: new Set(["1,8","2,8", ...Array.from({length:5}, (_,row) => [8,9,10].map(col => `${col},${row+4}`)).flat()]) },
+        "ruang-tamu": { blocked: new Set() },
         perpustakaan: { blocked: new Set(["0,0","0,1","0,2","1,0","1,1"]) }
     };
 
@@ -814,6 +893,18 @@ import Header from "../../components/Header.astro";
         if (display) display.textContent = 'Mouse: —';
     }
 
+    function showAllRoomGrids() {
+        document.querySelectorAll<HTMLDivElement>('.room-grid').forEach(grid => {
+            grid.classList.add('drag-grid-visible');
+        });
+    }
+
+    function hideAllRoomGrids() {
+        document.querySelectorAll<HTMLDivElement>('.room-grid').forEach(grid => {
+            grid.classList.remove('drag-grid-visible');
+        });
+    }
+
     function getActiveFurnitureType():FurnitureType|null {
         if (selectedPlacedId !== null) {
             const item = items.find(x => x.id === selectedPlacedId);
@@ -843,6 +934,8 @@ import Header from "../../components/Header.astro";
 
     function updateGridHover(clientX:number, clientY:number) {
         // Mouse coordinate is independent from furniture selection.
+        // Normal room hover reveals only the room currently under the pointer.
+        if (selectedPlacedId === null) hideAllRoomGrids();
         // Always show the raw cell under the pointer for this room.
         const room = roomAtPoint(clientX, clientY);
         if (!room) {
@@ -1086,6 +1179,7 @@ import Header from "../../components/Header.astro";
                 clearSelections();
                 cleanupDragStyles();
                 clearGridHover();
+                hideAllRoomGrids();
                 renderItems();
             };
 
@@ -1140,6 +1234,9 @@ import Header from "../../components/Header.astro";
                 lastTarget = { room:item.room, col:item.col, row:item.row };
 
                 selectPlaced(item.id);
+                // As soon as furniture is picked up, reveal the room grid
+                // so the user can see the available tile coordinates.
+                showAllRoomGrids();
 
                 // Pointer capture makes the drag/commit reliable even when the
                 // furniture crosses room boundaries or leaves the original grid.
