@@ -86,7 +86,7 @@ import Header from "../../components/Header.astro";
 </div>
 
                                     <div id="house-board" class="house-board" aria-label="Rumah Mimi">
-    <img id="house-base" class="house-base" src="/assets/dekorumah/rumah.png" alt="Rumah Mimi" draggable="false" />
+    <img id="house-base" class="house-base" src="/assets/dekorumah/rumah.webp" alt="Rumah Mimi" draggable="false" />
     <div id="room-grids" class="room-grids" aria-hidden="false">
         <!-- ROOM TILES: these define the exact usable floor area of each room. Each room uses its own grid dimensions. -->
         <div class="room-tile" data-tile-room="kamar" data-room-pos="top-left"><div class="room-grid" data-grid-room="kamar"></div></div>
@@ -133,8 +133,8 @@ import Header from "../../components/Header.astro";
         <span class="asset-group-title">🛏️ Bed — 3×4 grid</span>
         <div class="asset-row">
             { ["bed1", "bed2"].map((name) => (
-                <button class="asset-card" type="button" data-type="bed" data-src={`/assets/dekorumah/kamar/${name}.png`}>
-                    <img src={`/assets/dekorumah/kamar/${name}.png`} alt={name} draggable="false" />
+                <button class="asset-card" type="button" data-type="bed" data-src={`/assets/dekorumah/kamar/${name}.webp`}>
+                    <img src={`/assets/dekorumah/kamar/${name}.webp`} alt={name} draggable="false" />
                 </button>
             )) }
         </div>
@@ -143,8 +143,8 @@ import Header from "../../components/Header.astro";
         <span class="asset-group-title">🧸 Rug — 4×4 grid</span>
         <div class="asset-row">
             { ["rug1", "rug2", "rug3"].map((name) => (
-                <button class="asset-card" type="button" data-type="rug" data-src={`/assets/dekorumah/kamar/${name}.png`}>
-                    <img src={`/assets/dekorumah/kamar/${name}.png`} alt={name} draggable="false" />
+                <button class="asset-card" type="button" data-type="rug" data-src={`/assets/dekorumah/kamar/${name}.webp`}>
+                    <img src={`/assets/dekorumah/kamar/${name}.webp`} alt={name} draggable="false" />
                 </button>
             )) }
         </div>
@@ -168,10 +168,10 @@ import Header from "../../components/Header.astro";
           ? "tallDecor"
           : "decor")
   }
-  data-src={`/assets/dekorumah/kamar/${name}.png`}
+  data-src={`/assets/dekorumah/kamar/${name}.webp`}
 >
   <img
-    src={`/assets/dekorumah/kamar/${name}.png`}
+    src={`/assets/dekorumah/kamar/${name}.webp`}
     alt={name}
     draggable="false"
   />
@@ -186,8 +186,8 @@ import Header from "../../components/Header.astro";
     <div class="asset-group">
         <span class="asset-group-title">🍽️ Meja Makan — 5×4 grid</span>
         <div class="asset-row">
-            <button class="asset-card" type="button" data-type="diningTable" data-src="/assets/dekorumah/dapur/meja-makan1.png">
-                <img src="/assets/dekorumah/dapur/meja-makan1.png" alt="meja-makan1" draggable="false" />
+            <button class="asset-card" type="button" data-type="diningTable" data-src="/assets/dekorumah/dapur/meja-makan1.webp">
+                <img src="/assets/dekorumah/dapur/meja-makan1.webp" alt="meja-makan1" draggable="false" />
             </button>
         </div>
     </div>
@@ -196,8 +196,8 @@ import Header from "../../components/Header.astro";
         <span class="asset-group-title">🪵 Bufet & Kursi Makan</span>
         <div class="asset-row">
             { ["bufet-makan1", "bufet-makan2"].map((name) => (
-                <button class="asset-card" type="button" data-type="diningBuffet" data-src={`/assets/dekorumah/dapur/${name}.png`}>
-                    <img src={`/assets/dekorumah/dapur/${name}.png`} alt={name} draggable="false" />
+                <button class="asset-card" type="button" data-type="diningBuffet" data-src={`/assets/dekorumah/dapur/${name}.webp`}>
+                    <img src={`/assets/dekorumah/dapur/${name}.webp`} alt={name} draggable="false" />
                 </button>
             )) }
         </div>
@@ -206,8 +206,8 @@ import Header from "../../components/Header.astro";
         <span class="asset-group-title">🛒 Troli Makan — 2×3 grid</span>
         <div class="asset-row">
             { ["troli-makan1", "troli-makan2"].map((name) => (
-                <button class="asset-card" type="button" data-type="diningTrolley" data-src={`/assets/dekorumah/dapur/${name}.png`}>
-                    <img src={`/assets/dekorumah/dapur/${name}.png`} alt={name} draggable="false" />
+                <button class="asset-card" type="button" data-type="diningTrolley" data-src={`/assets/dekorumah/dapur/${name}.webp`}>
+                    <img src={`/assets/dekorumah/dapur/${name}.webp`} alt={name} draggable="false" />
                 </button>
             )) }
         </div>
@@ -216,8 +216,8 @@ import Header from "../../components/Header.astro";
         <span class="asset-group-title">🌿 Tanaman Indoor</span>
         <div class="asset-row">
             { ["tanaman-makan2", "tanaman-makan3"].map((name) => (
-                <button class="asset-card" type="button" data-type="diningPlant" data-src={`/assets/dekorumah/dapur/${name}.png`}>
-                    <img src={`/assets/dekorumah/dapur/${name}.png`} alt={name} draggable="false" />
+                <button class="asset-card" type="button" data-type="diningPlant" data-src={`/assets/dekorumah/dapur/${name}.webp`}>
+                    <img src={`/assets/dekorumah/dapur/${name}.webp`} alt={name} draggable="false" />
                 </button>
             )) }
         </div>
@@ -226,8 +226,8 @@ import Header from "../../components/Header.astro";
         <span class="asset-group-title">🖼️ Hiasan Dinding</span>
         <div class="asset-row">
             { ["lukisan1", "lukisan2", "lukisan3", "lukisan4"].map((name) => (
-                <button class="asset-card" type="button" data-type="wallArt" data-src={`/assets/dekorumah/dapur/${name}.png`}>
-                    <img src={`/assets/dekorumah/dapur/${name}.png`} alt={name} draggable="false" />
+                <button class="asset-card" type="button" data-type="wallArt" data-src={`/assets/dekorumah/dapur/${name}.webp`}>
+                    <img src={`/assets/dekorumah/dapur/${name}.webp`} alt={name} draggable="false" />
                 </button>
             )) }
         </div>
@@ -236,8 +236,8 @@ import Header from "../../components/Header.astro";
         <span class="asset-group-title">🐢🐱 Peliharaan</span>
         <div class="asset-row">
             { ["pet-kura1", "kucing"].map((name) => (
-                <button class="asset-card" type="button" data-type="pet" data-src={`/assets/dekorumah/dapur/${name}.png`}>
-                    <img src={`/assets/dekorumah/dapur/${name}.png`} alt={name} draggable="false" />
+                <button class="asset-card" type="button" data-type="pet" data-src={`/assets/dekorumah/dapur/${name}.webp`}>
+                    <img src={`/assets/dekorumah/dapur/${name}.webp`} alt={name} draggable="false" />
                 </button>
             )) }
         </div>
@@ -246,8 +246,8 @@ import Header from "../../components/Header.astro";
         <span class="asset-group-title">🥣 Tempat Makan & Minum</span>
         <div class="asset-row">
             { ["makan-kura1", "minum-kura1"].map((name) => (
-                <button class="asset-card" type="button" data-type={name === "makan-kura1" ? "petBowl" : "petWater"} data-src={`/assets/dekorumah/dapur/${name}.png`}>
-                    <img src={`/assets/dekorumah/dapur/${name}.png`} alt={name} draggable="false" />
+                <button class="asset-card" type="button" data-type={name === "makan-kura1" ? "petBowl" : "petWater"} data-src={`/assets/dekorumah/dapur/${name}.webp`}>
+                    <img src={`/assets/dekorumah/dapur/${name}.webp`} alt={name} draggable="false" />
                 </button>
             )) }
         </div>
@@ -297,10 +297,10 @@ import Header from "../../components/Header.astro";
                                     ? "largePlant"
                                     : "livingBuffet"
 }
-                    data-src={`/assets/dekorumah/ruang-tamu/${name}.png`}
+                    data-src={`/assets/dekorumah/ruang-tamu/${name}.webp`}
                 >
                     <img
-                        src={`/assets/dekorumah/ruang-tamu/${name}.png`}
+                        src={`/assets/dekorumah/ruang-tamu/${name}.webp`}
                         alt={name}
                         draggable="false"
                     />
@@ -316,19 +316,19 @@ import Header from "../../components/Header.astro";
         <span class="asset-group-title">📚 Furniture Perpustakaan</span>
         <div class="asset-row">
             
-            <button class="asset-card" type="button" data-type="lampu" data-src="/assets/dekorumah/perpustakaan/lampu1.png">
-                <img src="/assets/dekorumah/perpustakaan/lampu1.png" alt="lampu1" draggable="false" />
+            <button class="asset-card" type="button" data-type="lampu" data-src="/assets/dekorumah/perpustakaan/lampu1.webp">
+                <img src="/assets/dekorumah/perpustakaan/lampu1.webp" alt="lampu1" draggable="false" />
             </button>
             { ["rak-buku1", "rak-buku2"].map((name) => (
-                <button class="asset-card" type="button" data-type="tallDecor" data-src={`/assets/dekorumah/perpustakaan/${name}.png`}>
-                    <img src={`/assets/dekorumah/perpustakaan/${name}.png`} alt={name} draggable="false" />
+                <button class="asset-card" type="button" data-type="tallDecor" data-src={`/assets/dekorumah/perpustakaan/${name}.webp`}>
+                    <img src={`/assets/dekorumah/perpustakaan/${name}.webp`} alt={name} draggable="false" />
                 </button>
             )) }
-            <button class="asset-card" type="button" data-type="mirror" data-src="/assets/dekorumah/perpustakaan/mirror.png">
-                <img src="/assets/dekorumah/perpustakaan/mirror.png" alt="mirror" draggable="false" />
+            <button class="asset-card" type="button" data-type="mirror" data-src="/assets/dekorumah/perpustakaan/mirror.webp">
+                <img src="/assets/dekorumah/perpustakaan/mirror.webp" alt="mirror" draggable="false" />
             </button>
-            <button class="asset-card" type="button" data-type="diningPlant" data-src="/assets/dekorumah/perpustakaan/tanaman-makan1.png">
-                <img src="/assets/dekorumah/perpustakaan/tanaman-makan1.png" alt="tanaman-makan1" draggable="false" />
+            <button class="asset-card" type="button" data-type="diningPlant" data-src="/assets/dekorumah/perpustakaan/tanaman-makan1.webp">
+                <img src="/assets/dekorumah/perpustakaan/tanaman-makan1.webp" alt="tanaman-makan1" draggable="false" />
             </button>
             { [ "kursi1", "basket", "tub", "shower-box", "tisyu", "towel-tower", "toilet"].map((name) => (
                 <button class="asset-card" type="button" data-type={
@@ -339,8 +339,8 @@ import Header from "../../components/Header.astro";
                     : name === "tisyu" ? "tisyu"
                     : name === "towel-tower" ? "towelTower"
                     : "showerBox"
-                } data-src={`/assets/dekorumah/perpustakaan/${name}.png`}>
-                    <img src={`/assets/dekorumah/perpustakaan/${name}.png`} alt={name} draggable="false" />
+                } data-src={`/assets/dekorumah/perpustakaan/${name}.webp`}>
+                    <img src={`/assets/dekorumah/perpustakaan/${name}.webp`} alt={name} draggable="false" />
                 </button>
             )) }
         </div>
@@ -352,27 +352,27 @@ import Header from "../../components/Header.astro";
     <div class="asset-group">
         <span class="asset-group-title">🧱 Pixel Furniture — Minecraft Inspired</span>
         <div class="asset-row">
-            <button class="asset-card" type="button" data-type="pixelsofa" data-src="/assets/dekorumah/mine/mine-sofa.png"><img src="/assets/dekorumah/mine/mine-sofa.png" alt="mine-sofa" draggable="false" /></button>
-            <button class="asset-card" type="button" data-type="tableminecraft" data-src="/assets/dekorumah/mine/mine-table.png"><img src="/assets/dekorumah/mine/mine-table.png" alt="mine-table" draggable="false" /></button>
-            <button class="asset-card" type="button" data-type="minecraftBuffet" data-src="/assets/dekorumah/mine/mine-buffet.png"><img src="/assets/dekorumah/mine/mine-buffet.png" alt="mine-buffet" draggable="false" /></button>
-            <button class="asset-card" type="button" data-type="bigbed" data-src="/assets/dekorumah/mine/mine-bed.png"><img src="/assets/dekorumah/mine/mine-bed.png" alt="mine-bed" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="pixelsofa" data-src="/assets/dekorumah/mine/mine-sofa.webp"><img src="/assets/dekorumah/mine/mine-sofa.webp" alt="mine-sofa" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="tableminecraft" data-src="/assets/dekorumah/mine/mine-table.webp"><img src="/assets/dekorumah/mine/mine-table.webp" alt="mine-table" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="minecraftBuffet" data-src="/assets/dekorumah/mine/mine-buffet.webp"><img src="/assets/dekorumah/mine/mine-buffet.webp" alt="mine-buffet" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="bigbed" data-src="/assets/dekorumah/mine/mine-bed.webp"><img src="/assets/dekorumah/mine/mine-bed.webp" alt="mine-bed" draggable="false" /></button>
             
-            <button class="asset-card" type="button" data-type="bigbook" data-src="/assets/dekorumah/mine/mine-book.png"><img src="/assets/dekorumah/mine/mine-book.png" alt="mine-book" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="bigbook" data-src="/assets/dekorumah/mine/mine-book.webp"><img src="/assets/dekorumah/mine/mine-book.webp" alt="mine-book" draggable="false" /></button>
             
             
-            <button class="asset-card" type="button" data-type="bed" data-src="/assets/dekorumah/mine/mine-tree.png"><img src="/assets/dekorumah/mine/mine-tree.png" alt="mine-tree" draggable="false" /></button>            
-            <button class="asset-card" type="button" data-type="toybox" data-src="/assets/dekorumah/mine/mine-toybox.png"><img src="/assets/dekorumah/mine/mine-toybox.png" alt="mine-toybox" draggable="false" /></button>
-            <button class="asset-card" type="button" data-type="chair" data-src="/assets/dekorumah/mine/mine-block-blue.png"><img src="/assets/dekorumah/mine/mine-block-blue.png" alt="mine-block-blue" draggable="false" /></button>
-            <button class="asset-card" type="button" data-type="chair" data-src="/assets/dekorumah/mine/mine-block-green.png"><img src="/assets/dekorumah/mine/mine-block-green.png" alt="mine-block-green" draggable="false" /></button>
-            <button class="asset-card" type="button" data-type="chair" data-src="/assets/dekorumah/mine/mine-block-pink.png"><img src="/assets/dekorumah/mine/mine-block-pink.png" alt="mine-block-pink" draggable="false" /></button>
-            <button class="asset-card" type="button" data-type="shoji" data-src="/assets/dekorumah/mine/mine-desk.png"><img src="/assets/dekorumah/mine/mine-desk.png" alt="mine-desk" draggable="false" /></button>
-            <button class="asset-card" type="button" data-type="bed" data-src="/assets/dekorumah/mine/mine-wardrobe.png"><img src="/assets/dekorumah/mine/mine-wardrobe.png" alt="mine-wardrobe" draggable="false" /></button>
-            <button class="asset-card" type="button" data-type="rug" data-src="/assets/dekorumah/mine/mine-rug.png"><img src="/assets/dekorumah/mine/mine-rug.png" alt="mine-rug" draggable="false" /></button>
-            <button class="asset-card" type="button" data-type="dinnertable" data-src="/assets/dekorumah/mine/mine-dinnertable.png"><img src="/assets/dekorumah/mine/mine-dinnertable.png" alt="mine-dinnertable" draggable="false" /></button>
-            <button class="asset-card" type="button" data-type="showerBox" data-src="/assets/dekorumah/mine/mine-runningpad.png"><img src="/assets/dekorumah/mine/mine-runningpad.png" alt="mine-runningpad" draggable="false" /></button>
-            <button class="asset-card" type="button" data-type="showerBox" data-src="/assets/dekorumah/mine/mine-parrotpet.png"><img src="/assets/dekorumah/mine/mine-parrotpet.png" alt="mine-parrotpet" draggable="false" /></button>
-            <button class="asset-card" type="button" data-type="chair" data-src="/assets/dekorumah/mine/mine-cat.png"><img src="/assets/dekorumah/mine/mine-cat.png" alt="mine-cat" draggable="false" /></button>
-            <button class="asset-card" type="button" data-type="chair" data-src="/assets/dekorumah/mine/mine-bunny.png"><img src="/assets/dekorumah/mine/mine-bunny.png" alt="mine-bunny" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="bed" data-src="/assets/dekorumah/mine/mine-tree.webp"><img src="/assets/dekorumah/mine/mine-tree.webp" alt="mine-tree" draggable="false" /></button>            
+            <button class="asset-card" type="button" data-type="toybox" data-src="/assets/dekorumah/mine/mine-toybox.webp"><img src="/assets/dekorumah/mine/mine-toybox.webp" alt="mine-toybox" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="chair" data-src="/assets/dekorumah/mine/mine-block-blue.webp"><img src="/assets/dekorumah/mine/mine-block-blue.webp" alt="mine-block-blue" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="chair" data-src="/assets/dekorumah/mine/mine-block-green.webp"><img src="/assets/dekorumah/mine/mine-block-green.webp" alt="mine-block-green" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="chair" data-src="/assets/dekorumah/mine/mine-block-pink.webp"><img src="/assets/dekorumah/mine/mine-block-pink.webp" alt="mine-block-pink" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="shoji" data-src="/assets/dekorumah/mine/mine-desk.webp"><img src="/assets/dekorumah/mine/mine-desk.webp" alt="mine-desk" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="bed" data-src="/assets/dekorumah/mine/mine-wardrobe.webp"><img src="/assets/dekorumah/mine/mine-wardrobe.webp" alt="mine-wardrobe" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="rug" data-src="/assets/dekorumah/mine/mine-rug.webp"><img src="/assets/dekorumah/mine/mine-rug.webp" alt="mine-rug" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="dinnertable" data-src="/assets/dekorumah/mine/mine-dinnertable.webp"><img src="/assets/dekorumah/mine/mine-dinnertable.webp" alt="mine-dinnertable" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="showerBox" data-src="/assets/dekorumah/mine/mine-runningpad.webp"><img src="/assets/dekorumah/mine/mine-runningpad.webp" alt="mine-runningpad" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="showerBox" data-src="/assets/dekorumah/mine/mine-parrotpet.webp"><img src="/assets/dekorumah/mine/mine-parrotpet.webp" alt="mine-parrotpet" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="chair" data-src="/assets/dekorumah/mine/mine-cat.webp"><img src="/assets/dekorumah/mine/mine-cat.webp" alt="mine-cat" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="chair" data-src="/assets/dekorumah/mine/mine-bunny.webp"><img src="/assets/dekorumah/mine/mine-bunny.webp" alt="mine-bunny" draggable="false" /></button>
         
         </div>
     </div>
@@ -383,53 +383,53 @@ import Header from "../../components/Header.astro";
     <div class="asset-group">
         <span class="asset-group-title">🎸 Rockstar Furniture</span>
         <div class="asset-row">
-            <button class="asset-card" type="button" data-type="sofa" data-src="/assets/dekorumah/rockstar/rock-sofa.png">
-                <img src="/assets/dekorumah/rockstar/rock-sofa.png" alt="rock-sofa" draggable="false" />
+            <button class="asset-card" type="button" data-type="sofa" data-src="/assets/dekorumah/rockstar/rock-sofa.webp">
+                <img src="/assets/dekorumah/rockstar/rock-sofa.webp" alt="rock-sofa" draggable="false" />
             </button>
-            <button class="asset-card" type="button" data-type="kursikotak" data-src="/assets/dekorumah/rockstar/rock-armchair.png">
-                <img src="/assets/dekorumah/rockstar/rock-armchair.png" alt="rock-armchair" draggable="false" />
+            <button class="asset-card" type="button" data-type="kursikotak" data-src="/assets/dekorumah/rockstar/rock-armchair.webp">
+                <img src="/assets/dekorumah/rockstar/rock-armchair.webp" alt="rock-armchair" draggable="false" />
             </button>
-            <button class="asset-card" type="button" data-type="kursi" data-src="/assets/dekorumah/rockstar/rock-roundsofa.png">
-                <img src="/assets/dekorumah/rockstar/rock-roundsofa.png" alt="rock-roundsofa" draggable="false" />
+            <button class="asset-card" type="button" data-type="kursi" data-src="/assets/dekorumah/rockstar/rock-roundsofa.webp">
+                <img src="/assets/dekorumah/rockstar/rock-roundsofa.webp" alt="rock-roundsofa" draggable="false" />
             </button>
-           <button class="asset-card" type="button" data-type="rug" data-src="/assets/dekorumah/rockstar/rock-carpet.png">
-                <img src="/assets/dekorumah/rockstar/rock-carpet.png" alt="rock-carpet" draggable="false" />
+           <button class="asset-card" type="button" data-type="rug" data-src="/assets/dekorumah/rockstar/rock-carpet.webp">
+                <img src="/assets/dekorumah/rockstar/rock-carpet.webp" alt="rock-carpet" draggable="false" />
             </button>
-            <button class="asset-card" type="button" data-type="decor" data-src="/assets/dekorumah/rockstar/rock-ampli.png">
-                <img src="/assets/dekorumah/rockstar/rock-ampli.png" alt="rock-ampli" draggable="false" />
+            <button class="asset-card" type="button" data-type="decor" data-src="/assets/dekorumah/rockstar/rock-ampli.webp">
+                <img src="/assets/dekorumah/rockstar/rock-ampli.webp" alt="rock-ampli" draggable="false" />
             </button>
            
             { [ "rock-guitar2", "rock-guitar4"].map((name) => (
-                <button class="asset-card" type="button" data-type="tallDecor" data-src={`/assets/dekorumah/rockstar/${name}.png`}>
-                    <img src={`/assets/dekorumah/rockstar/${name}.png`} alt={name} draggable="false" />
+                <button class="asset-card" type="button" data-type="tallDecor" data-src={`/assets/dekorumah/rockstar/${name}.webp`}>
+                    <img src={`/assets/dekorumah/rockstar/${name}.webp`} alt={name} draggable="false" />
                 </button>
             )) }
             
-            <button class="asset-card" type="button" data-type="largePlant" data-src="/assets/dekorumah/rockstar/rock-snakeplant.png">
-                <img src="/assets/dekorumah/rockstar/rock-snakeplant.png" alt="rock-snakeplant" draggable="false" />
+            <button class="asset-card" type="button" data-type="largePlant" data-src="/assets/dekorumah/rockstar/rock-snakeplant.webp">
+                <img src="/assets/dekorumah/rockstar/rock-snakeplant.webp" alt="rock-snakeplant" draggable="false" />
             </button>
-            <button class="asset-card" type="button" data-type="largePlant" data-src="/assets/dekorumah/rockstar/rock-monstera.png">
-                <img src="/assets/dekorumah/rockstar/rock-monstera.png" alt="rock-monstera" draggable="false" />
+            <button class="asset-card" type="button" data-type="largePlant" data-src="/assets/dekorumah/rockstar/rock-monstera.webp">
+                <img src="/assets/dekorumah/rockstar/rock-monstera.webp" alt="rock-monstera" draggable="false" />
             </button>
             { ["rock-poster1", "rock-poster2"].map((name) => (
-                <button class="asset-card" type="button" data-type="wallArt" data-src={`/assets/dekorumah/rockstar/${name}.png`}>
-                    <img src={`/assets/dekorumah/rockstar/${name}.png`} alt={name} draggable="false" />
+                <button class="asset-card" type="button" data-type="wallArt" data-src={`/assets/dekorumah/rockstar/${name}.webp`}>
+                    <img src={`/assets/dekorumah/rockstar/${name}.webp`} alt={name} draggable="false" />
                 </button>
             )) }
-            <button class="asset-card" type="button" data-type="bigTable" data-src="/assets/dekorumah/rockstar/rock-rak.png">
-                <img src="/assets/dekorumah/rockstar/rock-rak.png" alt="rock-rak" draggable="false" />
+            <button class="asset-card" type="button" data-type="bigTable" data-src="/assets/dekorumah/rockstar/rock-rak.webp">
+                <img src="/assets/dekorumah/rockstar/rock-rak.webp" alt="rock-rak" draggable="false" />
             </button>    
-            <button class="asset-card" type="button" data-type="coffeeTable" data-src="/assets/dekorumah/rockstar/rock-table.png">
-                <img src="/assets/dekorumah/rockstar/rock-table.png" alt="rock-table" draggable="false" />
+            <button class="asset-card" type="button" data-type="coffeeTable" data-src="/assets/dekorumah/rockstar/rock-table.webp">
+                <img src="/assets/dekorumah/rockstar/rock-table.webp" alt="rock-table" draggable="false" />
             </button>
-            <button class="asset-card" type="button" data-type="bigTable" data-src="/assets/dekorumah/rockstar/rock-table2.png">
-                <img src="/assets/dekorumah/rockstar/rock-table2.png" alt="rock-table2" draggable="false" />
+            <button class="asset-card" type="button" data-type="bigTable" data-src="/assets/dekorumah/rockstar/rock-table2.webp">
+                <img src="/assets/dekorumah/rockstar/rock-table2.webp" alt="rock-table2" draggable="false" />
             </button>
-            <button class="asset-card" type="button" data-type="mirror" data-src="/assets/dekorumah/rockstar/rock-mirror.png">
-                <img src="/assets/dekorumah/rockstar/rock-mirror.png" alt="rock-mirror" draggable="false" />
+            <button class="asset-card" type="button" data-type="mirror" data-src="/assets/dekorumah/rockstar/rock-mirror.webp">
+                <img src="/assets/dekorumah/rockstar/rock-mirror.webp" alt="rock-mirror" draggable="false" />
             </button>
-            <button class="asset-card" type="button" data-type="tallDecor" data-src="/assets/dekorumah/rockstar/rock-lamp.png">
-                <img src="/assets/dekorumah/rockstar/rock-lamp.png" alt="rock-lamp" draggable="false" />
+            <button class="asset-card" type="button" data-type="tallDecor" data-src="/assets/dekorumah/rockstar/rock-lamp.webp">
+                <img src="/assets/dekorumah/rockstar/rock-lamp.webp" alt="rock-lamp" draggable="false" />
             </button>
         </div>
     </div>
