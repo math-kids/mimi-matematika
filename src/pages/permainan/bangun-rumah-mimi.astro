@@ -118,6 +118,14 @@ import Header from "../../components/Header.astro";
                                         <span class="room-tab-icon">🪴</span>
                                         <span class="room-tab-label">Perpustakaan</span>
                                     </button>
+                                    <button class="room-tab" type="button" data-room="rockstar" role="tab" aria-selected="false">
+                                        <span class="room-tab-icon">🎸</span>
+                                        <span class="room-tab-label">Rockstar</span>
+                                    </button>
+                                    <button class="room-tab" type="button" data-room="pixel" role="tab" aria-selected="false">
+                                        <span class="room-tab-icon">🧱</span>
+                                        <span class="room-tab-label">Pixel</span>
+                                    </button>
                                 </div>
 <!-- KAMAR -->
 <div class="room-content active" data-content="kamar">
@@ -339,7 +347,93 @@ import Header from "../../components/Header.astro";
     </div>
 </div>
 
-                            </div>
+<!-- PIXEL -->
+<div class="room-content" data-content="pixel">
+    <div class="asset-group">
+        <span class="asset-group-title">🧱 Pixel Furniture — Minecraft Inspired</span>
+        <div class="asset-row">
+            <button class="asset-card" type="button" data-type="pixelsofa" data-src="/assets/dekorumah/mine/mine-sofa.png"><img src="/assets/dekorumah/mine/mine-sofa.png" alt="mine-sofa" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="tableminecraft" data-src="/assets/dekorumah/mine/mine-table.png"><img src="/assets/dekorumah/mine/mine-table.png" alt="mine-table" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="minecraftBuffet" data-src="/assets/dekorumah/mine/mine-buffet.png"><img src="/assets/dekorumah/mine/mine-buffet.png" alt="mine-buffet" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="bigbed" data-src="/assets/dekorumah/mine/mine-bed.png"><img src="/assets/dekorumah/mine/mine-bed.png" alt="mine-bed" draggable="false" /></button>
+            
+            <button class="asset-card" type="button" data-type="bigbook" data-src="/assets/dekorumah/mine/mine-book.png"><img src="/assets/dekorumah/mine/mine-book.png" alt="mine-book" draggable="false" /></button>
+            
+            
+            <button class="asset-card" type="button" data-type="bed" data-src="/assets/dekorumah/mine/mine-tree.png"><img src="/assets/dekorumah/mine/mine-tree.png" alt="mine-tree" draggable="false" /></button>            
+            <button class="asset-card" type="button" data-type="toybox" data-src="/assets/dekorumah/mine/mine-toybox.png"><img src="/assets/dekorumah/mine/mine-toybox.png" alt="mine-toybox" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="chair" data-src="/assets/dekorumah/mine/mine-block-blue.png"><img src="/assets/dekorumah/mine/mine-block-blue.png" alt="mine-block-blue" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="chair" data-src="/assets/dekorumah/mine/mine-block-green.png"><img src="/assets/dekorumah/mine/mine-block-green.png" alt="mine-block-green" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="chair" data-src="/assets/dekorumah/mine/mine-block-pink.png"><img src="/assets/dekorumah/mine/mine-block-pink.png" alt="mine-block-pink" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="shoji" data-src="/assets/dekorumah/mine/mine-desk.png"><img src="/assets/dekorumah/mine/mine-desk.png" alt="mine-desk" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="bed" data-src="/assets/dekorumah/mine/mine-wardrobe.png"><img src="/assets/dekorumah/mine/mine-wardrobe.png" alt="mine-wardrobe" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="rug" data-src="/assets/dekorumah/mine/mine-rug.png"><img src="/assets/dekorumah/mine/mine-rug.png" alt="mine-rug" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="dinnertable" data-src="/assets/dekorumah/mine/mine-dinnertable.png"><img src="/assets/dekorumah/mine/mine-dinnertable.png" alt="mine-dinnertable" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="showerBox" data-src="/assets/dekorumah/mine/mine-runningpad.png"><img src="/assets/dekorumah/mine/mine-runningpad.png" alt="mine-runningpad" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="showerBox" data-src="/assets/dekorumah/mine/mine-parrotpet.png"><img src="/assets/dekorumah/mine/mine-parrotpet.png" alt="mine-parrotpet" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="chair" data-src="/assets/dekorumah/mine/mine-cat.png"><img src="/assets/dekorumah/mine/mine-cat.png" alt="mine-cat" draggable="false" /></button>
+            <button class="asset-card" type="button" data-type="chair" data-src="/assets/dekorumah/mine/mine-bunny.png"><img src="/assets/dekorumah/mine/mine-bunny.png" alt="mine-bunny" draggable="false" /></button>
+        
+        </div>
+    </div>
+</div>
+
+<!-- ROCKSTAR -->
+<div class="room-content" data-content="rockstar">
+    <div class="asset-group">
+        <span class="asset-group-title">🎸 Rockstar Furniture</span>
+        <div class="asset-row">
+            <button class="asset-card" type="button" data-type="sofa" data-src="/assets/dekorumah/rockstar/rock-sofa.png">
+                <img src="/assets/dekorumah/rockstar/rock-sofa.png" alt="rock-sofa" draggable="false" />
+            </button>
+            <button class="asset-card" type="button" data-type="kursikotak" data-src="/assets/dekorumah/rockstar/rock-armchair.png">
+                <img src="/assets/dekorumah/rockstar/rock-armchair.png" alt="rock-armchair" draggable="false" />
+            </button>
+            <button class="asset-card" type="button" data-type="kursi" data-src="/assets/dekorumah/rockstar/rock-roundsofa.png">
+                <img src="/assets/dekorumah/rockstar/rock-roundsofa.png" alt="rock-roundsofa" draggable="false" />
+            </button>
+           <button class="asset-card" type="button" data-type="rug" data-src="/assets/dekorumah/rockstar/rock-carpet.png">
+                <img src="/assets/dekorumah/rockstar/rock-carpet.png" alt="rock-carpet" draggable="false" />
+            </button>
+            <button class="asset-card" type="button" data-type="decor" data-src="/assets/dekorumah/rockstar/rock-ampli.png">
+                <img src="/assets/dekorumah/rockstar/rock-ampli.png" alt="rock-ampli" draggable="false" />
+            </button>
+           
+            { [ "rock-guitar2", "rock-guitar4"].map((name) => (
+                <button class="asset-card" type="button" data-type="tallDecor" data-src={`/assets/dekorumah/rockstar/${name}.png`}>
+                    <img src={`/assets/dekorumah/rockstar/${name}.png`} alt={name} draggable="false" />
+                </button>
+            )) }
+            
+            <button class="asset-card" type="button" data-type="largePlant" data-src="/assets/dekorumah/rockstar/rock-snakeplant.png">
+                <img src="/assets/dekorumah/rockstar/rock-snakeplant.png" alt="rock-snakeplant" draggable="false" />
+            </button>
+            <button class="asset-card" type="button" data-type="largePlant" data-src="/assets/dekorumah/rockstar/rock-monstera.png">
+                <img src="/assets/dekorumah/rockstar/rock-monstera.png" alt="rock-monstera" draggable="false" />
+            </button>
+            { ["rock-poster1", "rock-poster2"].map((name) => (
+                <button class="asset-card" type="button" data-type="wallArt" data-src={`/assets/dekorumah/rockstar/${name}.png`}>
+                    <img src={`/assets/dekorumah/rockstar/${name}.png`} alt={name} draggable="false" />
+                </button>
+            )) }
+            <button class="asset-card" type="button" data-type="bigTable" data-src="/assets/dekorumah/rockstar/rock-rak.png">
+                <img src="/assets/dekorumah/rockstar/rock-rak.png" alt="rock-rak" draggable="false" />
+            </button>    
+            <button class="asset-card" type="button" data-type="coffeeTable" data-src="/assets/dekorumah/rockstar/rock-table.png">
+                <img src="/assets/dekorumah/rockstar/rock-table.png" alt="rock-table" draggable="false" />
+            </button>
+            <button class="asset-card" type="button" data-type="bigTable" data-src="/assets/dekorumah/rockstar/rock-table2.png">
+                <img src="/assets/dekorumah/rockstar/rock-table2.png" alt="rock-table2" draggable="false" />
+            </button>
+            <button class="asset-card" type="button" data-type="mirror" data-src="/assets/dekorumah/rockstar/rock-mirror.png">
+                <img src="/assets/dekorumah/rockstar/rock-mirror.png" alt="rock-mirror" draggable="false" />
+            </button>
+            <button class="asset-card" type="button" data-type="tallDecor" data-src="/assets/dekorumah/rockstar/rock-lamp.png">
+                <img src="/assets/dekorumah/rockstar/rock-lamp.png" alt="rock-lamp" draggable="false" />
+            </button>
+        </div>
+    </div>
+</div>                            </div>
 
                         </div>
 
@@ -474,7 +568,16 @@ import Header from "../../components/Header.astro";
     border-color:#9bc3a4
 }.house-board{position:relative;width:min(100%,980px);aspect-ratio:3/2;overflow:hidden;background:#ffe39b;border-radius:12px;touch-action:none;user-select:none;flex:none}
   .house-base{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;user-select:none;z-index:1}
-  .room-grids{position:absolute;inset:0;z-index:50;pointer-events:none}.room-tile{position:absolute;box-sizing:border-box;pointer-events:none}.room-tile[data-room-pos=top-left]{left:18.3%;top:5.875%;width:27.7875%;height:35.2125%}.room-tile[data-room-pos=top-right]{left:48.4%;top:6.075%;width:33.9625%;height:35.2125%}.room-tile[data-room-pos=bottom-left]{left:16.5%;top:39.0875%;width:30.875%;height:35.2125%}.room-tile[data-room-pos=bottom-right]{left:57.6%;top:42.9%;width:24.7%;height:31.3%}.room-grid{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;transform:none;cursor:pointer;box-sizing:border-box;border:2px solid rgba(104,74,48,.28);background-image:linear-gradient(to right,rgba(104,74,48,.18) 1px,transparent 1px),linear-gradient(to bottom,rgba(104,74,48,.18) 1px,transparent 1px);background-size:var(--cell-w) var(--cell-h);opacity:.52;transition:opacity .12s ease,background-color .12s ease;pointer-events:auto;--grid-cols:8;--grid-rows:8;--cell-w:12.5%;--cell-h:12.5%;--hover-col:-1;--hover-row:-1}.room-grid[data-grid-room="kamar"]{--grid-cols:9;--grid-rows:9;--cell-w:11.111111%;--cell-h:11.111111%}.room-grid[data-grid-room="ruang-tamu"]{--grid-cols:10;--grid-rows:9;--cell-w:10%;--cell-h:11.111111%;background-size:10% 11.111111%;}.room-grid[data-grid-room="dapur"]{
+  .room-grids{position:absolute;inset:0;z-index:50;pointer-events:none}.room-tile{position:absolute;box-sizing:border-box;pointer-events:none;overflow:visible}.room-tile[data-room-pos=top-left]{left:18.3%;top:5.875%;width:27.7875%;height:35.2125%}.room-tile[data-room-pos=top-right]{left:48.4%;top:6.075%;width:33.9625%;height:35.2125%}.room-tile[data-room-pos=bottom-left]{left:16.5%;top:39.0875%;width:30.875%;height:35.2125%}.room-tile[data-room-pos=bottom-right]{left:57.6%;top:42.9%;width:24.7%;height:31.3%}.room-grid{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;transform:none;cursor:pointer;box-sizing:border-box;border:2px solid rgba(104,74,48,.28);background-image:linear-gradient(to right,rgba(104,74,48,.18) 1px,transparent 1px),linear-gradient(to bottom,rgba(104,74,48,.18) 1px,transparent 1px);background-size:var(--cell-w) var(--cell-h);opacity:.52;transition:opacity .12s ease,background-color .12s ease;pointer-events:auto;--grid-cols:8;--grid-rows:8;--cell-w:12.5%;--cell-h:12.5%;--hover-col:-1;--hover-row:-1}.room-grid[data-grid-room="kamar"]{
+    --grid-cols:11;
+    --grid-rows:9;
+    --cell-w:9.090909%;
+    --cell-h:11.111111%;
+    width:110%;
+    left:-10%;
+    right:auto;
+    background-size:9.090909% 11.111111%;
+}.room-grid[data-grid-room="ruang-tamu"]{--grid-cols:10;--grid-rows:9;--cell-w:10%;--cell-h:11.111111%;background-size:10% 11.111111%;}.room-grid[data-grid-room="dapur"]{
     --grid-cols:11;
     --grid-rows:9;
     --cell-w:9.090909%;
@@ -487,7 +590,7 @@ import Header from "../../components/Header.astro";
 
 .room-grid.active{opacity:.72;background-color:rgba(255,255,255,.06)}.room-grid:hover{background-color:rgba(255,255,255,.10);opacity:.8}.room-grid.grid-hovering::after{content:"";position:absolute;left:calc(var(--hover-col) * var(--cell-w));top:calc(var(--hover-row) * var(--cell-h));width:var(--cell-w);height:var(--cell-h);box-sizing:border-box;border:2px solid rgba(255,255,255,.95);background:rgba(255,255,255,.18);box-shadow:inset 0 0 0 1px rgba(104,74,48,.18);pointer-events:none;z-index:5}.room-grid.footprint-preview::before{content:"";position:absolute;left:calc(var(--hover-col) * (100% / var(--grid-cols)));top:calc(var(--hover-row) * (100% / var(--grid-rows)));width:calc(var(--hover-cols) * var(--cell-w));height:calc(var(--hover-rows) * var(--cell-h));box-sizing:border-box;border:2px solid rgba(210,35,35,.95);background:rgba(210,35,35,.10);pointer-events:none;z-index:6}.room-grid.footprint-invalid::before{border-color:rgba(210,35,35,.98);background:rgba(210,35,35,.20);border-style:dashed} .grid-mouse-coord{position:absolute;z-index:80;left:calc(var(--mouse-col) * var(--cell-w));top:calc(var(--mouse-row) * var(--cell-h));width:var(--cell-w);height:var(--cell-h);box-sizing:border-box;display:flex;align-items:center;justify-content:center;pointer-events:none;transform:none;color:#fff;font:700 12px/1 Arial,sans-serif;text-shadow:0 1px 2px rgba(0,0,0,.75);background:rgba(210,35,35,.82);border:1px solid rgba(255,255,255,.95);border-radius:4px;white-space:nowrap;}
   .placed-items{position:absolute;inset:0;z-index:60;pointer-events:none}.placed-item{position:absolute;object-fit:contain;transform:none;cursor:pointer;pointer-events:auto;user-select:none;-webkit-user-drag:none;filter:drop-shadow(0 4px 4px rgba(75,55,38,.15));touch-action:none;box-sizing:border-box}.placed-item.selected{z-index:100;outline:3px solid rgba(255,255,255,.9);outline-offset:2px;filter:drop-shadow(0 7px 7px rgba(75,55,38,.28))}.placed-item.dragging{cursor:pointer;z-index:100;filter:drop-shadow(0 7px 7px rgba(75,55,38,.22))}
-  .room-grid > .origin-marker{position:absolute;z-index:5;width:12.5%;height:12.5%;box-sizing:border-box;border:2px solid #e53935;background:rgba(229,57,53,.12);pointer-events:none;display:flex;align-items:flex-start;justify-content:flex-start;}
+  .room-grid > .origin-marker{position:absolute;z-index:5;width:var(--cell-w);height:var(--cell-h);box-sizing:border-box;border:2px solid #e53935;background:rgba(229,57,53,.12);pointer-events:none;display:flex;align-items:flex-start;justify-content:flex-start;}
   .origin-marker::before{content:"";width:8px;height:8px;margin:3px;border-radius:50%;background:#e53935;border:1px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.28);box-sizing:border-box;}
   .origin-marker::after{content:"0,0";position:absolute;left:13px;top:1px;font:700 9px/12px Arial,sans-serif;color:#e53935;background:rgba(255,255,255,.92);padding:0 2px;border-radius:3px;white-space:nowrap;box-shadow:0 1px 2px rgba(0,0,0,.12);}
   .furniture-panel{width:100%;max-width:980px;margin:6px auto 0;padding:7px;border-radius:14px;background:#c75bea;border:1px solid rgba(255,255,255,.2);box-shadow:0 5px 16px rgba(91,42,111,.18);color:#fff;text-align:left;box-sizing:border-box}
@@ -737,11 +840,34 @@ import Header from "../../components/Header.astro";
       right:10px;
     }
     .house-screen-title{font-size:13px}
-    .capture-house-button{font-size:10px;padding:4px 10px;border-radius:8px}
+    .capture-house-button{
+      width:auto;
+      min-width:0;
+      height:30px;
+      min-height:30px;
+      padding:0 11px;
+      font-size:10px;
+      line-height:1;
+      white-space:nowrap;
+      border-radius:999px;
+    }
+    .house-screen-actions{
+      display:flex;
+      flex-direction:row;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      width:100%;
+    }
     .house-screen-actions button{
-      width:28px;
-      height:28px;
-      font-size:15px;
+      width:auto;
+      height:30px;
+      min-height:30px;
+      padding:0 11px;
+      font-size:10px;
+      line-height:1;
+      white-space:nowrap;
+      border-radius:999px;
     }
     .house-board{
       width:100%;
@@ -988,6 +1114,65 @@ import Header from "../../components/Header.astro";
     .asset-card{width:40px;height:40px;flex-basis:40px}
   }
 
+
+  /* ===== 5 ROOM TABS — COMPACT ===== */
+  .room-tabs-bottom{
+    grid-template-columns:repeat(6,minmax(0,1fr));
+    gap:5px;
+    padding-bottom:6px;
+  }
+  .room-tab{
+    min-height:42px;
+    padding:4px 5px;
+    gap:5px;
+    border-radius:10px;
+  }
+  .room-tab-icon{
+    width:27px;
+    height:27px;
+    flex-basis:27px;
+    border-radius:8px;
+    font-size:14px;
+  }
+  .room-tab-label{
+    font-size:9px;
+  }
+  .asset-card{
+    width:44px;
+    height:44px;
+    flex-basis:44px;
+  }
+  @media(max-width:800px){
+    .room-tabs-bottom{grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;padding-bottom:5px}
+    .room-tab{min-height:38px;padding:3px 2px;gap:3px;border-radius:9px}
+    .room-tab-icon{width:24px;height:24px;flex-basis:24px;font-size:13px}
+    .room-tab-label{font-size:8px}
+    .asset-card{width:40px;height:40px;flex-basis:40px}
+  }
+
+  /* FINAL MOBILE FIX — Capture & Mulai Lagi tetap satu baris */
+  @media(max-width:560px){
+    .house-screen-actions{
+      display:flex;
+      flex-direction:row;
+      align-items:center;
+      justify-content:center;
+      gap:5px;
+      width:100%;
+    }
+    .house-screen-actions .capture-house-button{
+      width:auto;
+      min-width:0;
+      height:28px;
+      min-height:28px;
+      padding:0 9px;
+      font-size:9px;
+      line-height:1;
+      white-space:nowrap;
+      border-radius:999px;
+    }
+  }
+
 </style>
 
 <script>
@@ -1044,32 +1229,38 @@ import Header from "../../components/Header.astro";
         bgMusic.currentTime = 0;
     }
 
-    type FurnitureType = "bed" | "rug" | "shoji" | "mirror" | "decor" | "wardrobe" | "tallDecor" | "lampu" | "diningTable" | "diningChair" | "diningBuffet" | "diningTrolley" | "diningPlant" | "wallArt" | "pet" | "petBowl" | "petWater" | "sofa" | "coffeeTable" | "livingBuffet" | "largePlant" | "aquariumTable" | "toilet" | "kursi" | "kursikotak" | "basket" | "tub" | "tisyu" | "towelTower" | "showerBox";
+    type FurnitureType = "bed" |"bigTable"|"tableminecraft"|"bigbook"| "bigbed" |"minecraftBuffet"|"pixelsofa"|"toybox"|"rug" | "dinnertable"|"chair" | "shoji" | "mirror" | "decor" | "wardrobe" | "tallDecor" | "lampu" | "diningTable" | "diningChair" | "diningBuffet" | "diningTrolley" | "diningPlant" | "wallArt" | "pet" | "petBowl" | "petWater" | "sofa" | "coffeeTable" | "livingBuffet" | "largePlant" | "aquariumTable" | "toilet" | "kursi" | "kursikotak" | "basket" | "tub" | "tisyu" | "towelTower" | "showerBox";
     type PlacedItem = { id:number; src:string; type:FurnitureType; room:string; col:number; row:number; };
 
-    const ROOM_GRID_SIZES: Record<string,number> = { kamar:9, dapur:11, "ruang-tamu":10, perpustakaan:8 };
-    // Kamar: 9×9 total = 2 baris existing di atas + 7 baris tambahan di bawah.
+    const ROOM_GRID_SIZES: Record<string,number> = { kamar:11, dapur:11, "ruang-tamu":10, perpustakaan:8 };
+    // Kamar: 10×9 total = 1 kolom tambahan di kiri + 9 baris.
     // Semua cell Kamar memakai ukuran fisik yang sama.
     // Dapur: 11×7.
     // Cell size is matched to the Perpustakaan 8×8 grid cell size.
-    const ROOM_GRID_COLS: Record<string,number> = { kamar:9, dapur:11, "ruang-tamu":10, perpustakaan:8 };
+    const ROOM_GRID_COLS: Record<string,number> = { kamar:11, dapur:11, "ruang-tamu":10, perpustakaan:8 };
     const ROOM_GRID_ROWS: Record<string,number> = { kamar:9, dapur:9, "ruang-tamu":9, perpustakaan:8 };
     const getGridCols = (room:string) => ROOM_GRID_COLS[room] ?? 8;
     const getGridRows = (room:string) => ROOM_GRID_ROWS[room] ?? 8;
     const getGridSize = (room:string) => ROOM_GRID_SIZES[room] ?? 8;
     const FOOTPRINTS: Record<FurnitureType,{cols:number;rows:number}> = {
         bed: { cols:3, rows:4 },
+        pixelsofa: {cols:6, rows:3},
+        toybox: { cols:3, rows:2 },
+        bigbed: { cols:5, rows:5 },
         rug: { cols:4, rows:4 },
         shoji: { cols:4, rows:3 },
-        mirror: { cols:2, rows:3 },
+        bigbook: { cols:6, rows:4 },
+        mirror: { cols:4, rows:3 },
         // Lemari dibuat lebih tinggi: 2 kolom × 4 baris.
         wardrobe: { cols:2, rows:4 },
         // Nakas, meja, dan rak buku dibuat lebih tinggi agar proporsinya tidak gepeng.
         tallDecor: { cols:2, rows:3 },
         lampu: { cols:1, rows:2 },
         diningTable: { cols:5, rows:4 },
+        dinnertable: { cols:5, rows:4 },
         diningChair: { cols:1, rows:2 },
         diningBuffet: { cols:2, rows:3 },
+        minecraftBuffet: { cols:6, rows:2 },
         diningTrolley: { cols:2, rows:3 },
         diningPlant: { cols:2, rows:2 },
         wallArt: { cols:1, rows:1 },
@@ -1078,8 +1269,11 @@ import Header from "../../components/Header.astro";
         petWater: { cols:1, rows:1 },
         sofa: { cols:5, rows:3 },
         coffeeTable: { cols:3, rows:2 },
+        bigTable: { cols:3, rows:3 },
+        tableminecraft: { cols:4, rows:3 },
+        chair: { cols:2, rows:2 },
         livingBuffet: { cols:5, rows:3 },
-        largePlant: { cols:2, rows:2 },
+        largePlant: { cols:2, rows:3 },
         aquariumTable: { cols:5, rows:4 },
         // Bathroom / utility assets — masing-masing punya footprint sendiri.
         toilet: { cols:2, rows:2 },
@@ -1093,14 +1287,14 @@ import Header from "../../components/Header.astro";
         // Default bedroom decor.
         decor: { cols:2, rows:2 }
     };
-    const ROOM_IDS = ["kamar","dapur","ruang-tamu","perpustakaan"];
+    const ROOM_IDS = ["kamar","dapur","ruang-tamu","perpustakaan","rockstar"];
 
     // NEW FLOORPLAN GEOMETRY
     // Coordinate planes are fitted to the visible floor of house-floorplan.png.
     // Door leaves / wall intrusions are blocked so furniture footprints cannot occupy them.
     const ROOM_GEOMETRY: Record<string,{blocked:Set<string>}> = {
         kamar: { blocked: new Set() },
-        dapur: { blocked: new Set(["1,8","2,8", ...Array.from({length:5}, (_,row) => [8,9,10].map(col => `${col},${row+4}`)).flat()]) },
+        //dapur: { blocked: new Set(["1,8","2,8", ...Array.from({length:5}, (_,row) => [8,9,10].map(col => `${col},${row+4}`)).flat()]) },
         "ruang-tamu": { blocked: new Set() },
         perpustakaan: { blocked: new Set(["0,0","0,1","0,2","1,0","1,1"]) }
     };
